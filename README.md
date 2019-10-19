@@ -2,6 +2,10 @@
 a combat table simulator for DnD (supposed to be for 3.5)
 
 ![image](image.png)
+Simple die roller
+
+![image2](image2.png)
+The very simple simulator in act
 
 it supports below features:
 * Die roller like "3d6" or complex ones including paranthesis like "3d6 + 5d100 - (4*(d20))"
