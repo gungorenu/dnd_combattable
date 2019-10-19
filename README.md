@@ -13,11 +13,16 @@ Treasure roller screen requires a treasure.xml file but due to copyright issues 
 ## Techstack
 
 Heavily uses WPF, on Character screen especially. some special structures used there (MVVM, COmmands, DataTemplates etc...)
+
 Heavily uses XML for storage
+
 The map is Winforms functionality which I had no idea how to do that part in the past
+
 A self made algorithm to perform complex mathematical operations including dice (3d6 can be between 3-18 and so on) 
+
 Code is very old, it is not new so there are some parts unused, obsolete. I just pushed it here now for showcase and storage purposes
 
 ## Usage
 Never fully used, some time for storing characters in our DND sessions but too cumbersome to fill everything there. provides functionality though. currently using for die roller which is working perfect for my needs.
+
 Requires a lot of manual work but things can be fast if templates are provided.
