@@ -1,5 +1,5 @@
-# DnD 3.5 Combat Table Simulator
-a combat table simulator for DnD (supposed to be for 3.5)
+# Dungeons & Dragons 3.5 Combat Table Simulator
+a combat table simulator for DnD (supposed to be for 3.5 but not necessary at all)
 
 ![image](image.png)
 Simple die roller
