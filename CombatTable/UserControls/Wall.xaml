@@ -1,0 +1,16 @@
+﻿<!-- 
+copyright to Gungoren, Ugur
+All rights reserved. Super Confidential.
+ -->
+<UserControl x:Class="CombatTable.UserControls.Wall"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="300">
+    <Grid>
+        <Polyline x:Name="DoorVertical" Points="0,0 4,0 4,48 -4,48 -4,0 0,0" Stroke="Black" StrokeThickness="1" Fill="{Binding IsBlock, Converter={StaticResource WallColorChooser}}" Visibility="{Binding Path=IsVertical, Converter={StaticResource Bool2Vis}}"/>
+        <Polyline x:Name="DoorHorizontal" Points="0,0 0,-4 48,-4 48,4 0,4 0,0" Stroke="Black" StrokeThickness="1" Fill="{Binding IsBlock, Converter={StaticResource WallColorChooser}}" Visibility="{Binding Path=IsHorizontal, Converter={StaticResource Bool2Vis}}"/>
+    </Grid>
+</UserControl>

@@ -1,0 +1,440 @@
+﻿<!-- 
+copyright to Gungoren, Ugur
+All rights reserved. Super Confidential.
+ -->
+<Window x:Class="CombatTable.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:ctrl="clr-namespace:CombatTable.UserControls"
+        x:Name="THIS" Background="LightGray"
+        TextBlock.FontSize="17"
+        Width="850"
+        Height="460"
+        Icon="D12.ico"
+        WindowState="Normal"
+        TextBlock.FontFamily="Courier New"
+        Title="Combat Simulator" 
+        KeyDown="OnKeyDown"
+        >
+    <Window.Resources>
+        <Style TargetType="{x:Type TextBox}" x:Key="BaseTextBoxStyle">
+            <Setter Property="Height" Value="27"/>
+            <Setter Property="MinWidth" Value="45"/>
+            <Setter Property="Margin" Value="3"/>
+            <Setter Property="HorizontalAlignment" Value="Stretch"/>
+            <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+        </Style>
+        <Style TargetType="{x:Type ComboBox}" x:Key="BaseComboBoxStyle">
+            <Setter Property="Height" Value="27"/>
+            <Setter Property="MinWidth" Value="75"/>
+            <Setter Property="Margin" Value="3"/>
+            <Setter Property="HorizontalAlignment" Value="Left"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+        </Style>
+        <Style TargetType="{x:Type Button}" x:Key="BaseButtonStyle">
+            <Setter Property="Height" Value="27"/>
+            <Setter Property="Margin" Value="3"/>
+            <Setter Property="HorizontalAlignment" Value="Left"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+        </Style>
+        <Style TargetType="{x:Type Label}" x:Key="BaseLabelStyle">
+            <Setter Property="Height" Value="28"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+            <Setter Property="Margin" Value="3"/>
+            <Setter Property="HorizontalAlignment" Value="Left"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+        </Style>
+        <Style TargetType="{x:Type CheckBox}" x:Key="BaseCheckBoxStyle">
+            <Setter Property="Margin" Value="3"/>
+            <Setter Property="Cursor" Value="Hand"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+        </Style>
+
+        <Style TargetType="{x:Type TextBox}" BasedOn="{StaticResource BaseTextBoxStyle}"/>
+        <Style TargetType="{x:Type ComboBox}" BasedOn="{StaticResource BaseComboBoxStyle}"/>
+        <Style TargetType="{x:Type Button}" BasedOn="{StaticResource BaseButtonStyle}"/>
+        <Style TargetType="{x:Type Label}" BasedOn="{StaticResource BaseLabelStyle}" />
+        <Style TargetType="{x:Type CheckBox}" BasedOn="{StaticResource BaseCheckBoxStyle}" />
+    </Window.Resources>
+    <TabControl Background="Transparent" DockPanel.Dock="Bottom" x:Name="TC">
+        <TabItem Header="DieRoller (F1)">
+            <!-- die roller -->
+            <GroupBox Grid.Row="1" Grid.Column="0" Header="Die Roller" Margin="5" VerticalAlignment="Stretch" VerticalContentAlignment="Stretch">
+                <Grid >
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="100"/>
+                        <ColumnDefinition />
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="35"/>
+                        <RowDefinition Height="35"/>
+                        <RowDefinition Height="35"/>
+                        <RowDefinition Height="35"/>
+                        <RowDefinition Height="35"/>
+                        <RowDefinition Height="35"/>
+                        <RowDefinition Height="35"/>
+                        <RowDefinition Height="35"/>
+                        <RowDefinition />
+                    </Grid.RowDefinitions>
+
+                    <Button Tag="d4" Content="d4" Grid.Row="0" Width="50" Click="RollTemplateDie"/>
+                    <Button Tag="d6" Content="d6" Grid.Row="1" Width="50" Click="RollTemplateDie"/>
+                    <Button Tag="d8" Content="d8" Grid.Row="2" Width="50" Click="RollTemplateDie"/>
+                    <Button Tag="d10" Content="d10" Grid.Row="3" Width="50" Click="RollTemplateDie"/>
+                    <Button Tag="d12" Content="d12" Grid.Row="4" Width="50" Click="RollTemplateDie"/>
+                    <Button Tag="d20" Content="d20" Grid.Row="5" Width="50" Click="RollTemplateDie"/>
+                    <Button Tag="d100" Content="d100" Grid.Row="6" Width="50" Click="RollTemplateDie" />
+                    <Button Tag="Buy" Content="_Buy" Grid.Row="7" Width="50" Click="RollTemplateDie"/>
+                    <Button Tag="Sell" Content="_Sell" Grid.Row="8" Width="50" Click="RollTemplateDie" VerticalAlignment="Top"/>
+
+                    <TextBox Grid.Row="0" Text="{Binding ElementName=THIS, Path=Die, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" Grid.Column="1" HorizontalAlignment="Stretch"/>
+                    <StackPanel Orientation="Horizontal" Grid.Column="1" Grid.Row="1" HorizontalAlignment="Center">
+                        <Button Content="_Roll" HorizontalAlignment="Center" Width="120" Click="RollDie"/>
+                        <CheckBox Margin="20,5" Content="_Copy To Clipboard" HorizontalAlignment="Center" IsChecked="{Binding ElementName=THIS, Path=CopyToClipboard, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"/>
+                    </StackPanel>
+
+                    <TextBox IsReadOnly="True" Background="Transparent" FontWeight="Bold" Foreground="Black" Grid.Row="2"  
+                                 Text="{Binding ElementName=THIS, Path=DieResult, UpdateSourceTrigger=PropertyChanged, Mode=OneWay}" Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" HorizontalContentAlignment="Center"/>
+                    <DockPanel Grid.Row="3" Grid.RowSpan="6" Grid.Column="1"  LastChildFill="True" >
+                        <TextBox IsReadOnly="True" Background="Transparent" FontWeight="Bold" Foreground="Black" MinHeight="400"
+                                 Text="{Binding ElementName=THIS, Path=DieResultVerbose, UpdateSourceTrigger=PropertyChanged, Mode=OneWay}" 
+                                 TextWrapping="Wrap" AcceptsReturn="True" HorizontalAlignment="Stretch" VerticalContentAlignment="Stretch" VerticalAlignment="Top" ScrollViewer.VerticalScrollBarVisibility="Visible"/>
+                    </DockPanel>
+                </Grid>
+            </GroupBox>
+        </TabItem>
+        <TabItem Header="TreasureRoll (F2)">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="50"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <StackPanel Orientation="Horizontal" Grid.Row="0" >
+                    <Label Content="Treasure CR: " />
+                    <ctrl:NumericUpDown ToolTip="CR" x:Name="TreasureCRNUD" Width="50" />
+                    <Label Content="#" />
+                    <ctrl:NumericUpDown ToolTip="Count of this CR" x:Name="TreasureCRCountNUD" Width="50" Value="1"/>
+                    <Button Content="_Roll" HorizontalAlignment="Center" Grid.Row="1" Grid.Column="1" Width="120" Click="RollTreasure"/>
+                    <CheckBox BorderBrush="Orange" BorderThickness="1" Height="20" Style="{StaticResource PropertyCheckBoxStyle}" x:Name="IsNPCCheckbox" Content="is _NPC?" />
+                    <CheckBox BorderBrush="Orange" BorderThickness="1" Height="20" Style="{StaticResource PropertyCheckBoxStyle}" x:Name="OnlySpellcasterCheckbox" Content="Only _Spellcaster?" IsChecked="false" />
+                    <CheckBox BorderBrush="Orange" BorderThickness="1" Height="20" Style="{StaticResource PropertyCheckBoxStyle}" x:Name="AlwaysSetFirstTierCheckbox" Content="_Always set first tier?" IsChecked="false" />
+                    <Label Content="Gradual Bonus: " />
+                    <ctrl:NumericUpDown ToolTip="Gradual roll bonus for missing tiers" x:Name="GradualTreasureBonusNUD" Width="50" Value="{Binding ElementName=THIS, Path=GradualTreasureBonus, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"/>
+                </StackPanel>
+
+                <TextBox IsReadOnly="True" Background="Transparent" FontWeight="Bold" Foreground="Black" 
+                    Grid.Row="1" Height="NaN" Text="{Binding ElementName=THIS, Path=Treasure, UpdateSourceTrigger=PropertyChanged, Mode=OneWay}" 
+                    TextWrapping="Wrap" AcceptsReturn="True" VerticalAlignment="Stretch" ScrollViewer.VerticalScrollBarVisibility="Visible"/>
+                <!--<TextBox Visibility="Collapsed" IsReadOnly="True" Background="Transparent" FontWeight="Bold" Foreground="Black" MinHeight="200" Grid.Row="2" MaxHeight="200"
+                                 Text="{Binding ElementName=THIS, Path=TreasureVerbose, UpdateSourceTrigger=PropertyChanged, Mode=OneWay}" 
+                                 TextWrapping="Wrap" AcceptsReturn="True" HorizontalAlignment="Stretch" VerticalContentAlignment="Stretch" VerticalAlignment="Top" ScrollViewer.VerticalScrollBarVisibility="Visible"/>
+
+                    <TextBox Visibility="Collapsed" IsReadOnly="True" Background="Transparent" FontWeight="Bold" Foreground="Black" MinHeight="400" Grid.Row="3"
+                                 Text="{Binding ElementName=THIS, Path=DieResultVerbose, UpdateSourceTrigger=PropertyChanged, Mode=OneWay}" 
+                                 TextWrapping="Wrap" AcceptsReturn="True" HorizontalAlignment="Stretch" VerticalContentAlignment="Stretch" VerticalAlignment="Top" ScrollViewer.VerticalScrollBarVisibility="Visible"/>-->
+            </Grid>
+        </TabItem>
+        <TabItem Header="Session Manager (F3)" Visibility="Visible" >
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="45"/>
+                    <RowDefinition Height="45"/>
+                    <RowDefinition Height="45"/>
+                    <RowDefinition Height="45"/>
+                    <RowDefinition Height="45"/>
+                    <RowDefinition Height="45"/>
+                    <RowDefinition Height="45"/>
+                    <RowDefinition Height="45"/>
+                    <RowDefinition Height="45"/>
+                    <RowDefinition Height="45"/>
+                    <RowDefinition />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="200"/>
+                    <ColumnDefinition Width="220"/>
+                    <ColumnDefinition />
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="150"/>
+                </Grid.ColumnDefinitions>
+
+                <StackPanel Orientation="Horizontal" Grid.Row="0" Grid.ColumnSpan="5" Margin="5" >
+                    <Label Content="Header: "/>
+                    <TextBox Width="200" Text="{Binding ElementName=THIS, Path=Title, UpdateSourceTrigger=PropertyChanged}" />
+                </StackPanel>
+
+                <Label Content="Load Session: " Grid.Row="1" Grid.Column="0"/>
+                <Label Content="Save Session: " Grid.Row="2" Grid.Column="0"/>
+
+                <TextBox Grid.ColumnSpan="2" x:Name="SessionLoadFile" HorizontalAlignment="Stretch" Grid.Column="1" Grid.Row="1" />
+                <TextBox Grid.ColumnSpan="2" x:Name="SessionSaveFile" HorizontalAlignment="Stretch" Grid.Column="1" Grid.Row="2" />
+
+                <Button Content="..." Grid.Row="1" Grid.Column="3" Width="45" Click="LoadSessionSearch"/>
+                <Button Content="..." Grid.Row="2" Grid.Column="3" Width="45" Click="SaveSessionSearch"/>
+
+                <Button Content="_Load" Grid.Row="1" Grid.Column="4" Width="120" Click="LoadSession"/>
+                <Button Content="_Save" Grid.Row="2" Grid.Column="4" Width="120" Click="SaveSession"/>
+
+                <Label Content="Import Character: " Grid.Row="4" Grid.Column="0"/>
+                <TextBox x:Name="ImportCharacterNewName" Grid.Row="4" Grid.Column="1"/>
+                <TextBox x:Name="ImportCharacterFile" HorizontalAlignment="Stretch" Grid.Row="4" Grid.Column="2"/>
+                <Button Content="..." Grid.Row="4" Grid.Column="3" Width="45" Click="ImportCharacterSearch"/>
+                <Button Content="I_mport" Grid.Row="4" Grid.Column="4" Width="120" Click="ImportCharacter"/>
+
+                <Label Content="Export Character: " Grid.Row="5" Grid.Column="0"/>
+                <ComboBox Width="200" SelectedItem="{Binding ElementName=THIS, Path=Session.SelectedCharacter}" ItemsSource="{Binding ElementName=THIS, Path=Session.Characters}" Grid.Row="5" Grid.Column="1">
+                    <ComboBox.ItemTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock Text="{Binding Name}"/>
+                                <TextBlock Text="  ["/>
+                                <TextBlock Text="{Binding Value}"/>
+                                <TextBlock Text="]  "/>
+                            </StackPanel>
+                        </DataTemplate>
+                    </ComboBox.ItemTemplate>
+                </ComboBox>
+                <TextBox x:Name="ExportCharacterFile" HorizontalAlignment="Stretch" Grid.Row="5" Grid.Column="2"/>
+                <Button Content="..." Grid.Row="5" Grid.Column="3" Width="45" Click="ExportCharacterSearch"/>
+                <Button Content="E_xport" Grid.Row="5" Grid.Column="4" Width="120" Click="ExportCharacter"/>
+
+            </Grid>
+        </TabItem>
+        <TabItem Header="Map Editor (F4)" Visibility="Visible" >
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="45"/>
+                    <RowDefinition Height="45"/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+
+                <!-- new map & map selection information -->
+                <StackPanel Orientation="Horizontal" Grid.Row="0">
+                    <ComboBox Width="200" SelectedItem="{Binding ElementName=THIS, Path=Session.EditorMap}" ItemsSource="{Binding ElementName=THIS, Path=Session.Maps}">
+                        <ComboBox.ItemTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding Name}"/>
+                            </DataTemplate>
+                        </ComboBox.ItemTemplate>
+                    </ComboBox>
+                    <TextBox x:Name="NewMapXSize" Width="75" Text="20"/>
+                    <TextBox x:Name="NewMapYSize" Width="75" Text="12"/>
+                    <Button Content="New Map" Width="150" Click="CreateNewMap"/>
+                    <Button Content="Delete Map" Width="150" Click="DeleteExistingMap"/>
+                </StackPanel>
+
+                <!-- map information -->
+                <StackPanel Orientation="Horizontal" Grid.Row="1">
+                    <Label Content="Map Name: " />
+                    <TextBox Text="{Binding ElementName=EDITORMAP, Path=MapInfo.Name}" Width="250"/>
+                    <Label Content="Editor Operation / Parameter: " />
+                    <ComboBox Width="220" SelectedItem="{Binding ElementName=EDITORMAP, Path=EditorOperation}" ItemsSource="{Binding ElementName=THIS, Path=EditorOperations}" />
+                    <TextBox Width="300" Text="{Binding ElementName=EDITORMAP, Path=EditorParameter}" />
+                </StackPanel>
+
+                <!-- map control -->
+                <ctrl:Map Grid.Row="2" x:Name="EDITORMAP" CellSize="64" EditorMode="True"
+                       XSize="{Binding ElementName=THIS, Path=Session.EditorMap.SizeX}" 
+                       YSize="{Binding ElementName=THIS, Path=Session.EditorMap.SizeY}" 
+                       DataContext="{Binding ElementName=THIS, Path=Session.EditorMap}" />
+
+            </Grid>
+        </TabItem>
+        <TabItem Header="Character Info (F5)" Visibility="Visible" >
+            <!-- character viewer & editor & manager -->
+            <Grid HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="45"/>
+                    <RowDefinition />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+
+                <StackPanel Grid.ColumnSpan="4" Grid.Column="0" Orientation="Horizontal" Grid.Row="0">
+                    <Label Content="Character: "/>
+                    <ComboBox Width="300" SelectedItem="{Binding ElementName=THIS, Path=Session.SelectedCharacter}" ItemsSource="{Binding ElementName=THIS, Path=Session.Characters}">
+                        <ComboBox.ItemTemplate>
+                            <DataTemplate>
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock Text="{Binding Name}"/>
+                                    <TextBlock Text="  ["/>
+                                    <TextBlock Text="{Binding Value}"/>
+                                    <TextBlock Text="]  "/>
+                                </StackPanel>
+                            </DataTemplate>
+                        </ComboBox.ItemTemplate>
+                    </ComboBox>
+                    <Button Content="New Character" Click="CreateNewCharacter" />
+                    <Button Content="Delete Character" Click="DeleteSelectedCharacter"/>
+                    <Button Content="Clone Character" Click="CloneSelectedCharacter"/>
+                    <Button Content="Copy Character" Click="CopyCharacter"/>
+                    <Button Content="Paste Character" Click="PasteCharacter"/>
+                </StackPanel>
+
+                <ctrl:CharacterTab Grid.ColumnSpan="4" Grid.Column="0" Grid.Row="1" x:Name="EDITORCHARACTER" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" DataContext="{Binding ElementName=THIS, Path=Session.SelectedCharacter}"/>
+            </Grid>
+        </TabItem>
+        <TabItem Header="Combat Table (F6)" Visibility="Visible" >
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+
+                <!-- initiative table -->
+                <DataGrid x:Name="ChrGRID" Margin="5" CanUserAddRows="False"  CanUserDeleteRows="False" CanUserResizeColumns="True" ItemsSource="{Binding ElementName=THIS, Path=Session.SelectedMap.Characters}" Grid.Row="0" Grid.Column="0" AutoGenerateColumns="False" SelectedItem="{Binding ElementName=COMBATMAP, Path=FocusedCharacter}" >
+                    <DataGrid.RowStyle>
+                        <Style TargetType="{x:Type DataGridRow}">
+                            <Setter Property="ToolTip">
+                                <Setter.Value>
+                                    <TextBlock Text="{Binding Path=States.StateSummary}" />
+                                </Setter.Value>
+                            </Setter>
+                            <EventSetter Event="MouseDoubleClick" Handler="SetCurrentCharacter"/>
+                        </Style>
+                    </DataGrid.RowStyle>
+                    <DataGrid.Columns>
+                        <DataGridTemplateColumn Header=".." Width="30" >
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <CheckBox Height="20"  Style="{StaticResource PropertyCheckBoxStyle}" IsChecked="{Binding Path=Session.IsCurrent.Value}" IsEnabled="False" />
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                        <DataGridTextColumn Binding="{Binding Path=Value}" Width="65" Header="Code" IsReadOnly="True"/>
+                        <DataGridTextColumn Binding="{Binding Path=Session.CurrentInitiative.Value}" Width="50" Header="Init" IsReadOnly="False"/>
+                        <DataGridTextColumn Binding="{Binding Path=Name}" Width="150" Header="Name" IsReadOnly="True"/>
+                        <DataGridTextColumn Binding="{Binding Path=Session.CurrentHitPoints.Value}" Width="40" Header="HP" IsReadOnly="False"/>
+                        <DataGridTextColumn Binding="{Binding Path=States.StateSummary}" Width="125" MaxWidth="400" Header="State" IsReadOnly="True"/>
+                    </DataGrid.Columns>
+                </DataGrid>
+
+                <!-- map control -->
+                <TabControl Grid.Row="0" Grid.Column="1" Background="Transparent" Grid.RowSpan="2">
+                    <TabItem Header="Map">
+                        <StackPanel HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                            <!-- character operations -->
+                            <StackPanel Orientation="Horizontal" Grid.Row="2" >
+                                <Label Content="Map Operation / Parameter: " />
+                                <ComboBox Width="220" SelectedItem="{Binding ElementName=COMBATMAP, Path=EditorOperation}" ItemsSource="{Binding ElementName=THIS, Path=EditorOperations}" />
+                                <TextBox Width="300" x:Name="ExecuteParameter" Text="{Binding ElementName=COMBATMAP, Path=EditorParameter, UpdateSourceTrigger=PropertyChanged}" />
+                                <Button Width="50" x:Name="KillSelectedBtn" Content="Kill" Margin="25,5,25,5" Click="KillSelected" />
+                                <Button Width="50" x:Name="NextRoundBtn" Content=">>" Margin="25,5,25,5" Click="NextRound" />
+                            </StackPanel>
+                            <ctrl:Map x:Name="COMBATMAP" CellSize="64" EditorMode="False"
+                                    XSize="{Binding ElementName=THIS, Path=Session.SelectedMap.SizeX}" 
+                                    YSize="{Binding ElementName=THIS, Path=Session.SelectedMap.SizeY}" 
+                                    DataContext="{Binding ElementName=THIS, Path=Session.SelectedMap}" />
+                        </StackPanel>
+                    </TabItem>
+                    <TabItem Header="Character">
+                        <ctrl:CharacterTab x:Name="CHARACTER" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" DataContext="{Binding ElementName=COMBATMAP, Path=FocusedCharacter}"/>
+                    </TabItem>
+                    <TabItem Header="Map Operations">
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="45"/>
+                                <RowDefinition Height="45"/>
+                                <RowDefinition Height="45"/>
+                                <RowDefinition Height="Auto"/>
+                            </Grid.RowDefinitions>
+
+                            <!-- predefined operations -->
+                            <StackPanel Orientation="Horizontal" Grid.Row="1" >
+                                <Label Content="Operation: "/>
+                                <ComboBox Width="300"  x:Name="ExecuteCMB">
+                                    <ComboBoxItem Content="Rest Selected Character" Tag="0"/>
+                                    <ComboBoxItem Content="Rest All" Tag="1"/>
+                                    <ComboBoxItem Content="Remove All Characters" Tag="2"/>
+                                    <ComboBoxItem Content="Reroll Inititative" Tag="3"/>
+                                    <ComboBoxItem Content="Next Round" Tag="5"/>
+                                    <ComboBoxItem Content="Kill Selected" Tag="6"/>
+                                    <ComboBoxItem Content="Roll Stealth/Perception" Tag="7"/>
+                                    <ComboBoxItem Content="Clear Stealth" Tag="12"/>
+                                    <ComboBoxItem Content="Clear Stealth/Perception" Tag="8"/>
+                                    <ComboBoxItem Content="Reroll Inititative New Comers" Tag="10"/>
+                                    <ComboBoxItem Content="Refresh Selected Character" Tag="11"/>
+                                </ComboBox>
+                                <Button Width="120" Content="_Execute" Click="SessionOperations"/>
+                            </StackPanel>
+
+                            <!-- character & map association -->
+                            <StackPanel Orientation="Horizontal" Grid.Row="0" >
+                                <ComboBox Width="200" SelectedItem="{Binding ElementName=THIS, Path=Session.SelectedMap}" ItemsSource="{Binding ElementName=THIS, Path=Session.Maps}">
+                                    <ComboBox.ItemTemplate>
+                                        <DataTemplate>
+                                            <TextBlock Text="{Binding Name}"/>
+                                        </DataTemplate>
+                                    </ComboBox.ItemTemplate>
+                                </ComboBox>
+                                <ComboBox Width="200" SelectedItem="{Binding ElementName=THIS, Path=Session.SelectedCharacter}" ItemsSource="{Binding ElementName=THIS, Path=Session.Characters}">
+                                    <ComboBox.ItemTemplate>
+                                        <DataTemplate>
+                                            <StackPanel Orientation="Horizontal">
+                                                <TextBlock Text="{Binding Name}"/>
+                                                <TextBlock Text="  ["/>
+                                                <TextBlock Text="{Binding Path=Value}"/>
+                                                <TextBlock Text="]  "/>
+                                            </StackPanel>
+                                        </DataTemplate>
+                                    </ComboBox.ItemTemplate>
+                                </ComboBox>
+                                <Button Content="Send Into Map" Click="SendCharacterIntoMap" Width="180"/>
+                                <Button Content="Remove" Click="RemoveCharacterFromMap" Width="150" IsEnabled="{Binding ElementName=COMBATMAP, Path=FocusedCharacter, Converter={StaticResource NotNull}}"/>
+                            </StackPanel>
+
+                        </Grid>
+                    </TabItem>
+                </TabControl>
+
+                <!-- die roller -->
+                <GroupBox Grid.Row="1" Grid.Column="0" Header="Die Roller" Margin="5" Height="270">
+                    <Grid >
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="100"/>
+                            <ColumnDefinition />
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="35"/>
+                            <RowDefinition Height="35"/>
+                            <RowDefinition Height="35"/>
+                            <RowDefinition Height="35"/>
+                            <RowDefinition Height="35"/>
+                            <RowDefinition Height="35"/>
+                            <RowDefinition Height="35"/>
+                            <RowDefinition Height="35"/>
+                            <RowDefinition Height="35"/>
+                        </Grid.RowDefinitions>
+
+                        <Button Tag="d4" Content="d4" Grid.Row="0" Width="50" Click="RollTemplateDie"/>
+                        <Button Tag="d6" Content="d6" Grid.Row="1" Width="50" Click="RollTemplateDie"/>
+                        <Button Tag="d8" Content="d8" Grid.Row="2" Width="50" Click="RollTemplateDie"/>
+                        <Button Tag="d10" Content="d10" Grid.Row="3" Width="50" Click="RollTemplateDie"/>
+                        <Button Tag="d12" Content="d12" Grid.Row="4" Width="50" Click="RollTemplateDie"/>
+                        <Button Tag="d20" Content="d20" Grid.Row="5" Width="50" Click="RollTemplateDie"/>
+                        <Button Tag="d100" Content="d100" Grid.Row="6" Width="50" Click="RollTemplateDie"/>
+
+                        <TextBox Grid.Row="0" Text="{Binding ElementName=THIS, Path=Die, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" Grid.Column="1" HorizontalAlignment="Stretch" />
+                        <StackPanel Orientation="Horizontal" Grid.Column="1" Grid.Row="1" HorizontalAlignment="Center">
+                            <Button Content="_Roll" HorizontalAlignment="Center"  Width="120" Click="RollDie"/>
+                            <CheckBox Margin="20,5" Content="_Copy To Clipboard" HorizontalAlignment="Center"  IsChecked="{Binding ElementName=THIS, Path=CopyToClipboard, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"/>
+                        </StackPanel>
+
+                        <TextBox IsReadOnly="True" Background="Transparent" FontWeight="Bold" Foreground="Black" Grid.Row="2"  
+                                 Text="{Binding ElementName=THIS, Path=DieResult, UpdateSourceTrigger=PropertyChanged, Mode=OneWay}" Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" HorizontalContentAlignment="Center" />
+                        <TextBox IsReadOnly="True" Background="Transparent" FontWeight="Bold" Foreground="Black" MinHeight="120"  Grid.Row="3" Grid.RowSpan="4" 
+                                 Text="{Binding ElementName=THIS, Path=DieResultVerbose, UpdateSourceTrigger=PropertyChanged, Mode=OneWay}" Grid.Column="1" TextWrapping="Wrap" AcceptsReturn="True" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" ScrollViewer.VerticalScrollBarVisibility="Visible" />
+                    </Grid>
+                </GroupBox>
+            </Grid>
+        </TabItem>
+    </TabControl>
+</Window>

@@ -1,0 +1,38 @@
+﻿<!-- 
+copyright to Gungoren, Ugur
+All rights reserved. Super Confidential.
+ -->
+<UserControl x:Class="CombatTable.UserControls.CharacterTab"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             x:Name="THIS"
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="300">
+    <Grid HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <CheckBox IsChecked="{Binding IsLocked, ElementName=THIS}" Grid.Row="0" Grid.Column="0" Margin="5" Style="{StaticResource ImageCheckBoxStyle}">
+            <Image Source="../Lock.png" Width="32" Height="32"/>
+        </CheckBox>
+        <CheckBox IsChecked="{Binding IsEditable, ElementName=THIS}" Grid.Column="0" Grid.Row="1" Margin="5" Style="{StaticResource ImageCheckBoxStyle}">
+            <Image Source="../Edit.ico" Width="32" Height="32"/>
+        </CheckBox>
+
+        <TreeView Grid.Row="0" Grid.Column="1" Grid.RowSpan="3" Background="Transparent" HorizontalAlignment="Stretch" HorizontalContentAlignment="Stretch" ScrollViewer.HorizontalScrollBarVisibility="Visible" ScrollViewer.VerticalScrollBarVisibility="Visible"
+            ItemsSource="{Binding Children}" VerticalAlignment="Stretch" VerticalContentAlignment="Stretch" ItemTemplateSelector="{StaticResource DataTemplateSelector}">
+            <TreeView.Resources>
+                <SolidColorBrush Color="Transparent" x:Key="{x:Static SystemColors.HighlightBrushKey}"/>
+                <SolidColorBrush Color="Black" x:Key="{x:Static SystemColors.HighlightTextBrushKey}"/>
+            </TreeView.Resources>
+        </TreeView>
+    </Grid>
+</UserControl>

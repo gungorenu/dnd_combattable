@@ -1,0 +1,66 @@
+﻿<!-- 
+copyright to Gungoren, Ugur
+All rights reserved. Super Confidential.
+ -->
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <!-- colors -->
+    <Color x:Key="TextboxReadonlyBackgroundColor" R="225" G="225" B="225" A="255" />
+    <Color x:Key="ControlTextColor" R="0" G="0" B="0" A="255" />
+    <Color x:Key="ControlTextBackgroundColor" R="255" G="255" B="255" A="255" />
+    <Color x:Key="ControlTextDisabledColor" R="128" G="128" B="128" A="255" />
+    <Color x:Key="ControlBorderColor" R="128" G="128" B="128" A="255" />
+    <Color x:Key="ControlFocusColor1" R="255" G="165" B="0" A="255" />
+    <Color x:Key="ControlFocusColor2" R="255" G="140" B="0" A="255" />
+    <Color x:Key="ControlFocusColor3" R="255" G="105" B="0" A="255" />
+    <Color x:Key="ControlPressedColor1" R="255" G="255" B="255" A="255" />
+    <Color x:Key="ControlPressedColor2" R="233" G="233" B="233" A="255" />
+    <Color x:Key="ControlPressedColor3" R="167" G="167" B="167" A="255" />
+    <Color x:Key="ControlPressedColor4" R="233" G="233" B="233" A="255" />
+    <Color x:Key="ControlPressedColor5" R="233" G="233" B="233" A="255" />
+    <Color x:Key="CheckBoxTickColor" R="96" G="96" B="255" A="255" />
+
+    <!-- brushes -->
+    <SolidColorBrush x:Key="CheckBoxTickBrush" Color="{DynamicResource CheckBoxTickColor}" Opacity="100"/>
+    <SolidColorBrush x:Key="ControlTextBrush" Color="{DynamicResource ControlTextColor}" Opacity="100" />
+    <SolidColorBrush x:Key="ControlTextBackgroundBrush" Color="{DynamicResource ControlTextBackgroundColor}" Opacity="100" />
+    <SolidColorBrush x:Key="ControlTextDisabledBrush" Color="{DynamicResource ControlTextDisabledColor}" Opacity="100" />
+    <SolidColorBrush x:Key="TextboxReadonlyBackgroundBrush" Color="{DynamicResource TextboxReadonlyBackgroundColor}" Opacity="100" />
+    <SolidColorBrush x:Key="ControlBorderBrush" Color="{DynamicResource ControlBorderColor}" Opacity="100"/>
+    <LinearGradientBrush x:Key="ControlFocusBrush" Opacity="100" StartPoint="0,0" EndPoint="1,1">
+        <LinearGradientBrush.GradientStops>
+            <GradientStop Offset="0" Color="{DynamicResource ControlFocusColor1}"/>
+            <GradientStop Offset="0.1" Color="{DynamicResource ControlFocusColor2}"/>
+            <GradientStop Offset="0.5" Color="{DynamicResource ControlFocusColor3}"/>
+            <GradientStop Offset="0.9" Color="{DynamicResource ControlFocusColor2}"/>
+            <GradientStop Offset="1" Color="{DynamicResource ControlFocusColor1}"/>
+        </LinearGradientBrush.GradientStops>
+    </LinearGradientBrush>
+    <LinearGradientBrush x:Key="ControlPressedBrush" Opacity="100" StartPoint="0,0" EndPoint="0,1">
+        <LinearGradientBrush.GradientStops>
+            <GradientStop Offset="0" Color="{DynamicResource ControlPressedColor1}"/>
+            <GradientStop Offset="0.4" Color="{DynamicResource ControlPressedColor2}"/>
+            <GradientStop Offset="0.7" Color="{DynamicResource ControlPressedColor3}"/>
+            <GradientStop Offset="0.9" Color="{DynamicResource ControlPressedColor4}"/>
+            <GradientStop Offset="1" Color="{DynamicResource ControlPressedColor5}"/>
+        </LinearGradientBrush.GradientStops>
+    </LinearGradientBrush>
+
+    <VisualBrush x:Key="UpImage" TileMode="None" Stretch="Uniform">
+        <VisualBrush.Visual>
+            <Grid Width="8" Height="8">
+                <Polygon Points="0,1 1,0 2,1" Stretch="Uniform" Fill="Black" Stroke="Black" StrokeLineJoin="Round" />
+            </Grid>
+        </VisualBrush.Visual>
+    </VisualBrush>
+
+    <VisualBrush x:Key="DownImage" TileMode="None" Stretch="Uniform">
+        <VisualBrush.Visual>
+            <Grid Width="8" Height="8">
+                <Polygon Points="0,0 1,1 2,0" Stretch="Uniform" Fill="Black" Stroke="Black" StrokeLineJoin="Round" />
+            </Grid>
+        </VisualBrush.Visual>
+    </VisualBrush>
+
+</ResourceDictionary>

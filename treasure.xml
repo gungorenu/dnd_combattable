@@ -1,0 +1,615 @@
+<treasure>
+  <weapons>
+    <weapon rank="10" type="simple" material="Adamantine, Cold Iron, Melted Rock, Silver">Dagger</weapon>
+    <weapon rank="8" type="simple" material="Adamantine, Cold Iron, Melted Rock, Silver">Light Mace</weapon>
+    <weapon rank="4" type="simple" material="Adamantine, Cold Iron, Melted Rock, Silver">Sickle</weapon>
+    <weapon rank="5" type="simple" material="Adamantine, Cold Iron, Melted Rock, Silver">Heavy Mace</weapon>
+    <weapon rank="6" type="simple" >Shortspear</weapon>
+    <weapon rank="10" type="simple" >Light Crossbow</weapon>
+    <weapon rank="4" type="simple" >Javelin</weapon>
+    <weapon rank="3" type="simple" >Longspear</weapon>
+	<weapon rank="3" type="simple" material="Cold Iron, Melted Rock, Silver">Handaxe</weapon>
+	<weapon rank="4" type="simple" material="Cold Iron, Melted Rock, Silver">Light Hammer</weapon>
+
+	<weapon rank="2" type="martial" material="Cold Iron, Melted Rock, Silver">Kukri</weapon>
+	<weapon rank="10" type="martial" material="Cold Iron, Melted Rock, Silver">Short Sword</weapon>
+	<weapon rank="5" type="martial" material="Cold Iron, Melted Rock, Silver">Rapier</weapon>
+	<weapon rank="10" type="martial" material="Cold Iron, Melted Rock, Silver, Adamantine">Waraxe</weapon>
+	<weapon rank="3" type="martial" material="Cold Iron, Melted Rock, Silver, Adamantine">Flail</weapon>
+	<weapon rank="12" type="martial" material="Cold Iron, Melted Rock, Silver, Adamantine">Longsword</weapon>
+	<weapon rank="9" type="martial" material="Cold Iron, Melted Rock, Silver, Adamantine">Scimitar</weapon>
+	<weapon rank="8" type="martial" material="Cold Iron, Melted Rock, Silver, Adamantine">Warhammer</weapon>
+	<weapon rank="8" type="martial" material="Cold Iron, Melted Rock, Silver, Adamantine">Falchion</weapon>
+	<weapon rank="10" type="martial" material="Cold Iron, Melted Rock, Silver, Adamantine">Greataxe</weapon>
+	<weapon rank="3" type="martial" material="Cold Iron, Melted Rock, Silver, Adamantine">Heavy Flail</weapon>
+	<weapon rank="10" type="martial" material="Cold Iron, Melted Rock, Silver, Adamantine">Greatsword</weapon>
+	<weapon rank="6" type="martial" material="Cold Iron, Melted Rock, Silver, Adamantine">Halberd</weapon>
+	<weapon rank="3" type="martial" >Guisarme</weapon>
+	<weapon rank="7" type="martial" material="Cold Iron, Melted Rock, Silver, Adamantine">Mallet</weapon>
+	<weapon rank="10" type="martial" >Shortbow</weapon>
+	<weapon rank="7" type="martial" >Longbow</weapon>
+	<weapon rank="3" type="martial" >Heavy Crossbow</weapon>
+	
+	
+    <weapon rank="7" type="exotic" material="Cold Iron, Melted Rock, Silver">Kama</weapon>
+    <weapon rank="12" type="exotic" material="Adamantine, Cold Iron, Melted Rock, Silver">Bastard Sword</weapon>
+    <weapon rank="4" type="exotic" >Hand Crossbow</weapon>
+    <weapon rank="2" type="exotic" >Whip</weapon>
+    <weapon rank="5" type="exotic" material="Adamantine, Cold Iron, Melted Rock, Silver">Chained Spike</weapon>
+    <weapon rank="7" type="exotic" material="Cold Iron, Melted Rock, Silver">Quickblade Rapier</weapon>
+    <weapon rank="10" type="exotic" material="Adamantine, Cold Iron, Melted Rock, Silver">Dire Pick</weapon>
+    <weapon rank="5" type="exotic" material="Adamantine, Cold Iron, Melted Rock, Silver">Heavy Poleaxe</weapon>
+    <weapon rank="4" type="exotic" material="Adamantine, Cold Iron, Melted Rock, Silver">Katana</weapon>
+
+    <weapon rank="5" type="racial" material="Adamantine, Cold Iron, Melted Rock, Silver">Dwarven Waraxe</weapon>
+    <weapon rank="5" type="racial" material="Cold Iron, Melted Rock, Silver">Elven Courtblade</weapon>
+    <weapon rank="5" type="racial" >Elven Courtbow</weapon>
+    <weapon rank="5" type="racial" >Drowish Crossbow</weapon>
+    <weapon rank="5" type="racial" material="Adamantine, Cold Iron, Melted Rock, Silver">Maul</weapon>
+    <weapon rank="5" type="racial" material="Cold Iron, Melted Rock, Silver">Barbed Blade</weapon>
+    <weapon rank="5" type="racial" material="Adamantine, Cold Iron, Melted Rock, Silver">Scepter</weapon>
+
+  </weapons>
+
+  <armors>
+
+    <armor rank="12" material="Symbiotic, Dragonhide, Shadowcraft">Leather Armor</armor>
+    <armor rank="12" material="Symbiotic, Dragonhide, Shadowcraft">Studded Leather</armor>
+    <armor rank="9" material="Symbiotic, Dragonhide, Shadowcraft">Hide Armor</armor>
+    <armor rank="10" material="Adamantine, Wildwood, Mithral, Weavecraft">Chain Shirt</armor>
+    <armor rank="11" material="Adamantine, Wildwood, Mithral, Weavecraft">Scale Mail</armor>
+    <armor rank="12" material="Adamantine, Wildwood, Mithral, Weavecraft">Chainmail</armor>
+    <armor rank="9" material="Adamantine, Wildwood, Mithral, Weavecraft">Breast Plate</armor>
+    <armor rank="7" material="Adamantine, Wildwood, Mithral, Weavecraft">Banded Mail</armor>
+    <armor rank="5" material="Adamantine, Wildwood, Mithral, Weavecraft">Heavy Mail</armor>
+    <armor rank="3" material="Adamantine, Wildwood, Mithral, Weavecraft">Fullplate</armor>
+  </armors>
+
+  <shields>
+
+    <shield rank="2" >Buckler</shield>
+    <shield rank="9" >Light Shield</shield>
+    <shield rank="6" material="Adamantine, Wildwood, Mithral, Weavecraft">Heavy Shield</shield>
+
+  </shields>
+
+  <jewelry>
+ <jewel tier="3" cost="900" flags=".">Hand of the Mage<description>mage hand at will</description></jewel>
+<jewel tier="3" cost="1500" flags=".">Aegis of Recovery<description>+2 save for recurring effect. if wearer is below 0 HP then cure 2d8+3 and turn to dust</description></jewel>
+<jewel tier="3" cost="2k" flags=".">Brooch of Shielding<description>immune to magic missile</description></jewel>
+<jewel tier="3" cost="2k" flags=".">Ring of Acrobatics<description>grants wearer +5 Acrobatics</description></jewel>
+<jewel tier="3" cost="2k" flags=".">Ring of Athlethics<description>grants wearer +5 Athlethics</description></jewel>
+<jewel tier="3" cost="2k" flags=".">Ring of Healing<description>grants wearer +5 Heal</description></jewel>
+<jewel tier="3" cost="2k" flags=".">Ring of Thievery<description>grants wearer +5 Finesse</description></jewel>
+<jewel tier="3" cost="2k" flags=".">Ring of Climbing<description>grants wearer +5 Athletics</description></jewel>
+<jewel tier="3" cost="2k" flags=".">Ring of Swim<description>grants wearer 20ft swim ability</description></jewel>
+  
+<jewel tier="4" cost="2k" flags="S">Ring of Clergy 1<description>grants 1 more spell slot per day for a divine spell caster to cast up to SL 1</description></jewel>
+<jewel tier="4" cost="2k" flags=".">Ring of Protection +1<description>grants wearer +1 deflection AC</description></jewel>
+<jewel tier="4" cost="2k" flags=".">Ring of Silence<description>1/day creates a silence spell CL=15 within 10ft rad centered, wearer can still cast a spell without being affected</description></jewel>
+<jewel tier="4" cost="2k" flags="S">Ring of Wizardry 1<description>grants 1 more spell slot per day for a arcane spell caster to cast up to SL 1</description></jewel>
+<jewel tier="4" cost="2k" flags="S">Ring of Spell Knowledge 1<description>ring has a spell from SL 1 in it, any spontaneous arcane spell caster can use the spell in ring as if she knows the spell</description></jewel>
+<jewel tier="4" cost="2k" flags=".">Amulet of Natural Armor +1<description>grants +1 Natural armor to wearer</description></jewel>
+
+<jewel tier="5" cost="2500" flags=".">Scarab of Golembane<description>detects golems within 60ft, ignores damage reduction of all golems</description></jewel>
+<jewel tier="5" cost="3k" flags=".">Ring of Ferocious Action<description>ring has 5 charges per day, for 5 rounds can ignore staggered condition</description></jewel>
+<jewel tier="5" cost="3500" flags=".">Mind Sentinel Medallion<description>+2 save vs mind affecting</description></jewel>
+<jewel tier="5" cost="4k" flags=".">Scholar's Ring<description>allows wearer to understand a written text from one of the racial languages, also grants +5 to Society for that race</description></jewel>
+<jewel tier="5" cost="4k" flags=".">Amulet of Mighty Fists +1<description>grants +1 TH and damage with unarmed damage</description></jewel>
+
+<jewel tier="6" cost="5k" flags=".">Amulet of Uncanny Defense<description>improved EXISTING Uncanny Dodge to Improved Uncanny Dodge, if has Improved Uncanny Dodge then increases level by 4</description></jewel>
+<jewel tier="6" cost="6k" flags=".">Ring of Sustenance<description>wearer can gain resting benefits with 4 hours of rest</description></jewel>
+<jewel tier="6" cost="7500" flags=".">Periapt of Health<description>immune to normal and magical diseases</description></jewel>
+<jewel tier="6" cost="8k" flags=".">Ring of Antivenom<description>1/day can cast neutralize poison only to self</description></jewel>
+<jewel tier="6" cost="8k" flags="S">Ring of Clergy 2<description>grants 1 more spell slot per day for a divine spell caster to cast up to SL 2</description></jewel>
+<jewel tier="6" cost="8k" flags=".">Amulet of Natural Armor +2<description>grants +2 Natural armor to wearer</description></jewel>
+<jewel tier="6" cost="8k" flags=".">Hand of Glory<description>takes amulet place and allows to use one more ring. 1/day daylight and invisibility</description></jewel>
+
+<jewel tier="7" cost="8k" flags=".">Ring of Mind Shielding<description>immune to mind reading or alignment detection spells/effects</description></jewel>
+<jewel tier="7" cost="8k" flags="S">Ring of Wizardry 2<description>grants 1 more spell slot per day for a arcane spell caster to cast up to SL 2</description></jewel>
+<jewel tier="7" cost="8k" flags=".">Gravewatch Pendant<description>undead have -2 attack penalty to wearer, incorporeal undead have penalty -4</description></jewel>
+<jewel tier="7" cost="8k" flags=".">Amulet of Proof Against Petrification<description>any effect that turns wearer to stone makes him staggered for d6 R if allow save, for 1min if unallow save. if was staggered then this ability does not work</description></jewel>
+<jewel tier="7" cost="8k" flags=".">Ring of Strength Sapping<description>1/day unarmed attack deals d4+1 Strength damage to target unless Fort DC 20, if save fails ring wearer gains +2 Strength for a minute</description></jewel>
+<jewel tier="7" cost="8k" flags=".">Ring of Mystic Element<description>CL for element is increased by 1</description></jewel>
+<jewel tier="7" cost="8k" flags="S">Ring of Spell Knowledge 2<description>ring has a spell from SL 2 in it, any spontaneous arcane spell caster can use the spell in ring as if she knows the spell</description></jewel>
+<jewel tier="7" cost="8k" flags=".">Ring of Protection +2<description>grants wearer +2 deflection AC</description></jewel>
+
+<jewel tier="8" cost="9k" flags=".">Necklace of Adaptation<description>allows to breathe always and immune to gas attacks</description></jewel>
+<jewel tier="8" cost="9k" flags=".">Ring of Force Shield<description>forms a shield from force effect in front of wearer, grants +2 shield AC</description></jewel>
+<jewel tier="8" cost="10k" flags="S">Amulet of Spell Cunning<description>allows a memorizer spellcaster to prepare 3SL additional spells per day</description></jewel>
+<jewel tier="8" cost="10k" flags=".">Ring of Foe Focus<description>designate a target (single) and against that target has +2 AC and saves, can change target if target is dead or once in a minute</description></jewel>
+<jewel tier="8" cost="10k" flags=".">Ring of Curing<description>all healing spells cast by wearer has +2 CL</description></jewel>
+<jewel tier="8" cost="10k" flags=".">Frost Fist Amulet<description>unarmed deal d6 cold damage and unarmed treated cold iron</description></jewel>
+  
+<jewel tier="9" cost="12k" flags=".">Guardian Gorget<description>grants +2 armor AC and also "Light Fortification" ability. once until triggered can out a blast glyph that deal damage to attacker only on hit wearer</description></jewel>
+<jewel tier="9" cost="12k" flags=".">Medallion of Thoughts<description>as spell Detect Thoughts</description></jewel>
+<jewel tier="9" cost="12k" flags=".">Steelhand Circle<description>1/day negates the effects of a critical hit or sneak attack. hit becomes normal hit instead of critical or sneak attack</description></jewel>
+<jewel tier="9" cost="12k" flags=".">Periapt of Protection from Curses<description>3/day can reroll a curse save to take the second</description></jewel>
+<jewel tier="9" cost="12k" flags=".">Ring of Element, Minor<description>grants 10 resistance to element, stacks with other sources</description></jewel>
+<jewel tier="9" cost="12k" flags=".">Ring of Chameleon Power<description>grants wearer +10 Stealth and at will spell "Disguise Self"</description></jewel>
+
+<jewel tier="10" cost="13k" flags=".">Forge Fist Amulet<description>unarmed deal d6 fire damage and unarmed treated adamantine</description></jewel>
+<jewel tier="10" cost="15k" flags=".">Ring of Balor<description>if wearer dies while wearing this ring spell casts an explosion within 20ft range dealing HD d8 (half fire, half bludgeoning) to anyone caught in area by blowing up the corpse of wearer, no SR, Reflex/2 with DC 15 + wearer HD/2, this ring is not destroyed during the explosion. (former) wearer can only be resurrected by Wish + True Resurrection</description></jewel>
+<jewel tier="10" cost="15k" flags=".">Periapt of Wound Closure<description>always stabilizes wearer if negative HP, double natural healing, cures bleeding attacks immediately</description></jewel>
+<jewel tier="10" cost="16k" flags=".">Ring of Jailor<description>this ring is a pair, jailor wears one and a prisoner other. prisoner cannot remove the ring and only jailor can do (or Wish spell after casting CL20 remove curse). jailor can continuously see status of prisoner and also his position/location as "Status" spell</description></jewel>
+<jewel tier="10" cost="16k" flags=".">Amulet of Mighty Fists +2<description>grants +2 TH and damage with unarmed damage</description></jewel>
+<jewel tier="10" cost="16k" flags=".">Necklace of Ki Serenity<description>consider Monk levels +4 for ki damage</description></jewel>
+<jewel tier="10" cost="16k" flags=".">Ring of Swarming Stabs<description>Sneak Attack/Skirmish level is considered +2 for improving such abilities, can exceed character level</description></jewel>
+  
+<jewel tier="11" cost="16800" flags=".">Brooch of Amber Sparks<description>absorb electric damage wearer subject with 20 limit and total 50 per day. wearer can release the electric damage within 10 minutes dealing d6 per 5 electric stored as shocking grasp spell</description></jewel>
+<jewel tier="11" cost="17500" flags=".">Symbol of Sanguine Protection<description>wearer damage self d6 and cured after 1 day for creating his holy blood. when blood put in pendant and an undead attacks for blood drain attack, takes 4d6 positive energy damage and sickened for d4 R if DC 16 Will fail.</description></jewel>
+<jewel tier="11" cost="18k" flags="S">Ring of Wizardry 3<description>grants 1 more spell slot per day for a arcane spell caster to cast up to SL 3</description></jewel>
+<jewel tier="11" cost="18k" flags="S">Ring of Clergy 3<description>grants 1 more spell slot per day for a divine spell caster to cast up to SL 3</description></jewel>
+<jewel tier="11" cost="18k" flags="S">Ring of Spell Knowledge 3<description>ring has a spell from SL 3 in it, any spontaneous arcane spell caster can use the spell in ring as if she knows the spell</description></jewel>
+<jewel tier="11" cost="18k" flags=".">Ring of Protection +3<description>grants wearer +3 deflection AC</description></jewel>
+<jewel tier="11" cost="18k" flags=".">Amulet of Natural Armor +3<description>grants +3 Natural armor to wearer</description></jewel>
+<jewel tier="11" cost="18k" flags=".">Ring of Inner Fortitude, Minor<description>ring reduces ability damage by 2 and drain by 1 (will drop from multiple abilities if that occurs from same source)</description></jewel>
+
+<jewel tier="12" cost="20k" flags=".">Bone Ring<description>ring has 3 charges, for every negative level attack made to target, 1 charge is expended. charges replenished daily</description></jewel>
+<jewel tier="12" cost="20k" flags=".">Ring of Invisibility<description>on activation std action wearer becomes invisible</description></jewel>
+<jewel tier="12" cost="20k" flags=".">Ring of Divine Mastery<description>grants wearer +1 CL for divine spells</description></jewel>
+<jewel tier="12" cost="20k" flags="S">Ampoule of False Blood<description>permanently changes sorcerer bloodline effects including spells/abilities etc</description></jewel>
+<jewel tier="12" cost="20k" flags=".">Ring of Arcane Mastery<description>grants wearer +1 CL for arcane spells</description></jewel>
+<jewel tier="12" cost="20k" flags="S">Amulet of Magecraft<description>only universalits wizard and must use this item as arcane bond. select a school, any memorized spell from a SL can be swaped to another known same school spell</description></jewel>
+
+<jewel tier="13" cost="20k" flags=".">Dragonfoe Amulet<description>ignore damage reduction of dragon, any spell cast to a dragon roll spell resistance twice and take better. against dragon's breath considered to have evasion ability</description></jewel>
+<jewel tier="13" cost="22k" flags=".">Amulet of Spell Mastery<description>allows a memorizer spellcaster to prepare 6SL additional spells per day</description></jewel>
+<jewel tier="13" cost="25k" flags=".">Ring of Evasion<description>grants wearer Evasion ability if wearer has no armor or light armored</description></jewel>
+<jewel tier="13" cost="27k" flags=".">Periapt of Proof Against Poison<description>immune to poison</description></jewel>
+<jewel tier="13" cost="28k" flags=".">Ring of Element, Major<description>grants 20 resistance to element, stacks with other sources</description></jewel>
+<jewel tier="13" cost="28k" flags="S">Ring of Spell Storing, Minor<description>stores a spell caster can cast up to 3 SL (can be any combination), activating spells are free action</description></jewel>
+
+<jewel tier="14" cost="32k" flags=".">Amulet of Natural Armor +4<description>grants +4 Natural armor to wearer</description></jewel>
+<jewel tier="14" cost="32k" flags="S">Ring of Wizardry 4<description>grants 1 more spell slot per day for a arcane spell caster to cast up to SL 4</description></jewel>
+<jewel tier="14" cost="32k" flags=".">Ring of Protection +4<description>grants wearer +4 deflection AC</description></jewel>
+<jewel tier="14" cost="32k" flags="S">Ring of Spell Knowledge 4<description>ring has a spell from SL 4 in it, any spontaneous arcane spell caster can use the spell in ring as if she knows the spell</description></jewel>
+<jewel tier="14" cost="32k" flags="S">Ring of Clergy 4<description>grants 1 more spell slot per day for a divine spell caster to cast up to SL 4</description></jewel>
+
+<jewel tier="15" cost="36k" flags=".">Amulet of Mighty Fists +3<description>grants +3 TH and damage with unarmed damage</description></jewel>
+<jewel tier="15" cost="38k" flags=".">Scarab of Protection<description>spell resistance 23, absorbs 12 energy drain, death, negative energy attack. once 12 charge depleted item destroyed</description></jewel>
+<jewel tier="15" cost="40k" flags=".">Ring of Freedom of Movement<description>wearer is under continuous effect of freedom of movement spell</description></jewel>
+<jewel tier="15" cost="42k" flags=".">Ring of Inner Fortitude, Major<description>ring reduces ability damage by 4 and drain by 2 (will drop from multiple abilities if that occurs from same source)</description></jewel>
+<jewel tier="15" cost="44k" flags=".">Ring of Element, Greater<description>grants 30 resistance to element, stacks with other sources</description></jewel>
+<jewel tier="15" cost="45k" flags=".">Ring of Delayed Doom<description>ring has 9 charges, whenever a spell is cast on wearer and wearer fails its save, as immediate action wearer might opt to delay the effect whatever it is. each round one charge is spent until the hostile spell caster is defeated/killed or spell dispelled or wearer stops using charges for the effect. when nine charges are depleted, ring is useless. only a spell of targeted effect can be delayed (not area, touch or ray)</description></jewel>
+
+<jewel tier="16" cost="50k" flags=".">Amulet of Natural Armor +5<description>grants +5 Natural armor to wearer</description></jewel>
+<jewel tier="16" cost="50k" flags="S">Ring of Clergy 5<description>grants 1 more spell slot per day for a divine spell caster to cast up to SL 5</description></jewel>
+<jewel tier="16" cost="50k" flags=".">Ring of Spell Knowledge 5<description>ring has a spell from SL 5 in it, any spontaneous arcane spell caster can use the spell in ring as if she knows the spell</description></jewel>
+<jewel tier="16" cost="50k" flags="S">Ring of Wizardry 5<description>grants 1 more spell slot per day for a arcane spell caster to cast up to SL 5</description></jewel>
+<jewel tier="16" cost="50k" flags=".">Ring of Protection +5<description>grants wearer +5 deflection AC</description></jewel>
+<jewel tier="16" cost="64k" flags=".">Amulet of Mighty Fists +4<description>grants +4 TH and damage with unarmed damage</description></jewel>
+<jewel tier="16" cost="66k" flags=".">Ring of Inner Fortitude, Greater<description>ring reduces ability damage by 6 and drain by 3 (will drop from multiple abilities if that occurs from same source)</description></jewel>
+
+<jewel tier="17" cost="70k" flags=".">Spiritualist's Ring<description>ring grants wearer multiple abilities, 3/day speak with death with each 10 minutes, 3/day spectral hand, any weapon held is "Ghost Touch", gains +4 save bonus vs positive or negative energy effects</description></jewel>
+<jewel tier="17" cost="70k" flags="S">Ring of Spell Storing, Major<description>stores a spell caster can cast up to 5 SL (can be any combination), activating spells are free action</description></jewel>
+<jewel tier="17" cost="72k" flags="S">Ring of Clergy 6<description>grants 1 more spell slot per day for a divine spell caster to cast up to SL 6</description></jewel>
+<jewel tier="17" cost="72k" flags="S">Ring of Spell Knowledge 6<description>ring has a spell from SL 6 in it, any spontaneous arcane spell caster can use the spell in ring as if she knows the spell</description></jewel>
+<jewel tier="17" cost="72k" flags="S">Ring of Wizardry 6<description>grants 1 more spell slot per day for a arcane spell caster to cast up to SL 6</description></jewel>
+<jewel tier="17" cost="75k" flags=".">Ring of Telekinesis<description>allows wearer to cast telekinesis spell at will, each use is a std action as supernatural effect</description></jewel>
+
+<jewel tier="18" cost="90k" flags=".">Ring of Regeneration<description>cures wearer 1HP per round. wearer is immune to bleed attacks. if wearer loses any limbs, ring can grow such wounds within a minute</description></jewel>
+<jewel tier="18" cost="92k" flags=".">Ring of Elemental Absoption<description>wearer is immune to the element and also heals self by %50 by any element effect</description></jewel>
+<jewel tier="18" cost="98k" flags="S">Ring of Clergy 7<description>grants 1 more spell slot per day for a divine spell caster to cast up to SL 7</description></jewel>
+<jewel tier="18" cost="98k" flags="S">Ring of Spell Knowledge 7<description>ring has a spell from SL 7 in it, any spontaneous arcane spell caster can use the spell in ring as if she knows the spell</description></jewel>
+<jewel tier="18" cost="98k" flags="S">Ring of Wizardry 7<description>grants 1 more spell slot per day for a arcane spell caster to cast up to SL 7</description></jewel>
+<jewel tier="18" cost="100k" flags=".">Amulet of Mighty Fists +5<description>grants +5 TH and damage with unarmed damage</description></jewel>
+
+<jewel tier="19" cost="100k" flags=".">Ring of Spell Turning<description>3/day can activate ring power equivalent to spell turning to reflect spell back to caster</description></jewel>
+<jewel tier="19" cost="100k" flags=".">Ring of Wish<description>ring has a CL20 Wish spell stored in it, wearer can activate the wish ability anytime he wishes as immediate action but ring turns to ashes</description></jewel>
+<jewel tier="19" cost="120k" flags=".">Amulet of Planes<description>1/day allows wearer to use Planeshift to another plane (and return back)</description></jewel>
+<jewel tier="19" cost="128k" flags="S">Ring of Clergy 8<description>grants 1 more spell slot per day for a divine spell caster to cast up to SL 8</description></jewel>
+<jewel tier="19" cost="128k" flags="S">Ring of Spell Knowledge 8<description>ring has a spell from SL 8 in it, any spontaneous arcane spell caster can use the spell in ring as if she knows the spell</description></jewel>
+<jewel tier="19" cost="128k" flags="S">Ring of Wizardry 8<description>grants 1 more spell slot per day for a arcane spell caster to cast up to SL 8</description></jewel>
+
+<jewel tier="20" cost="136k" flags="S">Ring of Spell Storing, Greater<description>stores a spell caster can cast up to 10 SL (can be any combination), activating spells are free action</description></jewel>
+<jewel tier="20" cost="162k" flags="S">Ring of Clergy 9<description>grants 1 more spell slot per day for a divine spell caster to cast up to SL 9</description></jewel>
+<jewel tier="20" cost="162k" flags="S">Ring of Spell Knowledge 9<description>ring has a spell from SL 9 in it, any spontaneous arcane spell caster can use the spell in ring as if she knows the spell</description></jewel>
+<jewel tier="20" cost="162k" flags="S">Ring of Wizardry 9<description>grants 1 more spell slot per day for a arcane spell caster to cast up to SL 9</description></jewel>
+    </jewelry>
+
+  <trinkets>
+  
+<trinket tier="1" cost="75" slot="T" flags=".">Ioun Torch<description>this is torch without hands</description></trinket>
+<trinket tier="1" cost="150" slot="T" flags=".">Unguent of Timelessness<description>if an object was once alive but dead one, preserves the object (corpse)</description></trinket>
+<trinket tier="1" cost="250" slot="T" flags=".">Silversheen<description>one use coats a weapon to silver for 1hour</description></trinket>
+<trinket tier="1" cost="250" slot="T" flags=".">Elixir of Hiding<description>expended on use, +10 Stealth for 1 hour</description></trinket>
+<trinket tier="1" cost="250" slot="T" flags=".">Elixir of Swimming<description>expended on use, grants swim ability with 20ft for 1 hour</description></trinket>
+<trinket tier="1" cost="250" slot="T" flags=".">Elixir of Tumbling<description>expended on use, +10 Acrobatics for 1 hour</description></trinket>
+<trinket tier="1" cost="250" slot="T" flags=".">Elixir of Vision<description>expended on use, +10 Perception for 1 hour</description></trinket>
+<trinket tier="1" cost="500" slot="T" flags=".">Elixir of Truth<description>drinker must tell truth unless Will (mind) 13 for 1 hour</description></trinket>
+<trinket tier="1" cost="500" slot="T" flags=".">Masterwork Artisan's Tools<description>+3 specific Craft [Armorsmithing, Weaponsmithing, Fletchery, Alchemy, "Custom"] skill</description></trinket>
+<trinket tier="1" cost="720" slot="T" flags=".">Campfire Bead<description>can make campfire for 8hour but requires 16hour cooldown</description></trinket>
+<trinket tier="1" cost="750" slot="T" flags=".">Snapleaf<description>expended on use, activate invisibility plus feather fall as immediate action</description></trinket>
+<trinket tier="1" cost="750" slot="T" flags=".">Iron Rope<description>rope becomes iron at command</description></trinket>
+<trinket tier="1" cost="750" slot="T" flags=".">Assassin's Dust<description>when sprinkled on a corpse, corpse becomes to dust like Disintegrate spell</description></trinket>
+<trinket tier="1" cost="800" slot="T" flags=".">Dust of Emulation<description>expended on use, Impersonation on magical item activation is auto success for 1 hour</description></trinket>
+<trinket tier="1" cost="500" slot="T" flags="S">Wand of Arcane Spell [SL1,CL1]<description>a wand of Arcane spell of SL1, contains 5d10 charges</description></trinket>
+<trinket tier="1" cost="500" slot="T" flags="S">Wand of Divine Spell [SL1,CL1]<description>a wand of Divine spell of SL1, contains 5d10 charges</description></trinket>
+
+<trinket tier="2" cost="1k" slot="C" flags=".">Cloak of Resistance +1<description>+1 all saves</description></trinket>
+<trinket tier="2" cost="1k" slot="G" flags=".">Bracers of Armor +1<description>+1 armor AC</description></trinket>
+<trinket tier="2" cost="1k" slot="T" flags="S">Pyxes of Redirected Focus<description>a cleric can swap the domain spell from one domain to another, 1/day</description></trinket>
+<trinket tier="2" cost="1k" slot="C" flags=".">Shawl of Life-Keeping<description>shawl stores up to 10 hp (by reducing from wearer hp) and whenever wearer is negative hp then shawl can cure for stored hp immediately. 1/day</description></trinket>
+<trinket tier="2" cost="1k" slot="T" flags=".">Concealing Pocket<description>swen on a cloth to create pocket, +5 Finesse for concealing a magic item</description></trinket>
+<trinket tier="2" cost="1k" slot="T" flags="S">Page of Spell Knowledge 1<description>contains a spell of SL1, spontaneous caster knows this spell and memorizers can memorize it like a spell of their own. always use highest cost for multi class/level spells</description></trinket>
+<trinket tier="2" cost="1k" slot="T" flags="S">Pearl of Power 1<description>allows to re-prepare a SL of 1 of a cast spell</description></trinket>
+<trinket tier="2" cost="1100" slot="T" flags=".">Grave Salt<description>5 charge, expended on use, 5ft circle and character is consecrated. or can be thrown 15ft to any incorporeal undead take d4 Charisma damage unless DC 14 Will save</description></trinket>
+<trinket tier="2" cost="1400" slot="T" flags=".">Elixir of Dragon Breath<description>expended on use, 7d6 dragon breath damage (30ft line / 15ft cone)</description></trinket>
+<trinket tier="2" cost="1500" slot="C" flags=".">Quickchange Cloak<description>cloak can store 3 disguises and applies with former roll when activated</description></trinket>
+<trinket tier="2" cost="1500" slot="T" flags="S">Wand of Arcane Spell [SL2,CL4]<description>a wand of Arcane spell of SL2, contains 5d10 charges</description></trinket>
+<trinket tier="2" cost="1500" slot="T" flags="S">Wand of Divine Spell [SL2,CL4]<description>a wand of Divine spell of SL2, contains 5d10 charges</description></trinket>
+<trinket tier="2" cost="1800" slot="T" flags=".">Pipes of Sounding<description>can create environmental sounds</description></trinket>
+<trinket tier="2" cost="1800" slot="H" flags=".">Hat of Disguise<description>disguise self at will</description></trinket>
+<trinket tier="2" cost="1800" slot="T" flags=".">Scabbard of Vigor<description>can enchant weapon for total 10R (+4 1R, +3 3R, +2 5R, +1 10R)</description></trinket>
+<trinket tier="2" cost="2k" slot="T" flags=".">Horn of Fog<description>as spell obscuring mist as long as spend move action</description></trinket>
+<trinket tier="2" cost="2k" slot="T" flags=".">Restoration Dust<description>1 use dust allows a corpse to grow flesh so that it can be identified</description></trinket>
+<trinket tier="2" cost="2k" slot="H" flags=".">Deathwatch Eyes<description>continuous Deathwatch spell</description></trinket>
+<trinket tier="2" cost="2k" slot="G" flags=".">Gloves of Reconnaissance<description>for 10 R / day allows wearer to see or hear through solid material up to 15ft</description></trinket>
+<trinket tier="2" cost="2k" slot="T" flags=".">Blood Reservoir of Physical Prowess<description>deal 4 ability damage to fill, whenever character is subject to ability damage, this item uses charges instead to cure instantly</description></trinket>
+<trinket tier="2" cost="2k" slot="L" flags=".">Belt of Superior Maneuvers +1<description>3/day gives +1 to chosen maneuver (CMB or CMD) for 1 R</description></trinket>
+<trinket tier="2" cost="2250" slot="T" flags=".">Elemental Gem<description>if broken a Large elemental of element is summoned</description></trinket>
+<trinket tier="2" cost="2250" slot="T" flags=".">Flying Ointment<description>expended on use, allows fly for 1 hour</description></trinket>
+  
+<trinket tier="3" cost="2500" slot="C" flags="S">Cloak of the Hedge Wizard<description>at will 0SL arcane spells to wizard only to specialist</description></trinket>
+<trinket tier="3" cost="2500" slot="T" flags=".">Candle of Truth<description>casts Zone of Truth for 1 hour</description></trinket>
+<trinket tier="3" cost="2500" slot="B" flags=".">Boots of Elvenkind<description>+5 Acrobatics</description></trinket>
+<trinket tier="3" cost="2500" slot="C" flags=".">Cloak of Elvenkind<description>+5 Stealth</description></trinket>
+<trinket tier="3" cost="2500" slot="H" flags=".">Goggles of Minute Seeing<description>+5 Finesse</description></trinket>
+<trinket tier="3" cost="2500" slot="G" flags=".">Gloves of Larceny<description>+5 Finesse</description></trinket>
+<trinket tier="3" cost="2500" slot="G" flags=".">Healer's Gloves<description>+5 Heal</description></trinket>
+<trinket tier="3" cost="2500" slot="H" flags=".">Stalker's Mask<description>+5 Stealth, 1/day as full round action observe a target to gain +10 Impersonation for the target for 1 hour. also +1 attack and damage roll to the target</description></trinket>
+<trinket tier="3" cost="2500" slot="T" flags=".">Eyes of Eagle<description>grants +5 Perception</description></trinket>
+<trinket tier="3" cost="2500" slot="T" flags=".">Candle of Truth<description>casts Zone of Truth and lasts for 1 hour</description></trinket>
+<trinket tier="3" cost="2600" slot="C" flags=".">Cloak of Fiery Vanishing<description>1/day when subject to fire damage, becomes invisible for 5R. DC 11 Will save or target believe wearer burnt to dust and ashe</description></trinket>
+<trinket tier="3" cost="3k" slot="T" flags=".">All Tools Vest<description>on command vest creates all necessary tools for a Craft skill for 24hour</description></trinket>
+<trinket tier="3" cost="3k" slot="T" flags=".">Chime of Openning<description>10 use charge opens a regular lock or dispels an Arcane Lock / Hold Portal with CL=15</description></trinket>
+<trinket tier="3" cost="3k" slot="A" flags=".">Vest of Surgery<description>+5 Heal</description></trinket>
+<trinket tier="3" cost="3k" slot="H" flags=".">Spectacles of Understanding<description>converts text read to wearer to a known language</description></trinket>
+<trinket tier="3" cost="3k" slot="T" flags="S">Minor (SL+1) Metamagic Rod, Lesser<description>3/day upto 3th level spell cast, can apply a metamagic feat on the fly to the spell cast</description></trinket>
+<trinket tier="3" cost="3k" slot="B" flags=".">Acrobat Slippers<description>wearer retain Dexterity bonus to AC when climbing, running or using Acrobatics</description></trinket>
+<trinket tier="3" cost="3k" slot="C" flags=".">Pauldrons of the Serpent<description>+2 dodge AC for attack opportunity and +2 CMD against bullrush, grapple, trip</description></trinket>
+<trinket tier="3" cost="3k" slot="T" flags=".">Rope of Climbing<description>60ft long rope can be fixed on commandin air. </description></trinket>
+<trinket tier="3" cost="3k" slot="T" flags=".">Cauldron of Brewing<description>+5 on Craft [Alchemy]</description></trinket>
+<trinket tier="3" cost="3k" slot="T" flags="S">Wand of Arcane Spell [SL3,CL6]<description>a wand of Arcane spell of SL3, contains 5d10 charges</description></trinket>
+<trinket tier="3" cost="3k" slot="T" flags="S">Wand of Divine Spell [SL3,CL6]<description>a wand of Divine spell of SL3, contains 5d10 charges</description></trinket>
+<trinket tier="3" cost="3500" slot="T" flags=".">Lens of Detection<description>+5 Perception and +5 Nature for tracking a target</description></trinket>
+<trinket tier="3" cost="3500" slot="B" flags=".">Boots of the Mire<description>leaves no trace in swampy area and move with no penalty, +2 save Fortitude vs poison and disease</description></trinket>
+<trinket tier="3" cost="3600" slot="H" flags=".">Dead Man's Headband<description>+2 Influence, +1 DC for fear effect wearer has</description></trinket>
+<trinket tier="3" cost="3750" slot="A" flags="S">Druid's Vestment<description>1 additional Wildshape use per day</description></trinket>
+
+<trinket tier="4" cost="4k" slot="L" flags=".">Belt of Giant Strength +2<description>+2 Strength</description></trinket>
+<trinket tier="4" cost="4k" slot="B" flags=".">Boots of Winterlands<description>5 cold resistance and also endure elements to cold</description></trinket>
+<trinket tier="4" cost="4k" slot="T" flags=".">Stone Salve<description>1 use, either reverts a petrified creature back to life or applies Stoneskin spell</description></trinket>
+<trinket tier="4" cost="4k" slot="H" flags=".">Ioun Stone (Sustenance)<description>sustains creature with food and water</description></trinket>
+<trinket tier="4" cost="4k" slot="G" flags=".">Bracers of Armor +2<description>+2 armor AC</description></trinket>
+<trinket tier="4" cost="4k" slot="C" flags=".">Cloak of Resistance +2<description>+2 all saves</description></trinket>
+<trinket tier="4" cost="4k" slot="H" flags=".">Circlet of Alluring Charisma +2<description>+2 Charisma</description></trinket>
+<trinket tier="4" cost="4k" slot="H" flags=".">Circlet of Vast Intelligence +2<description>+2 Intelligence</description></trinket>
+<trinket tier="4" cost="4k" slot="T" flags=".">Restorative Ointment<description>expended on use, one of neutralize poison (+5), remove disease (+5), cure d8+5</description></trinket>
+<trinket tier="4" cost="4k" slot="A" flags=".">Bodywrap of Mighty Strikes +1<description>grants +1 TH and damage with unarmed damage</description></trinket>
+<trinket tier="4" cost="4k" slot="A" flags=".">Tunic of Deadly Might<description>+2 CMD for disarm and sunder. 1/day on critical hit can activate "Thundering" weapon ability</description></trinket>
+<trinket tier="4" cost="4k" slot="B" flags=".">Burglar Boots, Minor<description>+5 Perception for locate traps, +5 AC and Reflex save vs traps</description></trinket>
+<trinket tier="4" cost="4k" slot="G" flags=".">Trapspringer's Gloves<description>+5 Finesse vs traps, +1 luck save vs traps</description></trinket>
+<trinket tier="4" cost="4k" slot="B" flags=".">Sandals of Quick Reaction<description>can move +10ft speed at surprise rounds</description></trinket>
+<trinket tier="4" cost="4k" slot="G" flags=".">Vambraces of Defense<description>+1 deflection AC</description></trinket>
+<trinket tier="4" cost="4k" slot="T" flags="S">Page of Spell Knowledge 2<description>contains a spell of SL2, spontaneous caster knows this spell and memorizers can memorize it like a spell of their own. always use highest cost for multi class/level spells</description></trinket>
+<trinket tier="4" cost="4k" slot="T" flags="S">Pearl of Power 2<description>allows to re-prepare a SL of 2 of a cast spell</description></trinket>
+<trinket tier="4" cost="4k" slot="G" flags=".">Gauntlets of the Skilled Maneuver<description>+2 to a combat maneuver</description></trinket>
+<trinket tier="4" cost="4k" slot="H" flags=".">Eyes of the Owl<description>lowlight vision</description></trinket>
+<trinket tier="4" cost="4k" slot="H" flags=".">Circlet of Inspiring Wisdom +2<description>+2 Wisdom</description></trinket>
+<trinket tier="4" cost="4k" slot="L" flags=".">Belt of Mighty Constitution +2<description>+2 Constitution</description></trinket>
+<trinket tier="4" cost="4k" slot="L" flags=".">Belt of Incredible Dexterity +2<description>+2 Dexterity</description></trinket>
+
+<trinket tier="5" cost="4500" slot="H" flags=".">Circlet of Persuasion<description>+3 to Influence and Society</description></trinket>
+<trinket tier="5" cost="4500" slot="H" flags=".">Helm of Comprehend Languages<description>understands any language in spoken and written language</description></trinket>
+<trinket tier="5" cost="4800" slot="B" flags=".">Slippers of Spider Climbing<description>can climb to walls and ceiling without hands with 20ft speed, very slippery surfaces are impossible. can be used 10 minutes per day</description></trinket>
+<trinket tier="5" cost="4900" slot="T" flags=".">Physician's Spectacles<description>continuous Detect Poison and Diagnose Disease spell</description></trinket>
+<trinket tier="5" cost="4900" slot="T" flags="S">Incense of Meditation<description>divine spellcaster maximize all spells if meditate with this, 1 use</description></trinket>
+<trinket tier="5" cost="5k" slot="T" flags=".">Sheath of Bladestealth<description>when weapon is sheathed, makes weapon invisible</description></trinket>
+<trinket tier="5" cost="5k" slot="H" flags=".">Ioun Stone (Defense)<description>+1 insight AC</description></trinket>
+<trinket tier="5" cost="5k" slot="H" flags=".">Grappler's Mask<description>enables wearer to bullrush or grapple without attack opportunity</description></trinket>
+<trinket tier="5" cost="5k" slot="T" flags="S">Polymorphic Pouch<description>allows polymorphed (wildshape) holder to access an item from backpack</description></trinket>
+<trinket tier="5" cost="5k" slot="G" flags="S">Spellguard Bracers<description>spellcaster has +2 concentration when casting defensively. 3/day can roll 2 concentration and take better</description></trinket>
+<trinket tier="5" cost="5k" slot="T" flags=".">Jingasa of the Fortunate Soldier<description>+1 luck AC, 1/day negate a critical hit to a normal hit.</description></trinket>
+<trinket tier="5" cost="5k" slot="A" flags="S">Sorcerer's Robe<description>3/day a sorcerer can use the bloodline 1st level ability when he casts a spell</description></trinket>
+<trinket tier="5" cost="5k" slot="T" flags=".">Scabbard of Stanching<description>protects from any bleed attack if DC is 15 or less</description></trinket>
+<trinket tier="5" cost="5k" slot="G" flags=".">Bracers of Archery, Lesser<description>grants proficiency to any bow, +1 TH and damage rolls</description></trinket>
+<trinket tier="5" cost="5k" slot="T" flags="S">Wand of Arcane Spell [SL4,CL8]<description>a wand of Arcane spell of SL4, contains 5d10 charges</description></trinket>
+<trinket tier="5" cost="5k" slot="T" flags="S">Wand of Divine Spell [SL4,CL8]<description>a wand of Divine spell of SL4, contains 5d10 charges</description></trinket>
+<trinket tier="5" cost="5200" slot="L" flags=".">Plague Rat Belt<description>+2 Constitution, 1/day reroll a disease or poison save (take the second)</description></trinket>
+<trinket tier="5" cost="5400" slot="T" flags=".">Eversmoking Bottle<description>creates smoke of 10ft cube per round up to 100ft cube, in wind disperses 4R or in strong wind 1R</description></trinket>
+<trinket tier="5" cost="5500" slot="T" flags=".">Wind Fan<description>1/day as spell Gust of Wind</description></trinket>
+<trinket tier="5" cost="5500" slot="B" flags=".">Boots of Striding and Springing<description>+10ft base land move speed, +5 Athletics and Acrobatics</description></trinket>
+<trinket tier="5" cost="5600" slot="H" flags=".">Headband of Unshakeable Resolve<description>+2 Wisdom, 3/day reduce fear level by 1 (panicked>>frightened>>shaken>>negated entirely)</description></trinket>
+
+<trinket tier="6" cost="6k" slot="T" flags="S">Pipes of Haunting<description>increases DC of fear based bardic performance by 2</description></trinket>
+<trinket tier="6" cost="6k" slot="T" flags=".">Singing Bell of Striking<description>any ki users (monk) can deal cold iron or silver damage instead of magic, until rest</description></trinket>
+<trinket tier="6" cost="6k" slot="H" flags=".">Eyes of Keen Sight<description>lowlight vision or range doubled if already has, +2 Perception</description></trinket>
+<trinket tier="6" cost="6k" slot="G" flags=".">Magnetist's Gloves<description>3/day can disarm a metal weapon within 30ft</description></trinket>
+<trinket tier="6" cost="6k" slot="C" flags=".">Treeform Cloak<description>1/day become tree as spell. every hour under sun heal d6 hp</description></trinket>
+<trinket tier="6" cost="6k" slot="G" flags=".">Bonebreaker Gauntlets<description>1/day with melee natural attack deal injury to target unless 14 Will save. if save fail deal 6 ability damage to any physical stat. this damage heal 1 per day or healing spells like heal, regenerate, restoration or curse removing spells</description></trinket>
+<trinket tier="6" cost="6k" slot="T" flags=".">Horn of Battle Clarity<description>if blown on surprise round, all allies within 60ft are not flat-footed even not acted yet</description></trinket>
+<trinket tier="6" cost="6k" slot="T" flags=".">Martyr's Tear<description>owner store 3d6 HP by wounding self and transfer the gem to any. can use the gem to cure</description></trinket>
+<trinket tier="6" cost="6k" slot="C" flags=".">Cloak of the Scuttling Rat<description>5min/day with 1 min use every case, polymorph into a dire rat</description></trinket>
+<trinket tier="6" cost="6k" slot="T" flags=".">Pipes of Inspire<description>increases DC of heroism based bardic performance by 2</description></trinket>
+<trinket tier="6" cost="6250" slot="G" flags=".">Gloves of Swimming and Climbing<description>+9 Athletics</description></trinket>
+<trinket tier="6" cost="6400" slot="H" flags=".">Headband of Deathless Devotion<description>+2 save bonus vs continuous save spells/effects (poison, dominate person etc...)</description></trinket>
+<trinket tier="6" cost="6500" slot="T" flags=".">Horn of Goodness/Evil<description>1/day as spell magic circle against good/evil</description></trinket>
+<trinket tier="6" cost="7k" slot="C" flags=".">Eagle Cape<description>affected as feather fall spell. 1/day can transform into an eagle allowing 80ft fly and +5 perception for 10minutes</description></trinket>
+<trinket tier="6" cost="7k" slot="C" flags=".">Cape of Bravado<description>when held a part in one hand grants +1 insight AC, +5 Influence to feint. </description></trinket>
+<trinket tier="6" cost="7k" slot="T" flags=".">Mirror of Guarding Reflections<description>owner can create image (as spell mirror image) 3/day, against any any attacker immediately form an image. if image is hit it is destroyed but next time attacker makes a TH or save, rolls twice and takes worse</description></trinket>
+<trinket tier="6" cost="7k" slot="T" flags=".">Bottle of Shadows<description>has 4 charge, summon a shadow to do master's bidding for 1R each charge</description></trinket>
+<trinket tier="6" cost="7k" slot="T" flags="S">Phylactery of the Shepherd<description>3/day can watch any ally as spell status within 30ft. also allows wearer to use Channel Energy or Faithful Touch from range as swift action to the target</description></trinket>
+<trinket tier="6" cost="7200" slot="H" flags=".">Mask of the Krenshar<description>3/day all within 100ft who see must DC 13 will (mind) or frightened (HD6-) or shaken (HD6+) for d4 R, this is an illusion so trueseeing is unaffected</description></trinket>
+<trinket tier="6" cost="7200" slot="B" flags=".">Jaunt Boots<description>3/day when make 5ft move action then move 15ft instead</description></trinket>
+<trinket tier="6" cost="7250" slot="T" flags=".">Bottle of Air<description>allows breathing continuously</description></trinket>
+<trinket tier="6" cost="7500" slot="T" flags=".">One-way Window<description>a small frame when put on a solid wall, can show other side without seeing from other part. </description></trinket>
+<trinket tier="6" cost="7500" slot="T" flags=".">Manual of War<description>1/day for 24hour a FIGHTER can exchange a known feat with another he can attain</description></trinket>
+<trinket tier="6" cost="7500" slot="B" flags=".">Boots of Levitation<description>at will Levitate on self</description></trinket>
+
+<trinket tier="7" cost="8k" slot="L" flags=".">Belt of Superior Maneuvers +2<description>3/day gives +2 to chosen maneuver (CMB or CMD) for 1 R</description></trinket>
+<trinket tier="7" cost="8k" slot="T" flags=".">Restless Lockpicks<description>+2 Finesse, skill can be started as std action but later tool will continue as if animated object, total of 10R / day</description></trinket>
+<trinket tier="7" cost="8k" slot="G" flags=".">Iron Cobra Gauntlet<description>3/day for 1 hour animates a snake to do master's bidding</description></trinket>
+<trinket tier="7" cost="8k" slot="B" flags=".">Earth Root Boots<description>for every round stay in same place, gains +1 CMD for moving target away (+10 max)</description></trinket>
+<trinket tier="7" cost="8k" slot="G" flags=".">Duelist's Vambraces<description>+1 deflection AC with two weapon fighting. 1/round can ignore offhand attack roll penalty by 2</description></trinket>
+<trinket tier="7" cost="8k" slot="T" flags=".">Chalice of Poison Weeping<description>1/day neutralize poison from a poisoned target and chalice will have poison with the operation, it will have -4 DC</description></trinket>
+<trinket tier="7" cost="8k" slot="T" flags=".">Insignia of Valor<description>if owner kills a target with smite then can use channel energy as swift action</description></trinket>
+<trinket tier="7" cost="8k" slot="T" flags=".">Needles of Fleshgraving<description>1/day can transform an object to tattoo (lasting a week), tattoo owner can transform item back as std action</description></trinket>
+<trinket tier="7" cost="8k" slot="T" flags=".">Werewhistle<description>1/day any lycanthrope within 30 feet to make a DC 17 Will save or be forced back into its humanoid form for the next 24 hours</description></trinket>
+<trinket tier="7" cost="8k" slot="A" flags=".">Shirt of Immolation<description>any creature/target attacks wearer with natural attacks suffer d6 +10 fire damage, shirt burns for 10 R per day</description></trinket>
+<trinket tier="7" cost="8k" slot="A" flags=".">Snakeskin Tunic<description>+1 armor AC, +2 Dexterity, +2 save vs poison</description></trinket>
+<trinket tier="7" cost="8k" slot="G" flags=".">Deliquescent Gloves<description>unarmed attack deal d6 acid damage, allows to attack ooze</description></trinket>
+<trinket tier="7" cost="8k" slot="H" flags=".">Ioun Stone (Stat)<description>+2 to random stat</description></trinket>
+<trinket tier="7" cost="8400" slot="A" flags=".">Robe of Blending<description>1/day as spell Alter Self</description></trinket>
+<trinket tier="7" cost="9k" slot="C" flags=".">Cloak of Resistance +3<description>+3 all saves</description></trinket>
+<trinket tier="7" cost="9k" slot="A" flags=".">Blazing Robe<description>5 fire resistance, fire spells +1 CL</description></trinket>
+<trinket tier="7" cost="9k" slot="T" flags="S">Major (SL+2) Metamagic Rod, Lesser<description>3/day upto 3th level spell cast, can apply a metamagic feat on the fly to the spell cast</description></trinket>
+<trinket tier="7" cost="9k" slot="A" flags=".">Shocking Robe<description>5 electricity resistance, electricity spells +1 CL</description></trinket>
+<trinket tier="7" cost="9k" slot="A" flags=".">Voidfrost Robe<description>5 cold resistance, cold spells +1 CL</description></trinket>
+<trinket tier="7" cost="9k" slot="G" flags=".">Bracers of Armor +3<description>+3 armor AC</description></trinket>
+<trinket tier="7" cost="9k" slot="T" flags="S">Page of Spell Knowledge 3<description>contains a spell of SL3, spontaneous caster knows this spell and memorizers can memorize it like a spell of their own. always use highest cost for multi class/level spells</description></trinket>
+<trinket tier="7" cost="9k" slot="T" flags="S">Pearl of Power 3<description>allows to re-prepare a SL of 3 of a cast spell</description></trinket>
+<trinket tier="7" cost="9k" slot="T" flags=".">Decanter of Endless Water<description>creates endless water</description></trinket>
+<trinket tier="7" cost="9k" slot="G" flags=".">Glyphbane Gloves<description>+5 Finesse on traps, also if exceed by 10 then re-trigger the trap condition</description></trinket>
+<trinket tier="7" cost="9400" slot="L" flags=".">Monkey Belt<description>+2 Dexterity, when climbing does not lose Dexterity AC, can use belt as prehensile tail </description></trinket>
+<trinket tier="7" cost="9900" slot="G" flags=".">Seducer's Bane<description>+5 Will vs enchantment, +3 Influence. whenever an enchantment spell is cast on wearer, caster will believe spell succeed even it failed until a suspicious act</description></trinket>
+
+<trinket tier="8" cost="10k" slot="C" flags=".">Cloak of the Duskwalker<description>lowlight vision, 1/day can cast darkness as spell, can see within this darkness</description></trinket>
+<trinket tier="8" cost="10k" slot="C" flags=".">Cocoon Cloak<description>when wearer fall asleep, cloak makes a cocoon and cocoon has +4 natural AC, %25 immune to critical hits until wearer wakes up</description></trinket>
+<trinket tier="8" cost="10k" slot="C" flags=".">Pauldrons of the Bull<description>make 2 rolls for bullrush and take better (no limit), +2 CMD for bullrush</description></trinket>
+<trinket tier="8" cost="10k" slot="C" flags=".">Stone Cloak, Minor<description>when activated becomes stone, can take no action other than free. no dexterity bonus to AC but 5/adamantine damage reduction. +5 Stealth to hide. </description></trinket>
+<trinket tier="8" cost="10k" slot="T" flags=".">Mask Of A Thousand Tomes<description>+10 to Society, Religion and Nature skills but becomes blind when worn</description></trinket>
+<trinket tier="8" cost="10k" slot="H" flags=".">Medusa Mask<description>+4 save vs visual effects, gaze attack, illusions. 1/day make a target within 30ft gazed petrified for 1 min unless DC 15 Fort</description></trinket>
+<trinket tier="8" cost="10k" slot="T" flags="S">Doomharp<description>bard can have Dirge of Doom at 60ft range</description></trinket>
+<trinket tier="8" cost="10k" slot="T" flags=".">Hourglass of Last Chances<description>5 R per day non consecutive, on a target within 30ft suspends states: blinded, confused, dazzled, deafened, diseased, exhausted, fatigued, feebleminded, insanity, nauseated, poisoned, sickened, and stunned also enjoys freed of movement as spell</description></trinket>
+<trinket tier="8" cost="10k" slot="T" flags="S">Malleable Symbol<description>can change channel energy shape to one of 10ft burst to any within 30ft / 60ft line / 30ft cone</description></trinket>
+<trinket tier="8" cost="10k" slot="T" flags=".">Prayer Wheel of Ethical Strength<description>any ki users (monk) can deal good or evil damage instead of lawful, until rest</description></trinket>
+<trinket tier="8" cost="10k" slot="T" flags="S">Ornament of Healing Light<description>Faithful Touch can be ranged 15ft</description></trinket>
+<trinket tier="8" cost="10k" slot="B" flags=".">Boots of Speed<description>Haste on self as spell for 10R per day, not consecutive</description></trinket>
+<trinket tier="8" cost="10k" slot="G" flags=".">Bracelet of Friends<description>bracelets are pairs, if one calls a special command then other teleports to the first immediately if willing. 1 usage only and bracelet will turn to dust</description></trinket>
+<trinket tier="8" cost="10k" slot="L" flags=".">Belt of Physical Might +2<description>+2 to two of Strength, Dexterity or Constitution</description></trinket>
+<trinket tier="8" cost="10k" slot="H" flags=".">Circlet of Mental Prowess +2<description>+2 to two of Intelligence, Wisdom or Charisma</description></trinket>
+<trinket tier="8" cost="10k" slot="L" flags=".">Belt of Thunderous Charge<description>+2 Strength, +2 bullrush and overrun maneuvers. when do charge attack weapon is considered one size larger (die increase)</description></trinket>
+<trinket tier="8" cost="10k" slot="A" flags=".">Unfettered Shirt<description>for 10R per day as spell Freedom of Movement</description></trinket>
+<trinket tier="8" cost="10500" slot="B" flags=".">Boots of the Mastodon<description>-2 Stealth, +2 overrun, +2 dodge AC for defending overrun.</description></trinket>
+<trinket tier="8" cost="10500" slot="B" flags=".">Shoes of Lightning Leaping<description>1/day move as a lightning arc and deal 6d6 electric damage to all targets up to 50ft</description></trinket>
+<trinket tier="8" cost="11k" slot="T" flags="S">Phylactery of Negative Channelling<description>adds +2d6 to positive Channel Energy</description></trinket>
+<trinket tier="8" cost="11k" slot="T" flags="S">Phylactery of Positive Channelling<description>adds +2d6 to negative Channel Energy</description></trinket>
+<trinket tier="8" cost="11k" slot="T" flags="S">Minor (SL+1) Metamagic Rod<description>3/day upto 6th level spell cast, can apply a metamagic feat on the fly to the spell cast</description></trinket>
+<trinket tier="8" cost="11k" slot="L" flags=".">Minotaur Belt<description>+2 Strength, ignore terrain penalties for doing charge, overrun or bullrush. </description></trinket>
+<trinket tier="8" cost="11k" slot="H" flags=".">Hunter's Band<description>+5 Nature, also +1 damage bonus to all Favored Enemy class feature</description></trinket>
+<trinket tier="8" cost="11k" slot="C" flags=".">Cape of Mountebank<description>3/day Dimension Door</description></trinket>
+<trinket tier="8" cost="11200" slot="L" flags=".">Plague Rat Belt, Greater<description>+2 Dexterity and Constitution, 1/day reroll a disease or poison save (take the second)</description></trinket>
+<trinket tier="8" cost="11500" slot="G" flags="S">Bracers of the Avenging Knight<description>smite user wearer have +4 level for smite</description></trinket>
+<trinket tier="8" cost="11500" slot="G" flags="S">Bracers of the Merciful Knight<description>Faithful Touch user wearer have +4 level for Faithful Touch</description></trinket>
+<trinket tier="8" cost="11500" slot="G" flags=".">Gauntlets of Rust<description>protects wearer's equipment from rust attacks, 1/day casts rusting grasp</description></trinket>
+
+<trinket tier="9" cost="12k" slot="T" flags=".">Black Soul Shard<description>1/week can negate 1 negative level</description></trinket>
+<trinket tier="9" cost="12k" slot="H" flags=".">Cap of the Free Thinker<description>when rolling a mind affecting roll save, make roll twice and take better</description></trinket>
+<trinket tier="9" cost="12k" slot="H" flags=".">Veiled Eye<description>when regular eyes of wearer are unusable (blinded) then veiled eye take over still granting sight to wearer</description></trinket>
+<trinket tier="9" cost="12k" slot="T" flags="S">Pipes of Dissolution<description>bardic performance, all within 30ft gain +2 to dispel magic CL and spell resistance penetration, bardic performance every round as move action and every round DC (15) +1, once / hour</description></trinket>
+<trinket tier="9" cost="12k" slot="C" flags=".">Lion Cloak<description>+2 save vs mind affecting, fear and +2 Influence. 1/day can polymorph to lion for 10 minute. if has Smite ability then can polymorph to lion by spending a Smite use</description></trinket>
+<trinket tier="9" cost="12k" slot="H" flags=".">Goggles of Night<description>darkvision 60ft</description></trinket>
+<trinket tier="9" cost="12500" slot="C" flags=".">Highwayman's Cape<description>cloak is reversible, either +5 Impersonation or +5 Stealth</description></trinket>
+<trinket tier="9" cost="13k" slot="T" flags="S">Harp of Contagion<description>with bardic performance 1/day poison a target DC 16. also can play harp to grant +2 poison and disease save to allies within 30ft</description></trinket>
+<trinket tier="9" cost="13k" slot="A" flags=".">Monk's Robe<description>provides +5 monk level for unarmed damage, armor and speed modifiers, Stunning Fist daily use</description></trinket>
+<trinket tier="9" cost="14k" slot="T" flags="S">Expert (SL+3) Metamagic Rod, Lesser<description>3/day upto 3th level spell cast, can apply a metamagic feat on the fly to the spell cast</description></trinket>
+<trinket tier="9" cost="14k" slot="C" flags=".">Cape of Feinting<description>gain +4 feint</description></trinket>
+<trinket tier="9" cost="14k" slot="L" flags=".">Belt of Mighty Hurling, Lesser<description>+2 Strength and allows use Strength instead of Dexterity for throwing weapons, also +10ft range for thrown weapons</description></trinket>
+<trinket tier="9" cost="14k" slot="H" flags=".">Band of the Stalwart Warrior<description>if wearer subject to fear then only becomes shaken, +2 save vs fear. </description></trinket>
+<trinket tier="9" cost="14k" slot="G" flags=".">Arrowmaster's Bracers<description>5/magic damage reduction against ranged. +1 deflection AC to ranged. 1/day swift action grant +20 TH with ranged</description></trinket>
+<trinket tier="9" cost="14500" slot="G" flags=".">Bracelet of Bargaining<description>+5 Influence, grants +2 modifier to make bargains (TRADE)</description></trinket>
+<trinket tier="9" cost="15k" slot="L" flags=".">Cord of Stubborn Resolve<description>+2 Constitution, any effect that makes fatigue instead deals d6 non-lethal damage. any effect that makes exhausted deals d6 non-lethal damage and makes wearer fatigued</description></trinket>
+<trinket tier="9" cost="15k" slot="T" flags=".">Handkerchief of Finding<description>once an owner attunes the handkerchief for a week and gives to holder, handkerchief will always point to owner</description></trinket>
+<trinket tier="9" cost="15k" slot="T" flags="S">Book of the Loremaster<description>3/day a bard will have +5 when taking 10 or 20 on a Society, Nature or Religion</description></trinket>
+<trinket tier="9" cost="15k" slot="T" flags=".">Horn of Judgment<description>1/day affect 9 incorporeal within 30ft with Ghostbane Dirge (DC 17 Will negates) for 9R</description></trinket>
+<trinket tier="9" cost="15k" slot="G" flags="S">Bracelet of Mercy<description>additional Faithful Touch and grants to use to treat disease Commandment. if has that already then +4 CL for that</description></trinket>
+<trinket tier="9" cost="15k" slot="H" flags=".">Headband of Ninjitsu<description>+2 Influence for feint, 1/day feint as swift action. +2 TH bonus on sneak attack to targets with concealment (allow sneak attack to targets with concealment)</description></trinket>
+<trinket tier="9" cost="15k" slot="G" flags=".">Gloves of Dueling<description>gain +4 CMD on disarm or sunder </description></trinket>
+<trinket tier="9" cost="15k" slot="L" flags=".">Belt of Dwarvenkind<description>+4 Charisma checks with dwarves, wearer can understand and speak Dwarven, gains darkvision 60ft, +2 Constitution, +2 save bonus vs spells, poison and spell-like abilities</description></trinket>
+<trinket tier="9" cost="15600" slot="C" flags=".">Comfort's Cloak<description>+4 save vs disease, energy drain, fatigue, exhaustion, poison. when rest 8 hour heal double of normal. when rest 24hour then heal 5 times</description></trinket>
+
+<trinket tier="10" cost="16k" slot="L" flags=".">Belt of Giant Strength +4<description>+4 Strength</description></trinket>
+<trinket tier="10" cost="16k" slot="L" flags=".">Belt of Mighty Constitution +4<description>+4 Constitution</description></trinket>
+<trinket tier="10" cost="16k" slot="T" flags=".">Page of Spell Knowledge 4<description>contains a spell of SL4, spontaneous caster knows this spell and memorizers can memorize it like a spell of their own. always use highest cost for multi class/level spells</description></trinket>
+<trinket tier="10" cost="16k" slot="T" flags="S">Pearl of Power 4<description>allows to re-prepare a SL of 4 of a cast spell</description></trinket>
+<trinket tier="10" cost="16k" slot="C" flags="S">Cloak of Resistance +4<description>+4 all saves</description></trinket>
+<trinket tier="10" cost="16k" slot="B" flags=".">Winged Boots<description>3/day as Fly spell</description></trinket>
+<trinket tier="10" cost="16k" slot="L" flags=".">Belt of Incredible Dexterity +4<description>+4 Dexterity</description></trinket>
+<trinket tier="10" cost="16k" slot="G" flags=".">Bracers of Armor +4<description>+4 armor AC</description></trinket>
+<trinket tier="10" cost="16k" slot="G" flags="S">Silver Smite Bracelet<description>a templar's Smite ability level is +4</description></trinket>
+<trinket tier="10" cost="16k" slot="A" flags="S">Robes of Arcane<description>assume sorcerer level +4 for bloodline abilities</description></trinket>
+<trinket tier="10" cost="16k" slot="T" flags=".">Scabbard of Keen Edges<description>3/day cast Keen Edges</description></trinket>
+<trinket tier="10" cost="16k" slot="H" flags=".">Circlet of Alluring Charisma +4<description>+4 Charisma</description></trinket>
+<trinket tier="10" cost="16k" slot="G" flags=".">Bracelet of Second Chances<description>7 charge, negate critical hit or sneak attack by expending charge. once all charges end then broken</description></trinket>
+<trinket tier="10" cost="16k" slot="H" flags=".">Circlet of Vast Intelligence +4<description>+4 Intelligence</description></trinket>
+<trinket tier="10" cost="16k" slot="L" flags=".">Belt of Physical Perfection +2<description>+2 to Strength, Dexterity and Constitution</description></trinket>
+<trinket tier="10" cost="16k" slot="H" flags=".">Circlet of Mental Superiority +2<description>+2 to Intelligence, Wisdom and Charisma</description></trinket>
+<trinket tier="10" cost="16k" slot="A" flags=".">Bodywrap of Mighty Strikes +2<description>grants +2 TH and damage with unarmed damage</description></trinket>
+<trinket tier="10" cost="16k" slot="H" flags=".">Circlet of Inspiring Wisdom +4<description>+4 Wisdom</description></trinket>
+
+<trinket tier="11" cost="17k" slot="T" flags=".">Chime of Interruption<description>every 10 minutes creates 3 minutes of resonance within 30ft. any verbal spell while in this resonance requires 25 + SL concentration check</description></trinket>
+<trinket tier="11" cost="17200" slot="C" flags=".">Prestidigitator's Cloak<description>+8 Finesse, 1/day cloak conceals an object for 1 hour (for steal purpose)</description></trinket>
+<trinket tier="11" cost="18k" slot="A" flags=".">Rogue's Vest<description>+2 armor, +5 Stealth, +1d6 Sneak Attack damage, +2 Reflex save, does not count as an armor but regular clothing</description></trinket>
+<trinket tier="11" cost="18k" slot="T" flags=".">Belt of Superior Maneuvers +3<description>3/day gives +3 to chosen maneuver (CMB or CMD) for 1 R</description></trinket>
+<trinket tier="11" cost="18k" slot="T" flags=".">Monkey Belt, Greater<description>+2 Strength and Dexterity, when climbing does not lose Dexterity AC, can use belt as prehensile tail, +5 Athletics</description></trinket>
+<trinket tier="11" cost="18k" slot="G" flags=".">Vampiric Gloves<description>3/day as spell Vampiric Touch melee touch, instead can do ranged touch but only to dying or bleeding target. if wearer has bleed then can end the effect by using one charge</description></trinket>
+<trinket tier="11" cost="18k" slot="H" flags=".">Maw of the Wyrm<description>+4 Influence and save vs Dragon's frightful presence. 1/day deal 7d6 special dragon element type damage with DC 16 Reflex/half</description></trinket>
+<trinket tier="11" cost="18k" slot="H" flags="S">Mitre of the Hierophant<description>divine spellcasters can use it, +3 Influence and Religion. 1/day as spell Atonement</description></trinket>
+<trinket tier="11" cost="20k" slot="T" flags=".">Horn of Antagonism<description>favored enemy character blow horn to daze a favored enemy d4 R DC 13 Will (mind) + favored enemy bonus to save DC, 1/day</description></trinket>
+<trinket tier="11" cost="20k" slot="T" flags=".">Master's Perfect Golden Bell<description>10 R per day max but every use d6 R, std action to activate, all extraplanar creatures's spell resistance and damage reduction is reduced by 5</description></trinket>
+<trinket tier="11" cost="20k" slot="H" flags="S">Headband of Arcane Energy<description>3/day sacrifice an arcane spell known and make ranged touch within 30ft dealing SL d6 elemental damage. wearer gains 2 + SL deflection AC for 1 R</description></trinket>
+<trinket tier="11" cost="20k" slot="H" flags="S">Magician's Hat<description>can move a metamagic feat prepared spell to another spell if SL + metamagic SL fits with other spells. cannot change casting time (no quicken), no affect to spontaneous casting</description></trinket>
+<trinket tier="11" cost="20k" slot="C" flags=".">Cloak of the Diplomat<description>+5 Influence, 1/day make a Influence roll twice and take better</description></trinket>
+<trinket tier="11" cost="20k" slot="C" flags=".">Slashing Cloak<description>as full round action wearer make highest BAB attack and if hit target within 5ft then deal 2d6 damage to any hit. cloak can be enchnated like a weapon</description></trinket>
+<trinket tier="11" cost="20k" slot="C" flags=".">Stone Cloak, Major<description>when activated becomes stone, can take no action other than free. no dexterity bonus to AC but 10/adamantine damage reduction. +5 Stealth to hide. </description></trinket>
+<trinket tier="11" cost="20k" slot="A" flags=".">Xorn Robe<description>+5 Perception, 20ft per day can glide through earth with 5ft increments</description></trinket>
+<trinket tier="11" cost="20k" slot="H" flags=".">Darklands Goggles<description>grant darkvision 120ft, +4 Perception and +4 Nature when underground</description></trinket>
+<trinket tier="11" cost="20k" slot="T" flags=".">Horn of Blasting<description>1/day use 5d6 sonic damage to all within 40ft cone, save DC 16 Fort or be deafened by 2d6 R (fort half damage and negate deafness), additional use than 1/day has cumulative %20 chance to deal 10d6 sonic damage to user. crystalline creatures take 7d6 damage and no save</description></trinket>
+<trinket tier="11" cost="20k" slot="T" flags="S">Specialist's Athame<description>a specialist wizard can convert any memorized spell from specialized school to another spell of same school, wizard must have bond on this item</description></trinket>
+<trinket tier="11" cost="20k" slot="H" flags=".">Ioun Stone (Regeneration)<description>cure 1 HP per 10 minute</description></trinket>
+<trinket tier="11" cost="20k" slot="H" flags=".">Sniper Goggles<description>a Sneak Attack use can make Sneak Attack to any range instead of 30ft, also within 30ft Sneak Attack deal +2 damage per die</description></trinket>
+
+<trinket tier="12" cost="21k" slot="B" flags=".">Shoes of the Firewalker<description>allow to walk over lava, 10 fire resist</description></trinket>
+<trinket tier="12" cost="22k" slot="H" flags=".">Circlet of Mindsight<description>blindsense 30ft only to detect mind-ed targets, cannot detect targets that are mindless (undead)</description></trinket>
+<trinket tier="12" cost="23k" slot="H" flags=".">Crown of Conquest<description>+4 Influence, on every critical hit casts a CL8 Prayer centered on wearer (to allies)</description></trinket>
+<trinket tier="12" cost="24k" slot="C" flags=".">Cloak of Displacement<description>%20 concealment as Blur spell</description></trinket>
+<trinket tier="12" cost="24k" slot="L" flags=".">Elemental Earth Belt<description>+4 Constitution, wearer is immune to any effect that would forcefully move from position (bullrush etc...)</description></trinket>
+<trinket tier="12" cost="24k" slot="T" flags="S">Minor (SL+1) Metamagic Rod, Greater<description>3/day upto 9th level spell cast, can apply a metamagic feat on the fly to the spell cast</description></trinket>
+<trinket tier="12" cost="24k" slot="B" flags=".">Dryad Sandals<description>in forest leave no trace or scent behind, +2 Stealth in forest. 1/day for 9 hour can step into a tree or teleport from one tree to another</description></trinket>
+<trinket tier="12" cost="24k" slot="T" flags="S">Staff of "Descriptor", Lesser (SL3)<description>lesser staff of SL3</description></trinket>
+<trinket tier="12" cost="24k" slot="L" flags=".">Gorgon Belt<description>+4 Strength, ignore terrain penalties for doing charge, overrun or bullrush. 1/day can breath poison gas to 60ft cone with DC 18, if save fail then paralyzed d4 R (every round new save)</description></trinket>
+<trinket tier="12" cost="25k" slot="G" flags=".">Bracers of Archery, Greater<description>grants proficiency to any bow, +2 TH and +4 damage rolls</description></trinket>
+<trinket tier="12" cost="25k" slot="G" flags=".">Bracers of Sworn Vengeance<description>1/day as immediate action mark a target, for that target attacks have +1 TH and +2d6 additional damage until target dies or 24hours. if cannot kill target then cannot use bracers for 7 days</description></trinket>
+<trinket tier="12" cost="25k" slot="T" flags="S">Page of Spell Knowledge 5<description>contains a spell of SL5, spontaneous caster knows this spell and memorizers can memorize it like a spell of their own. always use highest cost for multi class/level spells</description></trinket>
+<trinket tier="12" cost="25k" slot="T" flags="S">Pearl of Power 5<description>allows to re-prepare a SL of 5 of a cast spell</description></trinket>
+<trinket tier="12" cost="25k" slot="T" flags=".">Eyes of Doom<description>casts Doom once per round as std action, DC 11 Will negates</description></trinket>
+<trinket tier="12" cost="25k" slot="C" flags=".">Cloak of Resistance +5<description>+5 all saves</description></trinket>
+<trinket tier="12" cost="25k" slot="G" flags=".">Bracers of Armor +5<description>+5 armor AC</description></trinket>
+
+<trinket tier="13" cost="26k" slot="T" flags=".">Iron Bands of Binding<description>when hurled at a target with ranged touch, binds target unless target makes DC 30 Strength check or CMB to escape</description></trinket>
+<trinket tier="13" cost="27k" slot="T" flags=".">Manual of Physical Ability +1<description>+1 permanent to a physical ability, expended on use</description></trinket>
+<trinket tier="13" cost="27k" slot="T" flags=".">Tome of Mental Ability +1<description>+1 permanent to a mental ability, expended on use</description></trinket>
+<trinket tier="13" cost="27k" slot="H" flags=".">Plague Mask<description>+4 save vs disease, 1/day casts remove disease on a target</description></trinket>
+<trinket tier="13" cost="27k" slot="H" flags=".">Helm of Telepathy<description>can use detect thoughts at will and allows two way communication, </description></trinket>
+<trinket tier="13" cost="28k" slot="T" flags=".">Dimensional Shackles<description>prisoner is held as with Dimensional Anchor spell, breack DC is 30</description></trinket>
+<trinket tier="13" cost="30k" slot="T" flags=".">Cauldron of the Dead<description>when filled with corpses can create zombie, up to 12HD and it is useless</description></trinket>
+<trinket tier="13" cost="30k" slot="T" flags=".">Drums of Panic<description>1/day can cast fear to 120ft except 20ft safe zone, DC 16 Will (fear) frightened or shaken if save success</description></trinket>
+<trinket tier="13" cost="30k" slot="B" flags=".">Getaway Boots<description>attune to a place and later can teleport to this place</description></trinket>
+<trinket tier="13" cost="30k" slot="H" flags=".">Iron Circlet of Guarded Souls<description>soul is protected from spells like trap soul or nondetection. if wearer is slain cannot be resurrected until circlet removed.</description></trinket>
+<trinket tier="13" cost="30k" slot="H" flags=".">Laurel of Command<description>speak words to an ally as std action and give +2 morale bonus to attack roll, saving throw, skill, ability checks for 1R. cannot use to self, only once to a target per day</description></trinket>
+<trinket tier="13" cost="30k" slot="H" flags=".">Soulbound Eye<description>CURSED, master (not wearer) puts the eye to wearer and can see through this eye of wearer whereever he goes. master can use telepathy to communicate with wearer. although there is no obeying necessity, master can use all kinds of memory related spells and effects</description></trinket>
+<trinket tier="13" cost="30k" slot="H" flags=".">Luckstone<description>+1 luck bonus to all rolls</description></trinket>
+<trinket tier="13" cost="30k" slot="H" flags=".">Ioun Stone (Caster)<description>+1 CL</description></trinket>
+<trinket tier="13" cost="30k" slot="B" flags=".">Boots of the Battle Herald<description>1/day as spell Greater Heroism for 11 minutes</description></trinket>
+<trinket tier="13" cost="30k" slot="T" flags=".">Lantern of Revealing<description>25ft continuously active as spell invisibility purge</description></trinket>
+
+<trinket tier="14" cost="32k" slot="H" flags=".">Winter Wolf Headband<description>10 cold resist, 1/day transform into winterwolf for 11min, 1/day can breath 30ft cone of cold 7d6 cold damage (Reflex/2, DC 16), only when transformed.</description></trinket>
+<trinket tier="14" cost="32k" slot="L" flags=".">Belt of Superior Maneuvers +4<description>3/day gives +4 to chosen maneuver (CMB or CMD) for 1 R</description></trinket>
+<trinket tier="14" cost="32k" slot="T" flags="S">Major (SL+2) Metamagic Rod<description>3/day upto 6th level spell cast, can apply a metamagic feat on the fly to the spell cast</description></trinket>
+<trinket tier="14" cost="35k" slot="T" flags="S">Master (SL+4) Metamagic Rod, Lesser<description>3/day upto 3th level spell cast, can apply a metamagic feat on the fly to the spell cast</description></trinket>
+<trinket tier="14" cost="35k" slot="C" flags=".">Cloak of Disarming<description>can use disarm with cloak and without provoking attack opportunity of facing a retaliation disarm</description></trinket>
+<trinket tier="14" cost="36k" slot="L" flags=".">Belt of Giant Strength +6<description>+6 Strength</description></trinket>
+<trinket tier="14" cost="36k" slot="G" flags=".">Bracers of Armor +6<description>+6 armor AC</description></trinket>
+<trinket tier="14" cost="36k" slot="L" flags=".">Belt of Incredible Dexterity +6<description>+6 Dexterity</description></trinket>
+<trinket tier="14" cost="36k" slot="H" flags=".">Circlet of Alluring Charisma +6<description>+6 Charisma</description></trinket>
+<trinket tier="14" cost="36k" slot="T" flags="S">Page of Spell Knowledge 6<description>contains a spell of SL6, spontaneous caster knows this spell and memorizers can memorize it like a spell of their own. always use highest cost for multi class/level spells</description></trinket>
+<trinket tier="14" cost="36k" slot="T" flags="S">Pearl of Power 6<description>allows to re-prepare a SL of 6 of a cast spell</description></trinket>
+<trinket tier="14" cost="36k" slot="H" flags=".">Circlet of Inspiring Wisdom +6<description>+6 Wisdom</description></trinket>
+<trinket tier="14" cost="36k" slot="H" flags=".">Circlet of Vast Intelligence +6<description>+6 Intelligence</description></trinket>
+<trinket tier="14" cost="36k" slot="H" flags="S">Ioun Stone (Storing)<description>stores a spell caster can cast up to 3 SL (can be any combination), activating spells are free action</description></trinket>
+<trinket tier="14" cost="36k" slot="A" flags=".">Bodywrap of Mighty Strikes +3<description>grants +3 TH and damage with unarmed damage</description></trinket>
+<trinket tier="14" cost="36k" slot="L" flags=".">Belt of Mighty Constitution +6<description>+6 Constitution</description></trinket>
+
+<trinket tier="15" cost="40k" slot="C" flags=".">Juggernaut's Pauldrons<description>+4 CMD, has ferocity ability. at will use enlarge person on self with command. 3/day when kills a target gains Deadly Juggernaut spell for 1 minute</description></trinket>
+<trinket tier="15" cost="40k" slot="T" flags=".">Ring Gates<description>always pair, any item comes from one is retrieved from other</description></trinket>
+<trinket tier="15" cost="40k" slot="L" flags="S">Belt of Physical Might +4<description>+4 to two of Strength, Dexterity or Constitution</description></trinket>
+<trinket tier="15" cost="40k" slot="T" flags=".">Staff of "Descriptor", Lesser (SL4)<description>lesser staff of SL4</description></trinket>
+<trinket tier="15" cost="40k" slot="T" flags=".">Enmity Fetish<description>for 24hour, a favored enemy can be swapped for the medallion's race type</description></trinket>
+<trinket tier="15" cost="40k" slot="H" flags=".">Circlet of Mental Prowess +4<description>+4 to two of Intelligence, Wisdom or Charisma</description></trinket>
+<trinket tier="15" cost="42k" slot="L" flags=".">Belt of Mighty Hurling, Greater<description>+4 Strength and allows use Strength instead of Dexterity for throwing weapons, also +10ft range for thrown weapons. all thrown weapons have "Returning" ability</description></trinket>
+<trinket tier="15" cost="44k" slot="H" flags=".">Mask of the Skull<description>1/day rush to a target and deal 130 damage unless Fort DC 20 (death/spell) if save success then 3d6+13 damage</description></trinket>
+<trinket tier="15" cost="45k" slot="T" flags="S">Drums of Haste<description>with bardic performance can haste up to 5 allies, total of 25 allies per day</description></trinket>
+<trinket tier="15" cost="46k" slot="B" flags=".">Burglar Boots, Major<description>+10 Perception for locate traps, +10 AC and Reflex save vs traps, 1/day as spell Find Traps</description></trinket>
+<trinket tier="15" cost="48k" slot="T" flags=".">Orb of Storms<description>1/day as spell Control Weather, 1/day as spell Storm of Vengeance, continuously active Endure Elements on wielder</description></trinket>
+<trinket tier="15" cost="49k" slot="B" flags=".">Boots of Teleportation<description>3/day as spell Teleport</description></trinket>
+<trinket tier="15" cost="49k" slot="G" flags=".">Bracers of Armor +7<description>+7 armor AC</description></trinket>
+<trinket tier="15" cost="49k" slot="T" flags="S">Page of Spell Knowledge 7<description>contains a spell of SL7, spontaneous caster knows this spell and memorizers can memorize it like a spell of their own. always use highest cost for multi class/level spells</description></trinket>
+<trinket tier="15" cost="49k" slot="T" flags="S">Pearl of Power 7<description>allows to re-prepare a SL of 7 of a cast spell</description></trinket>
+
+<trinket tier="16" cost="50k" slot="H" flags=".">Sniper Goggles, Greater<description>a Sneak Attack use can make Sneak Attack to any range instead of 30ft, also within any range Sneak Attack deal +2 damage per die</description></trinket>
+<trinket tier="16" cost="50k" slot="L" flags=".">Belt of Superior Maneuvers +5<description>3/day gives +5 to chosen maneuver (CMB or CMD) for 1 R</description></trinket>
+<trinket tier="16" cost="50k" slot="C" flags=".">Mantle of Immortality<description>ignores physical damage penalties from aging</description></trinket>
+<trinket tier="16" cost="50k" slot="T" flags=".">Crystal Ball (See Invisibility)<description>allows scry but Will DC 16 negates, also use See Invisibility why scrying</description></trinket>
+<trinket tier="16" cost="51k" slot="T" flags=".">Crystal Ball (Detect Thoughts)<description>allows scry but Will DC 16 negates, also use Detect Thoughts why scrying</description></trinket>
+<trinket tier="16" cost="52k" slot="T" flags=".">Last Leaves of the Autumn Dryad<description>1/day becomes tree for 8hour, also can spread leaves for having arcane eyes around.</description></trinket>
+<trinket tier="16" cost="54k" slot="T" flags=".">Manual of Physical Ability +2<description>+2 permanent to a physical ability, expended on use</description></trinket>
+<trinket tier="16" cost="54k" slot="T" flags=".">Tome of Mental Ability +2<description>+2 permanent to a mental ability, expended on use</description></trinket>
+<trinket tier="16" cost="54k" slot="T" flags="S">Expert (SL+3) Metamagic Rod<description>3/day upto 6th level spell cast, can apply a metamagic feat on the fly to the spell cast</description></trinket>
+<trinket tier="16" cost="54k" slot="C" flags=".">Wings of Flying<description>on command grows wings to enable fly 60ft</description></trinket>
+<trinket tier="16" cost="55k" slot="C" flags=".">Cloak of Etherealness<description>10 minute /day as spell Ethereal Jaunt, not consecutive by use of 1 minute each</description></trinket>
+<trinket tier="16" cost="56k" slot="T" flags=".">Eyes of Charming<description>casts charm person once per round, DC 16 Will</description></trinket>
+<trinket tier="16" cost="58k" slot="A" flags=".">Robe of Stars<description>can travel to Astral plane, +3 luck to all saves</description></trinket>
+<trinket tier="16" cost="58k" slot="C" flags=".">Poisoner's Jacket<description>1/day can create a poison up to cost 4k for 1hour</description></trinket>
+<trinket tier="16" cost="59k" slot="H" flags=".">Judge's Wig<description>+4 Influence, at will Discern Lies spell</description></trinket>
+<trinket tier="16" cost="60k" slot="T" flags="S">Staff of "Descriptor", Lesser (SL5)<description>lesser staff of SL5</description></trinket>
+<trinket tier="16" cost="60k" slot="T" flags="S">Staff of "Descriptor" (SL5)<description>staff of SL5</description></trinket>
+<trinket tier="16" cost="60k" slot="L" flags=".">Belt of Stoneskin<description>has 100 charges per day, grants 10/adamantine damage reduction until charges end</description></trinket>
+<trinket tier="16" cost="60k" slot="T" flags=".">Darkskull<description>continuously makes area as Unhallow spell where ever it is taken</description></trinket>
+
+<trinket tier="17" cost="64k" slot="L" flags=".">Belt of Physical Perfection +4<description>+4 to Strength, Dexterity and Constitution</description></trinket>
+<trinket tier="17" cost="64k" slot="H" flags=".">Headband of Mental Resilience<description>+2 to all mental stats, has 5 charges to protect from mental ability drain or damage effects per day</description></trinket>
+<trinket tier="17" cost="64k" slot="T" flags="S">Page of Spell Knowledge 8<description>contains a spell of SL8, spontaneous caster knows this spell and memorizers can memorize it like a spell of their own. always use highest cost for multi class/level spells</description></trinket>
+<trinket tier="17" cost="64k" slot="T" flags="S">Pearl of Power 8<description>allows to re-prepare a SL of 8 of a cast spell</description></trinket>
+<trinket tier="17" cost="64k" slot="A" flags=".">Bodywrap of Mighty Strikes +4<description>grants +4 TH and damage with unarmed damage</description></trinket>
+<trinket tier="17" cost="64k" slot="H" flags=".">Circlet of Mental Superiority +4<description>+4 to Intelligence, Wisdom and Charisma</description></trinket>
+<trinket tier="17" cost="64k" slot="G" flags=".">Bracers of Armor +8<description>+8 armor AC</description></trinket>
+<trinket tier="17" cost="66k" slot="H" flags=".">Monocle of the Investigator<description>1/day can see what happened at 10x10 ft area for 24h by focusing 1 minute</description></trinket>
+<trinket tier="17" cost="67k" slot="G" flags=".">Talons of Leng<description>grows natural attack with +3 enchantment (TH &amp; damage), d4 damage, on critical DC 20 Will (mind) or permanently confused as spell Insanity. wearer is immune to confusion, -2 Wisdom, doesnot interfere with spellcasting</description></trinket>
+<trinket tier="17" cost="70k" slot="T" flags=".">Crystal Ball (Telepathy)<description>allows scry but Will DC 16 negates, also use Telepathy why scrying</description></trinket>
+<trinket tier="17" cost="70k" slot="T" flags=".">Horn of Blasting, Greater<description>1/day use 10d6 sonic damage to all within 40ft cone, save DC 19 Fort or be deafened by 2d6 R and stun 1R (fort half damage and negate deafness and stun), additional use than 1/day has cumulative %20 chance to deal 10d6 sonic damage to user. crystalline creatures take 16d6 damage and no save</description></trinket>
+<trinket tier="17" cost="72k" slot="C" flags=".">Wings of the Gargoyle<description>can grow stony wings and fly 60ft. also 10/adamantine. 5min/day with 1min each use</description></trinket>
+<trinket tier="17" cost="73k" slot="T" flags="S">Major (SL+2) Metamagic Rod, Greater<description>3/day upto 9th level spell cast, can apply a metamagic feat on the fly to the spell cast</description></trinket>
+<trinket tier="17" cost="74k" slot="T" flags="S">Master (SL+4) Metamagic Rod<description>3/day upto 6th level spell cast, can apply a metamagic feat on the fly to the spell cast</description></trinket>
+<trinket tier="17" cost="74k" slot="H" flags=".">Helm of Teleportation<description>3/day teleport as spell</description></trinket>
+<trinket tier="17" cost="75k" slot="T" flags=".">Gem of Seeing<description>can create light at will continuously on command, 3/day makes a ray touch within 50ft and DC 14 Fort or blinded d4 R, 1/day same attack but within 15ft cone</description></trinket>
+<trinket tier="17" cost="75k" slot="A" flags="S">Robe of Archmagi<description>+5 armor AC, spell resistance 23 or +7, +4 on all saves, +2 bonus to spell penetration checks</description></trinket>
+<trinket tier="17" cost="75k" slot="A" flags="S">Resplendent Robe of the Thespian<description>+5 armor AC, spell resistance 23 or +7, +4 on all saves, +2 bonus to spell penetration checks, used by bards</description></trinket>
+
+<trinket tier="18" cost="76k" slot="C" flags=".">Mantle of Faith<description>grants 10/magic and evil damage reduction for good, 10/magic and good damage reduction for evil</description></trinket>
+<trinket tier="18" cost="79k" slot="C" flags=".">Wyvern Cloak<description>+4 Will save, continuous feather fall effect. 1/day fly as spell. at will as swift action can sting a target dealing d6 damage and poison DC 16</description></trinket>
+<trinket tier="18" cost="80k" slot="H" flags=".">Swordmaster's Blindfold<description>blocks vision but gains 5ft blindsight </description></trinket>
+<trinket tier="18" cost="80k" slot="T" flags=".">Crystal Ball (Trueseeing)<description>allows scry but Will DC 16 negates, also use Trueseeing why scrying</description></trinket>
+<trinket tier="18" cost="81k" slot="T" flags=".">Manual of Physical Ability +3<description>+3 permanent to a physical ability, expended on use</description></trinket>
+<trinket tier="18" cost="81k" slot="T" flags=".">Tome of Mental Ability +3<description>+3 permanent to a mental ability, expended on use</description></trinket>
+<trinket tier="18" cost="81k" slot="T" flags="S">Page of Spell Knowledge 9<description>contains a spell of SL9, spontaneous caster knows this spell and memorizers can memorize it like a spell of their own. always use highest cost for multi class/level spells</description></trinket>
+<trinket tier="18" cost="81k" slot="T" flags="S">Pearl of Power 9<description>allows to re-prepare a SL of 9 of a cast spell</description></trinket>
+<trinket tier="18" cost="84k" slot="T" flags="S">Staff of "Descriptor" (SL6)<description>staff of SL6</description></trinket>
+<trinket tier="18" cost="84k" slot="T" flags="S">Staff of "Descriptor", Greater (SL6)<description>greater staff of SL6</description></trinket>
+<trinket tier="18" cost="84k" slot="H" flags=".">Halo of Menace<description>continuous effect, any hostile target within 20ft save Will DC 20 (mind) or take 2 penalty to saves, attacks, AC for 24hours. chaotic creatures take additional -2</description></trinket>
+
+<trinket tier="19" cost="90k" slot="H" flags=".">Circlet of Mental Prowess +6<description>+6 to two of Intelligence, Wisdom or Charisma</description></trinket>
+<trinket tier="19" cost="90k" slot="L" flags=".">Belt of Physical Might +6<description>+6 to two of Strength, Dexterity or Constitution</description></trinket>
+<trinket tier="19" cost="90k" slot="C" flags=".">Mantle of Spell Resistance<description>spell resistance 22 or +7 to existing spell resistance</description></trinket>
+<trinket tier="19" cost="95k" slot="H" flags=".">Mindmaster's Eyes<description>at will charm monster (DC 19), 1/day dominate person (DC 20)</description></trinket>
+<trinket tier="19" cost="100k" slot="A" flags=".">Bodywrap of Mighty Strikes +5<description>grants +5 TH and damage with unarmed damage</description></trinket>
+<trinket tier="19" cost="108k" slot="T" flags=".">Manual of Physical Ability +4<description>+4 permanent to a physical ability, expended on use</description></trinket>
+<trinket tier="19" cost="108k" slot="T" flags=".">Tome of Mental Ability +4<description>+4 permanent to a mental ability, expended on use</description></trinket>
+<trinket tier="19" cost="110k" slot="L" flags=".">Shadowform Belt<description>+6 Dexterity, for 10R per day can become incorporeal and gain Charisma modifier AC as deflection</description></trinket>
+<trinket tier="19" cost="110k" slot="H" flags=".">Eyes of the Dragon<description>darkvision 120ft, blindsense 60ft, multiplies vision range by four</description></trinket>
+<trinket tier="19" cost="112k" slot="T" flags="S">Staff of "Descriptor", Greater (SL7)<description>greater staff of SL7</description></trinket>
+
+<trinket tier="20" cost="120k" slot="A" flags=".">Robe of Eyes<description>120ft darkvision to all directions continuously, can see all invisible or ethereal, +10 Perception, cannot be flanked (retain Dexterity bonus always), with a light spell becomes blinded d3 minutes, with a daylight 2d4 minutes</description></trinket>
+<trinket tier="20" cost="121k" slot="T" flags="S">Expert (SL+3) Metamagic Rod, Greater<description>3/day upto 9th level spell cast, can apply a metamagic feat on the fly to the spell cast</description></trinket>
+<trinket tier="20" cost="135k" slot="T" flags=".">Manual of Physical Ability +5<description>+5 permanent to a physical ability, expended on use</description></trinket>
+<trinket tier="20" cost="135k" slot="T" flags=".">Tome of Mental Ability +5<description>+5 permanent to a mental ability, expended on use</description></trinket>
+<trinket tier="20" cost="144k" slot="L" flags=".">Belt of Physical Perfection +6<description>+6 to Strength, Dexterity and Constitution</description></trinket>
+<trinket tier="20" cost="144k" slot="H" flags=".">Circlet of Mental Superiority +6<description>+6 to Intelligence, Wisdom and Charisma</description></trinket>
+<trinket tier="20" cost="144k" slot="T" flags="S">Staff of "Descriptor", Greater (SL8)<description>greater staff of SL8</description></trinket>
+<trinket tier="20" cost="164k" slot="T" flags=".">Cubic Gate<description>casts Gate as spell, leaves open until closing</description></trinket>
+<trinket tier="20" cost="170k" slot="T" flags="S">Master (SL+4) Metamagic Rod, Greater<description>3/day upto 9th level spell cast, can apply a metamagic feat on the fly to the spell cast</description></trinket>
+<trinket tier="20" cost="180k" slot="T" flags="S">Staff of "Descriptor", Greater (SL9)<description>greater staff of SL9</description></trinket>
+<trinket tier="20" cost="184k" slot="H" flags=".">Truesight Goggles<description>continuous truesight</description></trinket>
+<trinket tier="20" cost="200k" slot="T" flags=".">Mirror of Life Trapping<description>traps 15 characters inside, anyone looking into mirror must save DC 23 Will or trapped. (undead or constructs not affected). if full then rendomly releases one, if mirrior attacked all are free</description></trinket>
+  </trinkets>
+</treasure>

@@ -1,0 +1,1034 @@
+﻿<ResourceDictionary 
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:ctrl="clr-namespace:CombatTable.UserControls"
+    xmlns:cmd="clr-namespace:CombatTable.Commands"
+    xmlns:models="clr-namespace:CombatTable.Models;assembly=CombatTable.Models"
+    xmlns:base="clr-namespace:CombatTable.Models.Base;assembly=CombatTable.Models"
+    xmlns:atch="clr-namespace:CombatTable.Attached"
+    xmlns:conv="clr-namespace:CombatTable.Converters"
+    xmlns:styles="clr-namespace:CombatTable.Styles"
+    xmlns:local="clr-namespace:CombatTable"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <!-- ................................................................................................................ -->
+
+    <!-- Integer summary -->
+    <DataTemplate x:Key="DataTemplateForIntegerSummary">
+        <StackPanel Orientation="Horizontal" MinHeight="28">
+            <TextBlock x:Name="commaTextBlock" Style="{StaticResource Separator}" />
+            <TextBlock Style="{StaticResource Separator}" Text="{Binding Name}" ToolTip="{Binding Name}" />
+            <ctrl:NumericUpDown Margin="5,0,0,0" Value="{Binding Path=Value, Converter={StaticResource IntValue}, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" 
+                    IsReadOnly="{Binding ElementName=THIS, Path=IsEditable, Converter={StaticResource Not}}" ToolTip="{Binding Value}"/>
+        </StackPanel>
+        <DataTemplate.Triggers>
+            <DataTrigger Binding="{Binding RelativeSource={RelativeSource PreviousData}}" Value="{x:Null}">
+                <Setter Property="Visibility" TargetName="commaTextBlock" Value="Collapsed"/>
+            </DataTrigger>
+        </DataTemplate.Triggers>
+    </DataTemplate>
+
+    <!-- Integer WithSign summary -->
+    <DataTemplate x:Key="DataTemplateForIntegerWithSignSummary">
+        <StackPanel Orientation="Horizontal" MinHeight="28">
+            <TextBlock x:Name="commaTextBlock" Style="{StaticResource Separator}" />
+            <TextBlock Style="{StaticResource Separator}" Text="{Binding Name}" ToolTip="{Binding Name}" />
+            <ctrl:NumericUpDown Margin="5,0,0,0" Value="{Binding Path=Value, Converter={StaticResource IntValue}, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" 
+                   ShowSign="True" IsReadOnly="{Binding ElementName=THIS, Path=IsEditable, Converter={StaticResource Not}}" ToolTip="{Binding Value}"/>
+        </StackPanel>
+        <DataTemplate.Triggers>
+            <DataTrigger Binding="{Binding RelativeSource={RelativeSource PreviousData}}" Value="{x:Null}">
+                <Setter Property="Visibility" TargetName="commaTextBlock" Value="Collapsed"/>
+            </DataTrigger>
+        </DataTemplate.Triggers>
+    </DataTemplate>
+
+    <!-- ENUM (value) summary -->
+    <DataTemplate x:Key="DataTemplateForEnumSummary">
+        <ComboBox IsReadOnly="{Binding ElementName=THIS, Path=IsEditable, Converter={StaticResource Not}}"  HorizontalAlignment="Stretch"  
+            x:Name="EnumCMB" HorizontalContentAlignment="Stretch" Margin="5,0,5,0" Style="{DynamicResource PropertyComboBoxStyle}"
+            DisplayMemberPath="Description" SelectedValue="{Binding Value, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" SelectedValuePath="Value" />
+        <DataTemplate.Triggers>
+            <DataTrigger Binding="{Binding Path=TypeName}" Value="Alignments">
+                <Setter Property="ItemsSource" TargetName="EnumCMB" Value="{Binding Source={local:Enumeration {x:Type models:Alignments}}}"/>
+            </DataTrigger>
+            <DataTrigger Binding="{Binding Path=TypeName}" Value="StanceTypes">
+                <Setter Property="ItemsSource" TargetName="EnumCMB" Value="{Binding Source={local:Enumeration {x:Type models:StanceTypes}}}"/>
+            </DataTrigger>
+            <DataTrigger Binding="{Binding Path=TypeName}" Value="SpellcastingTypes">
+                <Setter Property="ItemsSource" TargetName="EnumCMB" Value="{Binding Source={local:Enumeration {x:Type models:SpellcastingTypes}}}"/>
+            </DataTrigger>
+            <DataTrigger Binding="{Binding Path=TypeName}" Value="Genders">
+                <Setter Property="ItemsSource" TargetName="EnumCMB" Value="{Binding Source={local:Enumeration {x:Type models:Genders}}}"/>
+            </DataTrigger>
+        </DataTemplate.Triggers>
+    </DataTemplate>
+
+    <!-- Modifier summary -->
+    <DataTemplate x:Key="DataTemplateForModifierSummary">
+        <StackPanel Orientation="Horizontal" MinHeight="28">
+            <TextBlock x:Name="commaTextBlock" Style="{StaticResource Separator}" />
+            <TextBox Style="{StaticResource PropertyTextBoxStyle}" Text="{Binding Name}" ToolTip="{Binding Name}"
+                IsReadOnly="{Binding ElementName=THIS, Path=IsEditable, Converter={StaticResource Not}}"/>
+            <ctrl:NumericUpDown Value="{Binding Path=Value, Converter={StaticResource IntValue}, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" 
+                    ShowSign="True" IsReadOnly="{Binding ElementName=THIS, Path=IsEditable, Converter={StaticResource Not}}" ToolTip="{Binding Value}"/>
+        </StackPanel>
+        <DataTemplate.Triggers>
+            <DataTrigger Binding="{Binding RelativeSource={RelativeSource PreviousData}}" Value="{x:Null}">
+                <Setter Property="Visibility" TargetName="commaTextBlock" Value="Collapsed"/>
+            </DataTrigger>
+        </DataTemplate.Triggers>
+    </DataTemplate>
+
+    <!-- State summary -->
+    <DataTemplate x:Key="DataTemplateForStateSummary">
+        <StackPanel Orientation="Horizontal" MinHeight="28">
+            <TextBlock x:Name="commaTextBlock" Style="{StaticResource Separator}" />
+            <TextBox x:Name="TxbName" ToolTip="{Binding Value}" Text="{Binding Path=StateName}" Style="{StaticResource PropertyTextBoxStyle}" IsReadOnly="{Binding ElementName=THIS, Path=IsEditable, Converter={StaticResource Not}}" />
+            <ComboBox x:Name="CmbName" IsReadOnly="{Binding ElementName=THIS, Path=IsEditable, Converter={StaticResource Not}}" Style="{DynamicResource PropertyComboBoxStyle}" ToolTip="{Binding Value}" ItemsSource="{Binding Source={local:Enumeration {x:Type models:PredefinedStates}}}" 
+                    DisplayMemberPath="Description" SelectedValuePath="Value" />
+            <StackPanel Orientation="Horizontal" >
+                <TextBlock Text="(" Style="{StaticResource Separator}" />
+                <ctrl:NumericUpDown Value="{Binding Path=Duration.Value, Converter={StaticResource IntValue}, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" IsReadOnly="{Binding ElementName=THIS, Path=IsEditable, Converter={StaticResource Not}}" MinValue="-1"/>
+                <TextBlock Text="R)" Style="{StaticResource Separator}" />
+            </StackPanel>
+        </StackPanel>
+        <DataTemplate.Triggers>
+            <DataTrigger Binding="{Binding Path=CustomState.Value}" Value="True">
+                <Setter Property="Visibility" TargetName="TxbName" Value="Visible"/>
+                <Setter Property="SelectedValue" TargetName="CmbName" Value="Dead"/>
+                <Setter Property="Visibility" TargetName="CmbName" Value="Collapsed"/>
+            </DataTrigger>
+            <DataTrigger Binding="{Binding Path=CustomState.Value}" Value="False">
+                <Setter Property="Visibility" TargetName="TxbName" Value="Collapsed"/>
+                <Setter Property="SelectedValue" TargetName="CmbName" Value="{Binding StateName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+                <Setter Property="Visibility" TargetName="CmbName" Value="Visible"/>
+            </DataTrigger>
+            <DataTrigger Binding="{Binding RelativeSource={RelativeSource PreviousData}}" Value="{x:Null}">
+                <Setter Property="Visibility" TargetName="commaTextBlock" Value="Collapsed"/>
+            </DataTrigger>
+        </DataTemplate.Triggers>
+    </DataTemplate>
+
+    <!-- ................................................................................................................ -->
+
+    <!-- Item summary -->
+    <DataTemplate x:Key="DataTemplateForItemSummary">
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+            <TextBlock x:Name="commaTextBlock" Style="{StaticResource Separator}" />
+            <TextBox Grid.Column="1" Text="{Binding Path=Name, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" ToolTip="{Binding Value}"  Style="{StaticResource PropertyTextBoxStyle}"
+                IsReadOnly="{Binding ElementName=THIS, Path=IsEditable, Converter={StaticResource Not}}"/>
+        </Grid>
+        <DataTemplate.Triggers>
+            <DataTrigger Binding="{Binding RelativeSource={RelativeSource PreviousData}}" Value="{x:Null}">
+                <Setter Property="Visibility" TargetName="commaTextBlock" Value="Collapsed"/>
+            </DataTrigger>
+        </DataTemplate.Triggers>
+    </DataTemplate>
+
+    <!-- SpellLevel summary -->
+    <DataTemplate x:Key="DataTemplateForSpellLevelSummary">
+        <StackPanel Orientation="Horizontal" MinHeight="28">
+            <TextBlock Text=" , " x:Name="commaTextBlock" Style="{StaticResource Separator}" />
+            <ItemsControl ToolTip="{Binding Path=SpellList.Value}" ItemsSource="{Binding Spells}" Style="{StaticResource SummaryItemsControlStyle}" />
+        </StackPanel>
+        <DataTemplate.Triggers>
+            <DataTrigger Binding="{Binding RelativeSource={RelativeSource PreviousData}}" Value="{x:Null}">
+                <Setter Property="Visibility" TargetName="commaTextBlock" Value="Collapsed"/>
+            </DataTrigger>
+        </DataTemplate.Triggers>
+    </DataTemplate>
+
+    <!-- Spell summary -->
+    <DataTemplate x:Key="DataTemplateForSpellSummary">
+        <StackPanel Orientation="Horizontal" MinHeight="28">
+            <TextBlock Text=" , " x:Name="commaTextBlock" Style="{StaticResource Separator}" />
+            <CheckBox IsChecked="{Binding Path=Available, Converter={StaticResource BoolValue}, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" x:Name="CHB"
+                Content="{Binding Path=Parent.Name}" ToolTip="{Binding Path=Parent.SpellList.Value}" Style="{StaticResource MemorizedSpellCheckBoxStyle}" IsEnabled="{Binding ElementName=THIS, Path=IsEditable}" />
+        </StackPanel>
+        <DataTemplate.Triggers>
+            <DataTrigger Binding="{Binding Path=Parent.Parent.SpellcastingType.Value}" Value="Memorizer">
+                <Setter Property="ToolTip" TargetName="CHB" Value="{Binding Name}"/>
+            </DataTrigger>
+            <DataTrigger Binding="{Binding RelativeSource={RelativeSource PreviousData}}" Value="{x:Null}">
+                <Setter Property="Visibility" TargetName="commaTextBlock" Value="Collapsed"/>
+            </DataTrigger>
+        </DataTemplate.Triggers>
+    </DataTemplate>
+
+    <!-- Stance summary -->
+    <DataTemplate x:Key="DataTemplateForStanceSummary">
+        <StackPanel Orientation="Horizontal" MinHeight="28">
+            <TextBlock Text=" , " x:Name="commaTextBlock" Style="{StaticResource Separator}" />
+            <TextBox Text="{Binding Path=Name, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" ToolTip="Stance Name"  Style="{StaticResource PropertyTextBoxStyle}"
+                IsReadOnly="{Binding ElementName=THIS, Path=IsEditable, Converter={StaticResource Not}}"/>
+            <TextBlock Text="(AC" Style="{StaticResource Separator}"/>
+            <ctrl:NumericUpDown Value="{Binding Path=Defense.Value, Converter={StaticResource IntValue}, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" 
+                ToolTip="AC" IsReadOnly="{Binding ElementName=THIS, Path=IsEditable, Converter={StaticResource Not}}"/>
+            <TextBlock Style="{StaticResource Separator}" Text="/"/>
+            <ctrl:NumericUpDown Value="{Binding Path=Defense.FlatfootedAC.Value, Converter={StaticResource IntValue}, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" 
+                ToolTip="Flatfooted AC" IsReadOnly="{Binding ElementName=THIS, Path=IsEditable, Converter={StaticResource Not}}"/>
+            <TextBlock Style="{StaticResource Separator}" Text="/"/>
+            <ctrl:NumericUpDown Value="{Binding Path=Defense.TouchAC.Value, Converter={StaticResource IntValue}, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" 
+                ToolTip="Touch AC" IsReadOnly="{Binding ElementName=THIS, Path=IsEditable, Converter={StaticResource Not}}"/>
+            <TextBlock Style="{StaticResource Separator}" Text=")"/>
+        </StackPanel>
+        <DataTemplate.Triggers>
+            <DataTrigger Binding="{Binding RelativeSource={RelativeSource PreviousData}}" Value="{x:Null}">
+                <Setter Property="Visibility" TargetName="commaTextBlock" Value="Collapsed"/>
+            </DataTrigger>
+        </DataTemplate.Triggers>
+    </DataTemplate>
+
+    <!-- Attack summary -->
+    <DataTemplate x:Key="DataTemplateForAttackSummary">
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Stretch" >
+            <StackPanel.Resources>
+                <Style TargetType="{x:Type TextBox}" BasedOn="{StaticResource PropertyTextBoxStyle}">
+                    <Setter Property="MinWidth" Value="20" />
+                </Style>
+                <Style TargetType="{x:Type TextBlock}">
+                    <Setter Property="VerticalAlignment" Value="Center"/>
+                </Style>
+            </StackPanel.Resources>
+            <TextBlock x:Name="commaTextBlock" Style="{StaticResource Separator}" Text=" &amp; " Foreground="Red"/>
+            <TextBlock Text=" with " Style="{StaticResource Separator}" />
+            <TextBox Text="{Binding Path=Name, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" ToolTip="Attack Name" IsReadOnly="{Binding ElementName=THIS, Path=IsEditable, Converter={StaticResource Not}}"/>
+            <TextBlock Text=" To Hit " Style="{StaticResource Separator}" />
+            <ctrl:NumericUpDown Value="{Binding Path=ToHit.Value, Converter={StaticResource IntValue}, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" ToolTip="To Hit" IsReadOnly="{Binding ElementName=THIS, Path=IsEditable, Converter={StaticResource Not}}"/>
+            <TextBlock Text="/#" Style="{StaticResource Separator}" />
+            <ctrl:NumericUpDown Value="{Binding Path=Count.Value, Converter={StaticResource IntValue}, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" ToolTip="Count" IsReadOnly="{Binding ElementName=THIS, Path=IsEditable, Converter={StaticResource Not}}"/>
+            <TextBlock Text="attacks, critical: " Style="{StaticResource Separator}" />
+            <TextBox Text="{Binding Path=Critical.Value, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" ToolTip="Critical Info" IsReadOnly="{Binding ElementName=THIS, Path=IsEditable, Converter={StaticResource Not}}"/>
+            <TextBlock Text=" [" Style="{StaticResource Separator}" />
+            <ItemsControl ItemsSource="{Binding Damages}" Style="{StaticResource SummaryItemsControlStyle}"/>
+            <TextBlock Text="] , " Style="{StaticResource Separator}" />
+            <ctrl:NumericUpDown Value="{Binding Path=Range.Value, Converter={StaticResource IntValue}, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" ToolTip="Range/Reach" 
+                         IsReadOnly="{Binding ElementName=THIS, Path=IsEditable, Converter={StaticResource Not}}"/>
+            <TextBlock Text="ft range/reach" Style="{StaticResource Separator}" />
+        </StackPanel>
+        <DataTemplate.Triggers>
+            <DataTrigger Binding="{Binding RelativeSource={RelativeSource PreviousData}, Converter={StaticResource TypeCheck}, ConverterParameter=Attack}" Value="False">
+                <Setter Property="Visibility" TargetName="commaTextBlock" Value="Collapsed"/>
+            </DataTrigger>
+        </DataTemplate.Triggers>
+    </DataTemplate>
+
+    <!-- Stat summary -->
+    <DataTemplate x:Key="DataTemplateForStatSummary">
+        <StackPanel Orientation="Horizontal" MinHeight="28">
+            <TextBlock x:Name="commaTextBlock" Style="{StaticResource Separator}" />
+            <TextBlock Text="{Binding Name}" Style="{StaticResource Separator}"/>
+            <ctrl:NumericUpDown Value="{Binding Path=Value, Converter={StaticResource IntValue}, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" 
+                ToolTip="{Binding Path=Name}" IsReadOnly="{Binding ElementName=THIS, Path=IsEditable, Converter={StaticResource Not}}"/>
+        </StackPanel>
+        <DataTemplate.Triggers>
+            <DataTrigger Binding="{Binding RelativeSource={RelativeSource PreviousData}}" Value="{x:Null}">
+                <Setter Property="Visibility" TargetName="commaTextBlock" Value="Collapsed"/>
+            </DataTrigger>
+        </DataTemplate.Triggers>
+    </DataTemplate>
+
+    <!-- Skill summary -->
+    <DataTemplate x:Key="DataTemplateForSkillSummary">
+        <StackPanel Orientation="Horizontal" MinHeight="28">
+            <TextBlock x:Name="commaTextBlock" Style="{StaticResource Separator}" />
+            <ComboBox IsReadOnly="{Binding ElementName=THIS, Path=IsEditable, Converter={StaticResource Not}}" HorizontalAlignment="Stretch" 
+                HorizontalContentAlignment="Stretch" Style="{DynamicResource PropertyComboBoxStyle}" ItemsSource="{Binding Source={local:Enumeration {x:Type models:SkillTypes}}}" 
+                DisplayMemberPath="Description" SelectedValue="{Binding Name, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" SelectedValuePath="Value" />
+            <ctrl:NumericUpDown Value="{Binding Path=Value, Converter={StaticResource IntValue}, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" 
+                ShowSign="True" IsReadOnly="{Binding ElementName=THIS, Path=IsEditable, Converter={StaticResource Not}}"/>
+        </StackPanel>
+        <DataTemplate.Triggers>
+            <DataTrigger Binding="{Binding RelativeSource={RelativeSource PreviousData}}" Value="{x:Null}">
+                <Setter Property="Visibility" TargetName="commaTextBlock" Value="Collapsed"/>
+            </DataTrigger>
+        </DataTemplate.Triggers>
+    </DataTemplate>
+
+    <!-- Defenses Summary -->
+    <DataTemplate x:Key="DataTemplateForDefensesSummary">
+        <StackPanel Orientation="Horizontal" MinHeight="28">
+            <TextBlock Text="AC " Style="{StaticResource Separator}"/>
+            <ctrl:NumericUpDown Value="{Binding Path=Value, Converter={StaticResource IntValue}, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" 
+                ToolTip="AC" IsReadOnly="{Binding ElementName=THIS, Path=IsEditable, Converter={StaticResource Not}}"/>
+            <TextBlock Style="{StaticResource Separator}" />
+            <TextBlock Text="Flatfooted " Style="{StaticResource Separator}"/>
+            <ctrl:NumericUpDown Value="{Binding Path=FlatfootedAC.Value, Converter={StaticResource IntValue}, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" 
+                ToolTip="Flatfooted AC" IsReadOnly="{Binding ElementName=THIS, Path=IsEditable, Converter={StaticResource Not}}"/>
+            <TextBlock Style="{StaticResource Separator}" />
+            <TextBlock Text="Touch " Style="{StaticResource Separator}"/>
+            <ctrl:NumericUpDown Value="{Binding Path=TouchAC.Value, Converter={StaticResource IntValue}, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" 
+                ToolTip="Touch AC" IsReadOnly="{Binding ElementName=THIS, Path=IsEditable, Converter={StaticResource Not}}"/>
+            <TextBlock Style="{StaticResource Separator}" />
+            <TextBlock Width="25" ToolTip="{Binding Path=AbilitySummary}" x:Name="SpecialACModifier" Style="{StaticResource Separator}" Text="*" Foreground="Red" Visibility="Collapsed"/>
+        </StackPanel>
+        <DataTemplate.Triggers>
+            <DataTrigger Binding="{Binding Path=HasCustomACModifiers}" Value="True">
+                <Setter Property="Visibility" TargetName="SpecialACModifier" Value="Visible"/>
+            </DataTrigger>
+        </DataTemplate.Triggers>
+    </DataTemplate>
+
+    <!-- AC summary -->
+    <DataTemplate x:Key="DataTemplateForACSummary">
+        <StackPanel Orientation="Horizontal" MinHeight="28">
+            <TextBlock x:Name="commaTextBlock" Style="{StaticResource Separator}" />
+            <TextBlock Text="{Binding Name}" Style="{StaticResource Separator}"/>
+            <ctrl:NumericUpDown Value="{Binding Path=Value, Converter={StaticResource IntValue}, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" 
+                ToolTip="{Binding Path=Name}" IsReadOnly="{Binding ElementName=THIS, Path=IsEditable, Converter={StaticResource Not}}"/>
+        </StackPanel>
+        <DataTemplate.Triggers>
+            <DataTrigger Binding="{Binding RelativeSource={RelativeSource PreviousData}}" Value="{x:Null}">
+                <Setter Property="Visibility" TargetName="commaTextBlock" Value="Collapsed"/>
+            </DataTrigger>
+        </DataTemplate.Triggers>
+    </DataTemplate>
+
+    <!-- Save summary -->
+    <DataTemplate x:Key="DataTemplateForSaveSummary">
+        <StackPanel Orientation="Horizontal" MinHeight="28">
+            <TextBlock x:Name="commaTextBlock" Style="{StaticResource Separator}" />
+            <TextBlock Text="{Binding Name}" Style="{StaticResource Separator}" x:Name="Txb1" Foreground="Black"/>
+            <ctrl:NumericUpDown Value="{Binding Path=Value, Converter={StaticResource IntValue}, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" 
+                ToolTip="{Binding Path=Name}" IsReadOnly="{Binding ElementName=THIS, Path=IsEditable, Converter={StaticResource Not}}"/>
+        </StackPanel>
+        <DataTemplate.Triggers>
+            <DataTrigger Binding="{Binding RelativeSource={RelativeSource PreviousData}}" Value="{x:Null}">
+                <Setter Property="Visibility" TargetName="commaTextBlock" Value="Collapsed"/>
+            </DataTrigger>
+            <DataTrigger Binding="{Binding Name}" Value="Fortitude">
+                <Setter Property="Foreground" TargetName="Txb1" Value="Blue"/>
+            </DataTrigger>
+            <DataTrigger Binding="{Binding Name}" Value="Reflex">
+                <Setter Property="Foreground" TargetName="Txb1" Value="Blue"/>
+            </DataTrigger>
+            <DataTrigger Binding="{Binding Name}" Value="Will">
+                <Setter Property="Foreground" TargetName="Txb1" Value="Blue"/>
+            </DataTrigger>
+        </DataTemplate.Triggers>
+    </DataTemplate>
+
+    <!-- Ability summary -->
+    <DataTemplate x:Key="DataTemplateForAbilitySummary">
+        <StackPanel Orientation="Horizontal" MinHeight="28">
+            <TextBlock x:Name="commaTextBlock" Style="{StaticResource Separator}" />
+            <TextBox Style="{StaticResource PropertyTextBoxStyle}" Text="{Binding Name}" ToolTip="{Binding Value}"
+                IsReadOnly="{Binding ElementName=THIS, Path=IsEditable, Converter={StaticResource Not}}"/>
+        </StackPanel>
+        <DataTemplate.Triggers>
+            <DataTrigger Binding="{Binding RelativeSource={RelativeSource PreviousData}}" Value="{x:Null}">
+                <Setter Property="Visibility" TargetName="commaTextBlock" Value="Collapsed"/>
+            </DataTrigger>
+        </DataTemplate.Triggers>
+    </DataTemplate>
+
+    <!-- SpellcastingClass summary -->
+    <DataTemplate x:Key="DataTemplateForSpellcastingClassSummary">
+        <StackPanel Orientation="Horizontal" MinHeight="28">
+            <TextBlock x:Name="commaTextBlock" Style="{StaticResource Separator}" Foreground="Red" Text=" &amp; "/>
+            <TextBox Style="{StaticResource PropertyTextBoxStyle}" Text="{Binding Name}" ToolTip="{Binding Notes.Value}"
+                IsReadOnly="{Binding ElementName=THIS, Path=IsEditable, Converter={StaticResource Not}}"/>
+            <TextBlock Text=" Levels" Style="{StaticResource Separator}"/>
+            <ctrl:NumericUpDown Value="{Binding Path=CasterLevel.Value, Converter={StaticResource IntValue}, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" 
+                    IsReadOnly="{Binding ElementName=THIS, Path=IsEditable, Converter={StaticResource Not}}" ToolTip="Caster Level"/>
+            <TextBlock Text="/" Style="{StaticResource Separator}"/>
+            <ctrl:NumericUpDown Value="{Binding Path=KnowLevel.Value, Converter={StaticResource IntValue}, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" 
+                    IsReadOnly="{Binding ElementName=THIS, Path=IsEditable, Converter={StaticResource Not}}" ToolTip="Know Level"/>
+        </StackPanel>
+        <DataTemplate.Triggers>
+            <DataTrigger Binding="{Binding RelativeSource={RelativeSource PreviousData}}" Value="{x:Null}">
+                <Setter Property="Visibility" TargetName="commaTextBlock" Value="Collapsed"/>
+            </DataTrigger>
+        </DataTemplate.Triggers>
+    </DataTemplate>
+
+    <!-- Speed summary -->
+    <DataTemplate x:Key="DataTemplateForSpeedSummary">
+        <StackPanel Orientation="Horizontal" MinHeight="28">
+            <TextBlock x:Name="commaTextBlock" Style="{StaticResource Separator}" />
+            <TextBox Style="{StaticResource PropertyTextBoxStyle}" Text="{Binding Name}" ToolTip="{Binding Name}"
+                IsReadOnly="{Binding ElementName=THIS, Path=IsEditable, Converter={StaticResource Not}}"/>
+            <ctrl:NumericUpDown Value="{Binding Path=Value, Converter={StaticResource IntValue}, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" 
+                    ShowSign="True" IsReadOnly="{Binding ElementName=THIS, Path=IsEditable, Converter={StaticResource Not}}" ToolTip="{Binding Value}"/>
+            <TextBlock Text="ft" Style="{StaticResource TitleTextBlock}" />
+        </StackPanel>
+        <DataTemplate.Triggers>
+            <DataTrigger Binding="{Binding RelativeSource={RelativeSource PreviousData}}" Value="{x:Null}">
+                <Setter Property="Visibility" TargetName="commaTextBlock" Value="Collapsed"/>
+            </DataTrigger>
+        </DataTemplate.Triggers>
+    </DataTemplate>
+
+    <!-- ................................................................................................................ -->
+
+    <!-- BaseInfo container -->
+    <HierarchicalDataTemplate DataType="{x:Type models:BaseInfo}" ItemsSource="{Binding Properties}" x:Key="DataTemplateForBaseInfo">
+        <Grid HorizontalAlignment="Stretch" MinHeight="28" >
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <TextBox FontWeight="Bold" Background="Transparent" Foreground="{Binding Path=IsPlayer.Value, Converter={StaticResource PlayerNameColorChooser}}" Text="{Binding Path=Parent.Name, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Style="{StaticResource PropertyTextBoxStyle}" Grid.Column="0" VerticalAlignment="Center" IsReadOnly="{Binding ElementName=THIS, Path=IsEditable, Converter={StaticResource Not}}"/>
+            <StackPanel Margin="10,0,0,0" Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Center" Visibility="{Binding RelativeSource={RelativeSource AncestorType=TreeViewItem}, Path=IsExpanded, Converter={StaticResource Bool2Vis}, ConverterParameter=True}" Orientation="Horizontal" MinHeight="28">
+                <StackPanel.Resources>
+                    <Style TargetType="{x:Type TextBox}" BasedOn="{StaticResource PropertyTextBoxStyle}">
+                        <Setter Property="MinWidth" Value="20" />
+                    </Style>
+                    <Style TargetType="{x:Type TextBlock}" BasedOn="{StaticResource Separator}">
+                        <Setter Property="VerticalAlignment" Value="Center"/>
+                    </Style>
+                </StackPanel.Resources>
+                <TextBlock Text=": "/>
+                <TextBox Text="{Binding Path=Parent.Value, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" ToolTip="Code" IsReadOnly="{Binding ElementName=THIS, Path=IsEditable, Converter={StaticResource Not}}"/>
+                <TextBlock Text=" ; "/>
+                <ComboBox Style="{StaticResource PropertyComboBoxStyle}" ToolTip="Gender" IsReadOnly="{Binding ElementName=THIS, Path=IsEditable, Converter={StaticResource Not}}" ItemsSource="{Binding Source={local:Enumeration {x:Type models:Genders}}}" DisplayMemberPath="Description" SelectedValue="{Binding Path=Gender.Value, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" SelectedValuePath="Value"/>
+                <TextBox Text="{Binding Path=Race.Value, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" ToolTip="Race" IsReadOnly="{Binding ElementName=THIS, Path=IsEditable, Converter={StaticResource Not}}"/>
+                <TextBlock Text=" ; "/>
+                <TextBox Text="{Binding Path=Size.Value, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" ToolTip="Size" IsReadOnly="{Binding ElementName=THIS, Path=IsEditable, Converter={StaticResource Not}}"/>
+                <TextBlock Text=" ; "/>
+                <TextBox Text="{Binding Path=Classes.Value, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" ToolTip="Classes" IsReadOnly="{Binding ElementName=THIS, Path=IsEditable, Converter={StaticResource Not}}"/>
+                <TextBlock Text=" ; "/>
+                <ComboBox Style="{StaticResource PropertyComboBoxStyle}" ToolTip="Alignment" IsReadOnly="{Binding ElementName=THIS, Path=IsEditable, Converter={StaticResource Not}}" ItemsSource="{Binding Source={local:Enumeration {x:Type models:Alignments}}}" DisplayMemberPath="Description" SelectedValue="{Binding Path=Alignment.Value, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" SelectedValuePath="Value"/>
+                <TextBlock Text=" ; HP "/>
+                <ctrl:NumericUpDown Value="{Binding Path=HitPoints.Value, Converter={StaticResource IntValue}, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" ToolTip="Current Hit Points" IsReadOnly="{Binding ElementName=THIS, Path=IsEditable, Converter={StaticResource Not}}" MinValue="-100"/>
+                <TextBlock Text=" ; Level Adjustment "/>
+                <ctrl:NumericUpDown Value="{Binding Path=LevelAdjustment.Value, Converter={StaticResource IntValue}, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" ToolTip="Current Hit Points" IsReadOnly="{Binding ElementName=THIS, Path=IsEditable, Converter={StaticResource Not}}" MinValue="0" ShowSign="True" />
+            </StackPanel>
+        </Grid>
+    </HierarchicalDataTemplate>
+
+    <!-- Saves container -->
+    <HierarchicalDataTemplate DataType="{x:Type models:Saves}" ItemsSource="{Binding Properties}" x:Key="DataTemplateForSaves">
+        <StackPanel HorizontalAlignment="Stretch" MinHeight="28" Orientation="Horizontal">
+            <Button ToolTip="New Save Modifier" Style="{StaticResource NewItemButtonStyle}" Visibility="{Binding ElementName=THIS, Path=IsLocked, Converter={StaticResource Bool2Vis}, ConverterParameter=True}" >
+                <Button.Command>
+                    <cmd:NewSaveModifierCommand />
+                </Button.Command>
+            </Button>
+            <TextBlock Text="Saves: " Style="{StaticResource HeaderTextBlock}" VerticalAlignment="Center" />
+            <ItemsControl ItemsSource="{Binding Properties}" Style="{StaticResource SummaryItemsControlStyle}" Visibility="{Binding RelativeSource={RelativeSource AncestorType=TreeViewItem}, Path=IsExpanded, Converter={StaticResource Bool2Vis}, ConverterParameter=True}"/>
+        </StackPanel>
+    </HierarchicalDataTemplate>
+
+    <!-- Defenses container -->
+    <HierarchicalDataTemplate DataType="{x:Type models:Defenses}" ItemsSource="{Binding Properties}" x:Key="DataTemplateForDefenses">
+        <Grid HorizontalAlignment="Stretch" MinHeight="28" >
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+            <Button ToolTip="New AC Modifier" Grid.Column="0" Style="{StaticResource NewItemButtonStyle}" Visibility="{Binding ElementName=THIS, Path=IsLocked, Converter={StaticResource Bool2Vis}, ConverterParameter=True}" >
+                <Button.Command>
+                    <cmd:NewACModifierCommand />
+                </Button.Command>
+            </Button>
+            <TextBlock Grid.Column="1" Text="AC:" Style="{StaticResource HeaderTextBlock}" VerticalAlignment="Center" />
+            <ctrl:NumericUpDown Grid.Column="2" Grid.ColumnSpan="{Binding RelativeSource={RelativeSource AncestorType=TreeViewItem}, Path=IsExpanded, Converter={StaticResource ColSpan}, ConverterParameter=9}"
+                Value="{Binding Path=Value, Converter={StaticResource IntValue}, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" 
+                IsReadOnly="{Binding ElementName=THIS, Path=IsEditable, Converter={StaticResource Not}}" HorizontalAlignment="Stretch" HorizontalContentAlignment="Stretch"  />
+            <StackPanel Orientation="Horizontal" Grid.Column="3" Visibility="{Binding RelativeSource={RelativeSource AncestorType=TreeViewItem}, Path=IsExpanded, Converter={StaticResource Bool2Vis}, ConverterParameter=True}">
+                <TextBlock Style="{StaticResource Separator}" />
+                <TextBlock Text="Flatfooted" Style="{StaticResource Separator}" />
+                <ctrl:NumericUpDown Value="{Binding Path=FlatfootedAC.Value, Converter={StaticResource IntValue}, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" IsReadOnly="{Binding ElementName=THIS, Path=IsEditable, Converter={StaticResource Not}}" />
+                <TextBlock Style="{StaticResource Separator}" />
+                <TextBlock Text="Touch" Style="{StaticResource Separator}" />
+                <ctrl:NumericUpDown Value="{Binding Path=TouchAC.Value, Converter={StaticResource IntValue}, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" IsReadOnly="{Binding ElementName=THIS, Path=IsEditable, Converter={StaticResource Not}}" />
+                <TextBlock Style="{StaticResource Separator}" Text="; "/>
+                <ItemsControl ItemsSource="{Binding ACModifiers}" Style="{StaticResource SummaryItemsControlStyle}" />
+            </StackPanel>
+        </Grid>
+    </HierarchicalDataTemplate>
+
+    <!-- Basic NodeContainer Without Title Template -->
+    <HierarchicalDataTemplate DataType="{x:Type models:NodeContainer}" ItemsSource="{Binding Properties}" x:Key="DataTemplateForNodeContainerWithoutTitle">
+        <Grid MinHeight="28"  x:Name="VisibleGrid">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+            <Button Grid.Column="0" x:Name="NewBtn" Style="{StaticResource NewItemButtonStyle}" Visibility="{Binding ElementName=THIS, Path=IsLocked, Converter={StaticResource Bool2Vis}, ConverterParameter=True}"/>
+            <TextBlock Grid.Column="1" Text="{Binding Path=Key, Converter={StaticResource GenericNodeContainerTextConv}}" Style="{StaticResource HeaderTextBlock}" VerticalAlignment="Center" />
+            <ItemsControl x:Name="Items" Grid.Column="2" ItemsSource="{Binding Properties}" Style="{StaticResource SummaryGenericItemsControlStyle}" Visibility="{Binding RelativeSource={RelativeSource AncestorType=TreeViewItem}, Path=IsExpanded, Converter={StaticResource Bool2Vis}, ConverterParameter=True}"/>
+        </Grid>
+        <HierarchicalDataTemplate.Triggers>
+            <DataTrigger Binding="{Binding Path=Key}" Value="RacialTraits">
+                <Setter Property="ToolTip" TargetName="NewBtn" Value="New Racial Trait"/>
+                <Setter Property="Command" TargetName="NewBtn">
+                    <Setter.Value>
+                        <cmd:NewRaceAbilityCommand />
+                    </Setter.Value>
+                </Setter>
+            </DataTrigger>
+            <DataTrigger Binding="{Binding Path=Key}" Value="ClassFeatures">
+                <Setter Property="ToolTip" TargetName="NewBtn" Value="New Class Feature"/>
+                <Setter Property="Command" TargetName="NewBtn">
+                    <Setter.Value>
+                        <cmd:NewClassAbilityCommand/>
+                    </Setter.Value>
+                </Setter>
+            </DataTrigger>
+            <DataTrigger Binding="{Binding Path=Key}" Value="Feats">
+                <Setter Property="ToolTip" TargetName="NewBtn" Value="New Feat"/>
+                <Setter Property="Command" TargetName="NewBtn">
+                    <Setter.Value>
+                        <cmd:NewFeatCommand />
+                    </Setter.Value>
+                </Setter>
+            </DataTrigger>
+            <DataTrigger Binding="{Binding Path=Key}" Value="SpecialQualities">
+                <Setter Property="ToolTip" TargetName="NewBtn" Value="New Special Quality"/>
+                <Setter Property="Command" TargetName="NewBtn">
+                    <Setter.Value>
+                        <cmd:NewSpecialQualityCommand />
+                    </Setter.Value>
+                </Setter>
+            </DataTrigger>
+        </HierarchicalDataTemplate.Triggers>
+    </HierarchicalDataTemplate>
+
+    <!-- Society container -->
+    <HierarchicalDataTemplate DataType="{x:Type models:Society}" ItemsSource="{Binding Properties}" x:Key="DataTemplateForSociety">
+        <Grid MinHeight="28" >
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+            <Button ToolTip="New Trade Modifier" x:Name="NewBtn" Grid.Column="0" Style="{StaticResource NewItemButtonStyle}" Visibility="{Binding ElementName=THIS, Path=IsLocked, Converter={StaticResource Bool2Vis}, ConverterParameter=True}">
+                <Button.Command>
+                    <cmd:NewTradeModifierCommand/>
+                </Button.Command>
+            </Button>
+            <TextBlock Grid.Column="1" Text="Society: " Style="{StaticResource HeaderTextBlock}" />
+            <TextBox Grid.Column="2" Text="{Binding Path=Profession.Name, UpdateSourceTrigger=PropertyChanged}" Style="{StaticResource PropertyTextBoxStyle}" IsReadOnly="{Binding ElementName=THIS, Path=IsEditable, Converter={StaticResource Not}}" />
+            <ctrl:NumericUpDown Grid.Column="3" Value="{Binding Path=Profession.Value, Converter={StaticResource IntValue}, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" IsReadOnly="{Binding ElementName=THIS, Path=IsEditable, Converter={StaticResource Not}}" Grid.ColumnSpan="{Binding RelativeSource={RelativeSource AncestorType=TreeViewItem}, Path=IsExpanded, Converter={StaticResource ColSpan}, ConverterParameter=2}"/>
+            <StackPanel Orientation="Horizontal" Grid.Column="4" Visibility="{Binding RelativeSource={RelativeSource AncestorType=TreeViewItem}, Path=IsExpanded, Converter={StaticResource Bool2Vis}, ConverterParameter=True}">
+                <TextBlock Text="; speaks " Style="{StaticResource Separator}" />
+                <TextBox Text="{Binding Path=Speaks.Value}" Style="{StaticResource PropertyTextBoxStyle}" />
+                <TextBlock Text=" + reads/writes " Style="{StaticResource Separator}" />
+                <TextBox Text="{Binding Path=ReadWrites.Value}" Style="{StaticResource PropertyTextBoxStyle}"/>
+                <TextBlock Text="; trade " Style="{StaticResource Separator}" />
+                <ctrl:NumericUpDown ShowSign="True" Value="{Binding Path=Trade.Value, Converter={StaticResource IntValue}, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" IsReadOnly="{Binding ElementName=THIS, Path=IsEditable, Converter={StaticResource Not}}" />
+                <ItemsControl ItemsSource="{Binding Path=TradeModifiers}" Style="{StaticResource SummaryItemsControlStyle}" />
+            </StackPanel>
+        </Grid>
+    </HierarchicalDataTemplate>
+
+    <!-- VitalStatistics container -->
+    <HierarchicalDataTemplate DataType="{x:Type models:VitalStatistics}" ItemsSource="{Binding Properties}" x:Key="DataTemplateForVitalStatistics">
+        <Grid MinHeight="28" >
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+            <Button x:Name="NewBtn" Grid.Column="0" ToolTip="New Speed" Style="{StaticResource NewItemButtonStyle}" Visibility="{Binding ElementName=THIS, Path=IsLocked, Converter={StaticResource Bool2Vis}, ConverterParameter=True}">
+                <Button.Command>
+                    <cmd:NewSpeedAbilityCommand/>
+                </Button.Command>
+            </Button>
+            <Button x:Name="NewBtn2" Grid.Column="1" ToolTip="New Vision Modifier" Style="{StaticResource NewItemButtonStyle}" Visibility="{Binding ElementName=THIS, Path=IsLocked, Converter={StaticResource Bool2Vis}, ConverterParameter=True}">
+                <Button.Command>
+                    <cmd:NewPerceptionAbilityCommand/>
+                </Button.Command>
+            </Button>
+            <TextBlock Grid.Column="2" Text="Vital Statistics: " Style="{StaticResource HeaderTextBlock}" />
+            <StackPanel Orientation="Horizontal" Grid.Column="3" Visibility="{Binding RelativeSource={RelativeSource AncestorType=TreeViewItem}, Path=IsExpanded, Converter={StaticResource Bool2Vis}, ConverterParameter=True}">
+                <ctrl:NumericUpDown Value="{Binding Path=Height.Value, Converter={StaticResource IntValue}, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" IsReadOnly="{Binding ElementName=THIS, Path=IsEditable, Converter={StaticResource Not}}" />
+                <TextBlock Text="cm, " Style="{StaticResource Separator}" />
+                <ctrl:NumericUpDown Value="{Binding Path=Weight.Value, Converter={StaticResource IntValue}, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" IsReadOnly="{Binding ElementName=THIS, Path=IsEditable, Converter={StaticResource Not}}" />
+                <TextBlock Text="kg ; Age: " Style="{StaticResource Separator}" />
+                <ctrl:NumericUpDown Value="{Binding Path=Age.Value, Converter={StaticResource IntValue}, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" IsReadOnly="{Binding ElementName=THIS, Path=IsEditable, Converter={StaticResource Not}}" />
+                <TextBlock Text="; " Style="{StaticResource Separator}" />
+                <ItemsControl ItemsSource="{Binding Path=SpeedTypes}" Style="{StaticResource SummaryItemsControlStyle}" />
+                <TextBlock Text="; " Style="{StaticResource Separator}" />
+                <ctrl:NumericUpDown ShowSign="True"  Value="{Binding Path=Initiative.Value, Converter={StaticResource IntValue}, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" IsReadOnly="{Binding ElementName=THIS, Path=IsEditable, Converter={StaticResource Not}}" />
+                <TextBlock Text="initiative ; " Style="{StaticResource Separator}" />
+                <ItemsControl ItemsSource="{Binding Path=SightModifiers}" Style="{StaticResource SummaryItemsControlStyle}" />
+            </StackPanel>
+        </Grid>
+    </HierarchicalDataTemplate>
+
+    <!-- Skills container -->
+    <HierarchicalDataTemplate DataType="{x:Type models:Skills}" ItemsSource="{Binding Properties}" x:Key="DataTemplateForSkills">
+        <StackPanel Orientation="Horizontal" MinHeight="28" >
+            <Button ToolTip="New Skill" Style="{StaticResource NewItemButtonStyle}" Visibility="{Binding ElementName=THIS, Path=IsLocked, Converter={StaticResource Bool2Vis}, ConverterParameter=True}" >
+                <Button.Command>
+                    <cmd:NewSkillCommand />
+                </Button.Command>
+            </Button>
+            <TextBlock Text="Skills: " Style="{StaticResource HeaderTextBlock}" VerticalAlignment="Center" />
+            <ItemsControl ItemsSource="{Binding Properties}" Style="{StaticResource SummaryItemsControlStyle}" Visibility="{Binding RelativeSource={RelativeSource AncestorType=TreeViewItem}, Path=IsExpanded, Converter={StaticResource Bool2Vis}, ConverterParameter=True}"/>
+        </StackPanel>
+    </HierarchicalDataTemplate>
+
+    <!-- Spellcasting container -->
+    <HierarchicalDataTemplate DataType="{x:Type models:Spellcasting}" ItemsSource="{Binding Properties}" x:Key="DataTemplateForSpellcasting">
+        <StackPanel Orientation="Horizontal" MinHeight="28" >
+            <Button ToolTip="New Spellcasting Class" Style="{StaticResource NewItemButtonStyle}" Visibility="{Binding ElementName=THIS, Path=IsLocked, Converter={StaticResource Bool2Vis}, ConverterParameter=True}" >
+                <Button.Command>
+                    <cmd:NewSpellcastingClassCommand />
+                </Button.Command>
+            </Button>
+            <TextBlock Text="Spellcasting: " Style="{StaticResource HeaderTextBlock}" VerticalAlignment="Center" />
+            <ItemsControl ItemsSource="{Binding Properties}" Style="{StaticResource SummaryItemsControlStyle}" Visibility="{Binding RelativeSource={RelativeSource AncestorType=TreeViewItem}, Path=IsExpanded, Converter={StaticResource Bool2Vis}, ConverterParameter=True}"/>
+        </StackPanel>
+    </HierarchicalDataTemplate>
+
+    <!-- Gear container -->
+    <HierarchicalDataTemplate DataType="{x:Type models:Gear}" ItemsSource="{Binding Equipment}" x:Key="DataTemplateForGear">
+        <StackPanel Orientation="Horizontal" MinHeight="28" >
+            <Button ToolTip="New Item" Style="{StaticResource NewItemButtonStyle}" Visibility="{Binding ElementName=THIS, Path=IsLocked, Converter={StaticResource Bool2Vis}, ConverterParameter=True}" Grid.Column="0" >
+                <Button.Command>
+                    <cmd:NewItemCommand />
+                </Button.Command>
+            </Button>
+            <TextBlock Text="Gear: " Style="{StaticResource HeaderTextBlock}" VerticalAlignment="Center" />
+            <TextBlock Text="encumbrance: " Style="{StaticResource Separator}"  />
+            <ctrl:NumericUpDown Value="{Binding Path=Encumbrance.Value, Converter={StaticResource IntValue}, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" IsReadOnly="{Binding ElementName=THIS, Path=IsEditable, Converter={StaticResource Not}}" />
+            <TextBlock Text="/ " Style="{StaticResource Separator}"  />
+            <ctrl:NumericUpDown Foreground="Red" Value="{Binding Path=TotalEncumbrance, Converter={StaticResource IntValue}, Mode=OneWay}" IsReadOnly="True" />
+        </StackPanel>
+    </HierarchicalDataTemplate>
+
+    <!-- Stats container -->
+    <HierarchicalDataTemplate DataType="{x:Type models:Stats}" ItemsSource="{Binding Properties}" x:Key="DataTemplateForStats">
+        <StackPanel Orientation="Horizontal" MinHeight="28" >
+            <TextBlock Text="Stats: " Style="{StaticResource HeaderTextBlock}"  />
+            <ItemsControl ItemsSource="{Binding Properties}" Style="{StaticResource SummaryItemsControlStyle}" Visibility="{Binding RelativeSource={RelativeSource AncestorType=TreeViewItem}, Path=IsExpanded, Converter={StaticResource Bool2Vis}, ConverterParameter=True}"/>
+        </StackPanel>
+    </HierarchicalDataTemplate>
+
+    <!-- Combat Stances container -->
+    <HierarchicalDataTemplate DataType="{x:Type models:CombatStances}" ItemsSource="{Binding Properties}" x:Key="DataTemplateForCombatStances">
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Stretch" MinHeight="28" >
+            <Button ToolTip="New Stance" Style="{StaticResource NewItemButtonStyle}" Visibility="{Binding ElementName=THIS, Path=IsLocked, Converter={StaticResource Bool2Vis}, ConverterParameter=True}">
+                <Button.Command>
+                    <cmd:NewStanceCommand />
+                </Button.Command>
+            </Button>
+            <Button ToolTip="New Maneuver Modifier" Style="{StaticResource NewItemButtonStyle}" Visibility="{Binding ElementName=THIS, Path=IsLocked, Converter={StaticResource Bool2Vis}, ConverterParameter=True}">
+                <Button.Command>
+                    <cmd:NewStanceModifierCommand />
+                </Button.Command>
+            </Button>
+            <TextBlock Text="Combat Stances: " Style="{StaticResource HeaderTextBlock}"  />
+            <StackPanel Orientation="Horizontal" Visibility="{Binding RelativeSource={RelativeSource AncestorType=TreeViewItem}, Path=IsExpanded, Converter={StaticResource Bool2Vis}, ConverterParameter=True}">
+                <TextBlock Text="BAB: " Style="{StaticResource Separator}" />
+                <ctrl:NumericUpDown Value="{Binding Path=BAB.Value, Converter={StaticResource IntValue}, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"  IsReadOnly="{Binding ElementName=THIS, Path=IsEditable, Converter={StaticResource Not}}" ShowSign="True" />
+                <TextBlock Text="; CMB: " Style="{StaticResource Separator}" />
+                <ctrl:NumericUpDown Value="{Binding Path=CMB.Value, Converter={StaticResource IntValue}, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" IsReadOnly="{Binding ElementName=THIS, Path=IsEditable, Converter={StaticResource Not}}" ShowSign="True" />
+                <TextBlock Text=", CMD: " Style="{StaticResource Separator}" />
+                <ctrl:NumericUpDown Value="{Binding Path=CMD.Value, Converter={StaticResource IntValue}, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" IsReadOnly="{Binding ElementName=THIS, Path=IsEditable, Converter={StaticResource Not}}" />
+                <StackPanel Orientation="Horizontal" MinHeight="28" x:Name="maneuverMods" Visibility="Collapsed">
+                    <TextBlock Text="( " Style="{StaticResource Separator}" />
+                    <ItemsControl ItemsSource="{Binding ManeuverModifiers}" Style="{StaticResource SummaryItemsControlStyle}" />
+                    <TextBlock Text=" )" Style="{StaticResource Separator}" />
+                </StackPanel>
+                <TextBlock Text="; " Style="{StaticResource Separator}" />
+                <ItemsControl ItemsSource="{Binding Stances}" Style="{StaticResource SummaryItemsControlStyle}" />
+            </StackPanel>
+        </StackPanel>
+        <HierarchicalDataTemplate.Triggers>
+            <DataTrigger Binding="{Binding Path=HasManeuverModifiers}" Value="True">
+                <Setter Property="Visibility" TargetName="maneuverMods" Value="Visible"/>
+            </DataTrigger>
+        </HierarchicalDataTemplate.Triggers>
+    </HierarchicalDataTemplate>
+
+    <!-- Item container -->
+    <HierarchicalDataTemplate DataType="{x:Type models:Item}" ItemsSource="{Binding Properties}" x:Key="DataTemplateForItem">
+        <Grid HorizontalAlignment="Stretch" MinHeight="28" >
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Button ToolTip="Delete Item" Style="{StaticResource DeleteItemButtonStyle}" Grid.Column="0" Visibility="{Binding ElementName=THIS, Path=IsLocked, Converter={StaticResource Bool2Vis}, ConverterParameter=True}" >
+                <Button.Command>
+                    <cmd:DeleteItemCommand/>
+                </Button.Command>
+            </Button>
+            <TextBox Grid.Column="1" atch:AttachedProperties.HeaderEditor="True" Style="{StaticResource PropertyTextBoxStyle}" Text="{Binding Path=Name}" IsReadOnly="{Binding ElementName=THIS, Path=IsEditable, Converter={StaticResource Not}}" />
+            <StackPanel Orientation="Horizontal" Grid.Column="2" Visibility="{Binding RelativeSource={RelativeSource AncestorType=TreeViewItem}, Path=IsExpanded, Converter={StaticResource Bool2Vis}, ConverterParameter=True}" >
+                <StackPanel.Resources>
+                    <Style TargetType="{x:Type TextBlock}" BasedOn="{StaticResource Separator}">
+                    </Style>
+                </StackPanel.Resources>
+                <TextBlock Text=";" />
+                <CheckBox IsChecked="{Binding Path=Equipped.Value, Converter={StaticResource BoolValue}, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" ToolTip="Is Equipped" Content="E" Style="{StaticResource BulletCheckBoxStyle}" IsEnabled="{Binding ElementName=THIS, Path=IsEditable}" Foreground="Blue" />
+                <TextBlock Text="; $" />
+                <ctrl:NumericUpDown MinWidth="30" ToolTip="Weight" Value="{Binding Path=Weight.Value, Converter={StaticResource IntValue}, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" IsReadOnly="{Binding ElementName=THIS, Path=IsEditable, Converter={StaticResource Not}}" />
+                <TextBlock Text="; # "  />
+                <ctrl:NumericUpDown MinWidth="50" ToolTip="Stack" Value="{Binding Path=Stack.Value, Converter={StaticResource IntValue}, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" IsReadOnly="{Binding ElementName=THIS, Path=IsEditable, Converter={StaticResource Not}}" />
+                <TextBlock Text=" { " />
+                <TextBox MinWidth="30" Style="{StaticResource PropertyTextBoxStyle}" Text="{Binding Path=Tier.Value}" IsReadOnly="{Binding ElementName=THIS, Path=IsEditable, Converter={StaticResource Not}}" />
+                <TextBlock Text=" } : " />
+            </StackPanel>
+            <TextBox Grid.Column="3" Style="{StaticResource PropertyTextBoxStyle}" Text="{Binding Path=Value}" IsReadOnly="{Binding ElementName=THIS, Path=IsEditable, Converter={StaticResource Not}}" HorizontalAlignment="Stretch"/>
+        </Grid>
+    </HierarchicalDataTemplate>
+
+    <!-- Stance container -->
+    <HierarchicalDataTemplate DataType="{x:Type models:Stance}" ItemsSource="{Binding Properties}" x:Key="DataTemplateForStance">
+        <Grid MinHeight="28" >
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+            <Button ToolTip="New Attack" Grid.Column="0" Style="{StaticResource NewItemButtonStyle}" Visibility="{Binding ElementName=THIS, Path=IsLocked, Converter={StaticResource Bool2Vis}, ConverterParameter=True}" >
+                <Button.Command>
+                    <cmd:NewAttackCommand />
+                </Button.Command>
+            </Button>
+            <Button ToolTip="Delete Stance" Grid.Column="1" Style="{StaticResource DeleteItemButtonStyle}" Visibility="{Binding ElementName=THIS, Path=IsLocked, Converter={StaticResource Bool2Vis}, ConverterParameter=True}" >
+                <Button.Command>
+                    <cmd:DeleteStanceCommand/>
+                </Button.Command>
+            </Button>
+            <TextBox Grid.Column="2" atch:AttachedProperties.HeaderEditor="True" Style="{StaticResource PropertyTextBoxStyle}"  Text="{Binding Path=Name}" VerticalAlignment="Center" 
+                     IsReadOnly="{Binding ElementName=THIS, Path=IsEditable, Converter={StaticResource Not}}" HorizontalAlignment="Stretch" HorizontalContentAlignment="Stretch" 
+                     Grid.ColumnSpan="{Binding RelativeSource={RelativeSource AncestorType=TreeViewItem}, Path=IsExpanded, Converter={StaticResource ColSpan}, ConverterParameter=2}"/>
+            <ItemsControl Grid.Column="3" ItemsSource="{Binding Properties}" Style="{StaticResource SummaryItemsControlStyle}" Visibility="{Binding RelativeSource={RelativeSource AncestorType=TreeViewItem}, Path=IsExpanded, Converter={StaticResource Bool2Vis}, ConverterParameter=True}"/>
+        </Grid>
+    </HierarchicalDataTemplate>
+
+    <!-- Attack container -->
+    <HierarchicalDataTemplate DataType="{x:Type models:Attack}" ItemsSource="{Binding Properties}" x:Key="DataTemplateForAttack">
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Stretch" MinHeight="28" >
+            <Button ToolTip="New Damage" Style="{StaticResource NewItemButtonStyle}" Visibility="{Binding ElementName=THIS, Path=IsLocked, Converter={StaticResource Bool2Vis}, ConverterParameter=True}" >
+                <Button.Command>
+                    <cmd:NewDamageCommand />
+                </Button.Command>
+            </Button>
+            <Button ToolTip="Delete Attack" Style="{StaticResource DeleteItemButtonStyle}" Visibility="{Binding ElementName=THIS, Path=IsLocked, Converter={StaticResource Bool2Vis}, ConverterParameter=True}" >
+                <Button.Command>
+                    <cmd:DeleteAttackCommand/>
+                </Button.Command>
+            </Button>
+            <TextBox atch:AttachedProperties.HeaderEditor="True" Style="{StaticResource PropertyTextBoxStyle}" Text="{Binding Path=Name}" IsReadOnly="{Binding ElementName=THIS, Path=IsEditable, Converter={StaticResource Not}}" />
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Stretch" Visibility="{Binding RelativeSource={RelativeSource AncestorType=TreeViewItem}, Path=IsExpanded, Converter={StaticResource Bool2Vis}, ConverterParameter=True}">
+                <StackPanel.Resources>
+                    <Style TargetType="{x:Type TextBox}" BasedOn="{StaticResource PropertyTextBoxStyle}">
+                        <Setter Property="MinWidth" Value="20" />
+                    </Style>
+                    <Style TargetType="{x:Type TextBlock}" BasedOn="{StaticResource Separator}"/>
+                </StackPanel.Resources>
+                <TextBlock Text=": To Hit "/>
+                <ctrl:NumericUpDown Value="{Binding Path=ToHit.Value, Converter={StaticResource IntValue}, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" ToolTip="To Hit" IsReadOnly="{Binding ElementName=THIS, Path=IsEditable, Converter={StaticResource Not}}"/>
+                <TextBlock Text="/#"/>
+                <ctrl:NumericUpDown Value="{Binding Path=Count.Value, Converter={StaticResource IntValue}, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" ToolTip="Count" IsReadOnly="{Binding ElementName=THIS, Path=IsEditable, Converter={StaticResource Not}}"/>
+                <TextBlock Text="attacks, critical: "/>
+                <TextBox Text="{Binding Path=Critical.Value, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" ToolTip="Critical Info" 
+                         IsReadOnly="{Binding ElementName=THIS, Path=IsEditable, Converter={StaticResource Not}}"/>
+                <TextBlock Text=" ["/>
+                <ItemsControl ItemsSource="{Binding Damages}" Style="{StaticResource SummaryItemsControlStyle}"/>
+                <TextBlock Text="] ; "/>
+                <ctrl:NumericUpDown Value="{Binding Path=Range.Value, Converter={StaticResource IntValue}, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" ToolTip="Range/Reach" 
+                         IsReadOnly="{Binding ElementName=THIS, Path=IsEditable, Converter={StaticResource Not}}"/>
+                <TextBlock Text="ft range/reach"/>
+            </StackPanel>
+        </StackPanel>
+    </HierarchicalDataTemplate>
+
+    <!-- SpellcastingClass container -->
+    <HierarchicalDataTemplate DataType="{x:Type models:SpellcastingClass}" ItemsSource="{Binding Properties}" x:Key="DataTemplateForSpellcastingClass">
+        <Grid MinHeight="28" >
+            <Grid.ColumnDefinitions >
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+            <Button Grid.Column="0" ToolTip="New Spell Level" Style="{StaticResource NewItemButtonStyle}" Visibility="{Binding ElementName=THIS, Path=IsLocked, Converter={StaticResource Bool2Vis}, ConverterParameter=True}" >
+                <Button.Command>
+                    <cmd:NewSpellLevelCommand />
+                </Button.Command>
+            </Button>
+            <Button Grid.Column="1" ToolTip="Delete Spellcasting Class" Style="{StaticResource DeleteItemButtonStyle}" Visibility="{Binding ElementName=THIS, Path=IsLocked, Converter={StaticResource Bool2Vis}, ConverterParameter=True}" >
+                <Button.Command>
+                    <cmd:DeleteSpellcastingClassCommand/>
+                </Button.Command>
+            </Button>
+            <TextBox Grid.Column="2" atch:AttachedProperties.HeaderEditor="True" Style="{StaticResource PropertyTextBoxStyle}" Text="{Binding Path=Name}" ToolTip="{Binding Notes.Value}"
+                     IsReadOnly="{Binding ElementName=THIS, Path=IsEditable, Converter={StaticResource Not}}" HorizontalAlignment="Stretch" 
+                     Grid.ColumnSpan="{Binding RelativeSource={RelativeSource AncestorType=TreeViewItem}, Path=IsExpanded, Converter={StaticResource ColSpan}, ConverterParameter=2}"/>
+            <StackPanel Grid.Column="3" Orientation="Horizontal"  Visibility="{Binding RelativeSource={RelativeSource AncestorType=TreeViewItem}, Path=IsExpanded, Converter={StaticResource Bool2Vis}, ConverterParameter=True}" MinHeight="28">
+                <StackPanel.Resources>
+                    <Style TargetType="{x:Type TextBox}" BasedOn="{StaticResource PropertyTextBoxStyle}">
+                        <Setter Property="MinWidth" Value="20" />
+                    </Style>
+                    <Style TargetType="{x:Type TextBlock}" BasedOn="{StaticResource Separator}">
+                    </Style>
+                </StackPanel.Resources>
+                <ComboBox IsReadOnly="{Binding ElementName=THIS, Path=IsEditable, Converter={StaticResource Not}}"  HorizontalAlignment="Stretch"  
+                    x:Name="EnumCMB" HorizontalContentAlignment="Stretch" Style="{DynamicResource PropertyComboBoxStyle}" ItemsSource="{Binding Source={local:Enumeration {x:Type models:SpellcastingTypes}}}" 
+                    DisplayMemberPath="Description" SelectedValue="{Binding SpellcastingType.Value, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" SelectedValuePath="Value" />
+                <TextBlock Text=", Levels"/>
+                <ctrl:NumericUpDown Value="{Binding Path=CasterLevel.Value, Converter={StaticResource IntValue}, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" 
+                    IsReadOnly="{Binding ElementName=THIS, Path=IsEditable, Converter={StaticResource Not}}" ToolTip="Caster Level"/>
+                <TextBlock Text="/"/>
+                <ctrl:NumericUpDown Value="{Binding Path=KnowLevel.Value, Converter={StaticResource IntValue}, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" 
+                    IsReadOnly="{Binding ElementName=THIS, Path=IsEditable, Converter={StaticResource Not}}" ToolTip="Know Level"/>
+                <TextBlock Text=": "/>
+                <ItemsControl ItemsSource="{Binding SpellLevels}" Style="{StaticResource SummaryItemsControlStyle}" />
+            </StackPanel>
+        </Grid>
+    </HierarchicalDataTemplate>
+
+    <!-- SpellLevel container -->
+    <HierarchicalDataTemplate DataType="{x:Type models:SpellLevel}" ItemsSource="{Binding Properties}" x:Key="DataTemplateForSpellLevel">
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Stretch" MinHeight="28" >
+            <Button ToolTip="New Spell" Style="{StaticResource NewItemButtonStyle}" Visibility="{Binding ElementName=THIS, Path=IsLocked, Converter={StaticResource Bool2Vis}, ConverterParameter=True}" >
+                <Button.Command>
+                    <cmd:NewSpellCommand />
+                </Button.Command>
+            </Button>
+            <Button ToolTip="Delete Spell Level" Style="{StaticResource DeleteItemButtonStyle}" Visibility="{Binding ElementName=THIS, Path=IsLocked, Converter={StaticResource Bool2Vis}, ConverterParameter=True}" >
+                <Button.Command>
+                    <cmd:DeleteSpellLevelCommand/>
+                </Button.Command>
+            </Button>
+            <TextBlock Text="Level: " Style="{StaticResource Separator}" />
+            <ctrl:NumericUpDown Value="{Binding Path=Name, Converter={StaticResource IntValue}, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" 
+                IsReadOnly="{Binding ElementName=THIS, Path=IsEditable, Converter={StaticResource Not}}"/>
+            <TextBlock Text=", Slots: " Style="{StaticResource Separator}" />
+            <ctrl:NumericUpDown Value="{Binding Path=Slots.Value, Converter={StaticResource IntValue}, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                IsReadOnly="{Binding ElementName=THIS, Path=IsEditable, Converter={StaticResource Not}}"/>
+            <TextBlock Text=": " Style="{StaticResource Separator}" />
+            <ItemsControl ItemsSource="{Binding Spells}" Style="{StaticResource SummaryItemsControlStyle}" />
+        </StackPanel>
+    </HierarchicalDataTemplate>
+
+    <!-- States container -->
+    <HierarchicalDataTemplate DataType="{x:Type models:States}" ItemsSource="{Binding Properties}" x:Key="DataTemplateForStates">
+        <StackPanel Orientation="Horizontal" MinHeight="26" >
+            <Button ToolTip="New State" Style="{StaticResource NewItemButtonStyle}" Visibility="{Binding ElementName=THIS, Path=IsLocked, Converter={StaticResource Bool2Vis}, ConverterParameter=True}" >
+                <Button.Command>
+                    <cmd:NewStateCommand />
+                </Button.Command>
+            </Button>
+            <TextBlock Text="States: " Style="{StaticResource HeaderTextBlock}"/>
+            <ItemsControl ItemsSource="{Binding Properties}" Style="{StaticResource SummaryItemsControlStyle}" Visibility="{Binding RelativeSource={RelativeSource AncestorType=TreeViewItem}, Path=IsExpanded, Converter={StaticResource Bool2Vis}, ConverterParameter=True}"/>
+        </StackPanel>
+    </HierarchicalDataTemplate>
+
+    <!-- .................................................................................................................................................................. -->
+
+    <!-- Spell container -->
+    <DataTemplate DataType="{x:Type models:Spell}" x:Key="DataTemplateForSpell">
+        <Grid MinHeight="28" HorizontalAlignment="Stretch">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+            <Button Grid.Column="0" ToolTip="Delete Spell" Style="{StaticResource DeleteItemButtonStyle}" Visibility="{Binding ElementName=THIS, Path=IsLocked, Converter={StaticResource Bool2Vis}, ConverterParameter=True}" >
+                <Button.Command>
+                    <cmd:DeleteSpellCommand/>
+                </Button.Command>
+            </Button>
+            <CheckBox Grid.Column="1" IsChecked="{Binding Path=Available, Converter={StaticResource BoolValue}, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" x:Name="CHB"
+                Content="{Binding Path=Parent.Name}" ToolTip="{Binding Path=Parent.SpellList.Value}" Style="{StaticResource MemorizedSpellCheckBoxStyle}" IsEnabled="{Binding ElementName=THIS, Path=IsEditable}" />
+            <TextBox Grid.Column="2" Text="{Binding Path=Name, Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" Style="{StaticResource PropertyTextBoxStyle}" 
+                HorizontalAlignment="Stretch" HorizontalContentAlignment="Stretch"  IsReadOnly="{Binding ElementName=THIS, Path=IsEditable, Converter={StaticResource Not}}" />
+        </Grid>
+    </DataTemplate>
+
+    <!-- Ability property -->
+    <DataTemplate DataType="{x:Type models:Ability}" x:Key="DataTemplateForAbility">
+        <Grid MinHeight="28">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+            <Button ToolTip="Delete" Grid.Column="0" Style="{StaticResource DeleteItemButtonStyle}" Visibility="{Binding ElementName=THIS, Path=IsLocked, Converter={StaticResource Bool2Vis}, ConverterParameter=True}" >
+                <Button.Command>
+                    <cmd:DeleteAbilityCommand/>
+                </Button.Command>
+            </Button>
+            <TextBox Grid.Column="1" atch:AttachedProperties.HeaderEditor="True" Text="{Binding Name, Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" Style="{StaticResource PropertyTextBoxStyle}" 
+                MinWidth="20" IsReadOnly="{Binding ElementName=THIS, Path=IsEditable, Converter={StaticResource Not}}" />
+            <TextBox Grid.Column="2" Text="{Binding Value, Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" Style="{StaticResource PropertyTextBoxStyle}" 
+                HorizontalAlignment="Stretch" HorizontalContentAlignment="Stretch" IsReadOnly="{Binding ElementName=THIS, Path=IsEditable, Converter={StaticResource Not}}" />
+        </Grid>
+    </DataTemplate>
+
+    <!-- Modifier property -->
+    <DataTemplate DataType="{x:Type models:Ability}" x:Key="DataTemplateForModifier">
+        <Grid HorizontalAlignment="Stretch" MinHeight="28">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+            <Button ToolTip="Delete" Grid.Column="0" Style="{StaticResource DeleteItemButtonStyle}" Visibility="{Binding ElementName=THIS, Path=IsLocked, Converter={StaticResource Bool2Vis}, ConverterParameter=True}" >
+                <Button.Command>
+                    <cmd:DeleteModifierCommand/>
+                </Button.Command>
+            </Button>
+            <TextBox Grid.Column="1" atch:AttachedProperties.HeaderEditor="True" Text="{Binding Name, Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" Style="{StaticResource PropertyTextBoxStyle}" 
+                MinWidth="20" IsReadOnly="{Binding ElementName=THIS, Path=IsEditable, Converter={StaticResource Not}}" />
+            <ctrl:NumericUpDown Grid.Column="2" Value="{Binding Path=Value, Converter={StaticResource IntValue}, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" MinValue="-100" ShowSign="true"
+                IsReadOnly="{Binding ElementName=THIS, Path=IsEditable, Converter={StaticResource Not}}" HorizontalAlignment="Stretch" HorizontalContentAlignment="Stretch" />
+        </Grid>
+    </DataTemplate>
+
+    <!-- Skill property -->
+    <DataTemplate DataType="{x:Type models:Skill}" x:Key="DataTemplateForSkill">
+        <Grid HorizontalAlignment="Stretch" MinHeight="28">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+            <Button ToolTip="Delete Skill" Grid.Column="0" Style="{StaticResource DeleteItemButtonStyle}" Visibility="{Binding ElementName=THIS, Path=IsLocked, Converter={StaticResource Bool2Vis}, ConverterParameter=True}">
+                <Button.Command>
+                    <cmd:DeleteSkillCommand/>
+                </Button.Command>
+            </Button>
+            <ComboBox Grid.Column="1" IsReadOnly="{Binding ElementName=THIS, Path=IsEditable, Converter={StaticResource Not}}" HorizontalAlignment="Stretch" 
+                HorizontalContentAlignment="Stretch" Style="{DynamicResource PropertyComboBoxStyle}" ItemsSource="{Binding Source={local:Enumeration {x:Type models:SkillTypes}}}" 
+                DisplayMemberPath="Description" SelectedValue="{Binding Name, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" SelectedValuePath="Value" />
+            <ctrl:NumericUpDown Grid.Column="2" Value="{Binding Path=Value, Converter={StaticResource IntValue}, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" 
+                ShowSign="True" IsReadOnly="{Binding ElementName=THIS, Path=IsEditable, Converter={StaticResource Not}}" HorizontalContentAlignment="Stretch" />
+        </Grid>
+    </DataTemplate>
+
+    <!-- State property -->
+    <DataTemplate DataType="{x:Type models:State}" x:Key="DataTemplateForState">
+        <Grid HorizontalAlignment="Stretch" MinHeight="28">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+            <Button Grid.Column="0" ToolTip="Delete State" Style="{StaticResource DeleteItemButtonStyle}" Visibility="{Binding ElementName=THIS, Path=IsLocked, Converter={StaticResource Bool2Vis}, ConverterParameter=True}" >
+                <Button.Command>
+                    <cmd:DeleteStateCommand/>
+                </Button.Command>
+            </Button>
+            <CheckBox Grid.Column="1" ToolTip="Is Custom State" IsChecked="{Binding Path=CustomState.Value, Converter={StaticResource BoolValue}, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Content="C" Style="{StaticResource BulletCheckBoxStyle}" IsEnabled="{Binding ElementName=THIS, Path=IsEditable}" />
+            <StackPanel Orientation="Horizontal" Grid.Column="2">
+                <TextBlock Text=": (" Style="{StaticResource Separator}" />
+                <ctrl:NumericUpDown Value="{Binding Path=Duration.Value, Converter={StaticResource IntValue}, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" IsReadOnly="{Binding ElementName=THIS, Path=IsEditable, Converter={StaticResource Not}}" MinValue="-1"/>
+                <TextBlock Text="R), " Style="{StaticResource Separator}" />
+            </StackPanel>
+            <TextBox Grid.Column="3" x:Name="TxbName" Text="{Binding Path=StateName}" Style="{StaticResource PropertyTextBoxStyle}" IsReadOnly="{Binding ElementName=THIS, Path=IsEditable, Converter={StaticResource Not}}" />
+            <ComboBox Grid.Column="3" x:Name="CmbName" IsReadOnly="{Binding ElementName=THIS, Path=IsEditable, Converter={StaticResource Not}}" Style="{DynamicResource PropertyComboBoxStyle}" ToolTip="{Binding Value}" ItemsSource="{Binding Source={local:Enumeration {x:Type models:PredefinedStates}}}" 
+                DisplayMemberPath="Description" SelectedValuePath="Value" />
+            <TextBox Grid.Column="4" x:Name="TxbCustomValue" Text="{Binding Path=Value}" Style="{StaticResource PropertyTextBoxStyle}" IsReadOnly="{Binding ElementName=THIS, Path=IsEditable, Converter={StaticResource Not}}" HorizontalAlignment="Stretch" HorizontalContentAlignment="Stretch" />
+            <TextBox Grid.Column="4" x:Name="TxbPredefinedValue" Text="{Binding Path=Value}" Style="{StaticResource PropertyTextBoxStyle}" IsReadOnly="True" HorizontalAlignment="Stretch" HorizontalContentAlignment="Stretch" />
+        </Grid>
+        <DataTemplate.Triggers>
+            <DataTrigger Binding="{Binding Path=CustomState.Value}" Value="True">
+                <Setter Property="Visibility" TargetName="TxbName" Value="Visible"/>
+                <Setter Property="Visibility" TargetName="TxbCustomValue" Value="Visible"/>
+                <Setter Property="SelectedValue" TargetName="CmbName" Value="Dead"/>
+                <Setter Property="Visibility" TargetName="CmbName" Value="Collapsed"/>
+                <Setter Property="Visibility" TargetName="TxbPredefinedValue" Value="Collapsed"/>
+            </DataTrigger>
+            <DataTrigger Binding="{Binding Path=CustomState.Value}" Value="False">
+                <Setter Property="Visibility" TargetName="TxbName" Value="Collapsed"/>
+                <Setter Property="Visibility" TargetName="TxbCustomValue" Value="Collapsed"/>
+                <Setter Property="SelectedValue" TargetName="CmbName" Value="{Binding StateName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+                <Setter Property="Visibility" TargetName="CmbName" Value="Visible"/>
+                <Setter Property="Visibility" TargetName="TxbPredefinedValue" Value="Visible"/>
+            </DataTrigger>
+        </DataTemplate.Triggers>
+    </DataTemplate>
+
+    <!-- .................................................................................................................................................................. -->
+
+    <!-- basic ENUM (value is enumeration) property -->
+    <DataTemplate DataType="{x:Type models:SingleProperty}" x:Key="DataTemplateForEnumValue">
+        <Grid HorizontalAlignment="Stretch" MinHeight="20">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+            <TextBlock Grid.Column="0" Text="{Binding Name}" Style="{StaticResource HeaderTextBlock}" />
+            <TextBlock Grid.Column="1" Text=":" Style="{StaticResource TitleTextBlock}" />
+            <ComboBox Grid.Column="2" IsReadOnly="{Binding ElementName=THIS, Path=IsEditable, Converter={StaticResource Not}}" HorizontalAlignment="Stretch" 
+                HorizontalContentAlignment="Stretch" Style="{DynamicResource PropertyComboBoxStyle}" ToolTip="{Binding TypeName}" x:Name="EnumCMB"
+                DisplayMemberPath="Description" SelectedValue="{Binding Value, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" SelectedValuePath="Value" />
+        </Grid>
+        <DataTemplate.Triggers>
+            <DataTrigger Binding="{Binding Path=TypeName}" Value="Alignments">
+                <Setter Property="ItemsSource" TargetName="EnumCMB" Value="{Binding Source={local:Enumeration {x:Type models:Alignments}}}"/>
+            </DataTrigger>
+            <DataTrigger Binding="{Binding Path=TypeName}" Value="StanceTypes">
+                <Setter Property="ItemsSource" TargetName="EnumCMB" Value="{Binding Source={local:Enumeration {x:Type models:StanceTypes}}}"/>
+            </DataTrigger>
+            <DataTrigger Binding="{Binding Path=TypeName}" Value="SpellcastingTypes">
+                <Setter Property="ItemsSource" TargetName="EnumCMB" Value="{Binding Source={local:Enumeration {x:Type models:SpellcastingTypes}}}"/>
+            </DataTrigger>
+            <DataTrigger Binding="{Binding Path=TypeName}" Value="Genders">
+                <Setter Property="ItemsSource" TargetName="EnumCMB" Value="{Binding Source={local:Enumeration {x:Type models:Genders}}}"/>
+            </DataTrigger>
+        </DataTemplate.Triggers>
+    </DataTemplate>
+
+    <!-- basic STRING property -->
+    <DataTemplate DataType="{x:Type models:SingleProperty}" x:Key="DataTemplateForSingle">
+        <Grid HorizontalAlignment="Stretch" MinHeight="20">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+            <TextBlock Grid.Column="0" Text="{Binding Name}" Style="{StaticResource HeaderTextBlock}" />
+            <TextBlock Grid.Column="1" Text=":" Style="{StaticResource TitleTextBlock}" />
+            <TextBox Grid.Column="2" Text="{Binding Value, Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Stretch" Style="{StaticResource PropertyTextBoxStyle}" IsReadOnly="{Binding ElementName=THIS, Path=IsEditable, Converter={StaticResource Not}}" />
+        </Grid>
+    </DataTemplate>
+
+    <!-- basic BOOLEAN property -->
+    <DataTemplate DataType="{x:Type models:BooleanProperty}" x:Key="DataTemplateForBoolean">
+        <Grid HorizontalAlignment="Stretch" MinHeight="20">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+            <TextBlock Grid.Column="0" Text="{Binding Name}" Style="{StaticResource HeaderTextBlock}" />
+            <TextBlock Grid.Column="1" Text=":" Style="{StaticResource TitleTextBlock}" />
+            <CheckBox Grid.Column="2" IsChecked="{Binding Path=Value, Converter={StaticResource BoolValue}, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" 
+                            Style="{StaticResource PropertyCheckBoxStyle}" IsEnabled="{Binding ElementName=THIS, Path=IsEditable}" />
+        </Grid>
+    </DataTemplate>
+
+    <!-- basic INTEGER property -->
+    <DataTemplate DataType="{x:Type models:IntegerProperty}" x:Key="DataTemplateForInteger">
+        <Grid HorizontalAlignment="Stretch" MinHeight="20">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+            <TextBlock Grid.Column="0" Text="{Binding Name}" Style="{StaticResource HeaderTextBlock}" />
+            <TextBlock Grid.Column="1" Text=":" Style="{StaticResource TitleTextBlock}" />
+            <ctrl:NumericUpDown Grid.Column="2" Value="{Binding Path=Value, Converter={StaticResource IntValue}, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" MinValue="-100"
+                IsReadOnly="{Binding ElementName=THIS, Path=IsEditable, Converter={StaticResource Not}}" HorizontalAlignment="Stretch" HorizontalContentAlignment="Stretch"/>
+        </Grid>
+    </DataTemplate>
+
+</ResourceDictionary>

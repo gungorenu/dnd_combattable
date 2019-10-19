@@ -1,0 +1,19 @@
+﻿<!-- 
+copyright to Gungoren, Ugur
+All rights reserved. Super Confidential.
+ -->
+<Application x:Class="CombatTable.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             StartupUri="MainWindow.xaml">
+    <Application.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries >
+                <ResourceDictionary Source="CustomStyles/Colors.xaml" />
+                <ResourceDictionary Source="CustomStyles/Converters.xaml" />
+                <ResourceDictionary Source="CustomStyles/Styles.xaml" />
+                <ResourceDictionary Source="CustomStyles/DataTemplates.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>

@@ -1,0 +1,28 @@
+﻿<!-- 
+copyright to Gungoren, Ugur
+All rights reserved. Super Confidential.
+ -->
+<UserControl x:Class="CombatTable.UserControls.Effect"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:conv="clr-namespace:CombatTable.Converters"
+             xmlns:ctrl="clr-namespace:CombatTable.UserControls"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" 
+             Panel.ZIndex="3"
+             ToolTip="{Binding Notes}"
+             d:DesignHeight="300" d:DesignWidth="300">
+    <Border BorderThickness="0" Margin="5"  
+                            Width="{Binding Path=CellSize,RelativeSource={RelativeSource AncestorType={x:Type ctrl:Map}}, Converter={StaticResource ValueConv}, ConverterParameter=-10}"
+            Height="{Binding Path=CellSize,RelativeSource={RelativeSource AncestorType={x:Type ctrl:Map}}, Converter={StaticResource ValueConv}, ConverterParameter=-10}">
+        <Border.Background>
+            <LinearGradientBrush StartPoint="0,0" EndPoint="1,1" Opacity="10">
+                <GradientStop Offset="0" Color="LightBlue" />
+                <GradientStop Offset="0.5" Color="LightBlue"/>
+                <GradientStop Offset="1" Color="LightBlue"/>
+            </LinearGradientBrush>
+        </Border.Background>
+
+    </Border>
+</UserControl>
